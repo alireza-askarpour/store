@@ -1,0 +1,56 @@
+.navbar-menu-wrapper {
+    padding: 0 25px 0;
+    background-color: rgba($color: $second-bg, $alpha: .95);
+
+    @include extra-large {
+      padding: 18px 25px 0;
+    }
+
+  .navbar-menu {
+    background: $main-bg;
+    padding: 12px;
+    box-shadow: $second-box-shadow;
+    border-radius: 7px;
+    display: none;
+
+    @include extra-large {
+      display: block;
+    }
+
+    &-items {
+      @include flex(flex-start, center, row);
+
+      .nav-item {
+        border-radius: $main-rounded;
+
+        &:hover {
+          background-color: $second-bg;
+        }
+
+        a {
+          @include flex(center, center);
+          padding: 11px 16px;
+
+          svg {
+            @include dimensions(18px, 18px);
+            margin-right: 5px;
+          }
+
+          span {
+            font-size: 15px;
+            margin-top: 1px;
+          }
+        }
+      }
+
+      .nav-item ~ .nav-item {
+        margin-left: 10px;
+      }
+
+      .nav-item.active {
+        background-image: $main-bg-gradient;
+        color: $txt-white;
+      }
+    }
+  }
+}

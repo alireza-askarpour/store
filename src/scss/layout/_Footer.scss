@@ -1,0 +1,17 @@
+.footer {
+    color: $third-txt-color;
+    padding: 0 25px 12px 25px;
+    font-size: 15px;
+
+    p {
+        @include small {
+            &::after {
+                content: ', All rights Reserved';
+            }
+        }
+
+        a {
+            color: $main-color;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.dropdown-user-toggle {
+    @include flex(center, center);
+
+    .user-info {
+        @include flex(center, flex-end, column);
+        color: $third-txt-color;
+        display: none;
+
+        @include small {
+            display: flex;
+        }
+        
+        span {
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 4px;
+        }
+    }
+
+    .user-image {
+        position: relative;
+        width: 40px;
+        margin-left : 10px;
+        
+        img {
+            width: 100%;
+            border-radius: $full-rounded;
+        }
+
+        &::before {
+            @include dimensions(12px, 12px);
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-radius: $full-rounded;
+            background-color: $main-color-green;
+            z-index: 10;
+            border: 1px solid $txt-white;
+        }
+    }
+}

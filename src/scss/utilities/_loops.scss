@@ -1,0 +1,47 @@
+@each $val in $numbers {
+    .grid-col-#{$val} {
+        grid-template-columns: repeat($val, 1fr);
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-sm-#{$val} {
+        @include small {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-md-#{$val} {
+        @include medium {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-lg-#{$val} {
+        @include large {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+@each $val in $numbers {
+    .grid-col-xl-#{$val} {
+        @include extra-large {
+            grid-template-columns: repeat($val, 1fr);
+        }
+    }
+}
+
+@each $color, $val in $numbers {
+    .bg-#{$color} {
+        background-color: $val;
+    }
+
+    .color-#{$color} {
+        color: $val;
+    }
+}

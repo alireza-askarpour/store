@@ -1,0 +1,113 @@
+.navbar-main-wrapper {
+  padding: 18px 14px 0 14px;
+  background-color: rgba($color: $second-bg, $alpha: .85);
+  backdrop-filter: blur(5px);
+  transition: all .3s;
+  z-index: 20;
+
+  @include small {
+    padding: 18px 25px 0 25px;
+  }
+  
+  .navbar-main {
+    @include flex(space-between, center);
+    position: relative;
+    background: $main-bg;
+    box-shadow: $second-box-shadow;
+    border-radius: $second-rounded;
+    padding: 12px 16px;
+    z-index: 19;
+
+    .menu-left {
+      z-index: 5;
+
+      @include large {
+        display: flex;
+      }
+
+      .burger-menu {
+        @include flex(center, center);
+        background-color: $bg-transparent;
+        cursor: pointer;
+        padding: 7px;
+
+        @include extra-large {
+          display: none;
+        }
+  
+        svg {
+          @include dimensions(21px, 21px);
+          stroke: $third-txt-color;
+        }
+      }
+
+      .bookmarks {
+        display: none;
+
+        @include large {
+          display: flex;
+        }
+
+        .bookmark-item {
+          @include flex(center, center);
+          margin: 0 7px;
+          cursor: pointer;
+
+          svg {
+            @include dimensions(21px, 21px);
+            stroke: $third-txt-color;
+          }
+        }
+      }
+    }
+
+    .menu-righ {
+      @include flex(flex-start, center);
+      z-index: 5;
+
+      .toggle-mode {
+        @include flex(center, center);
+        padding: 0 7px;
+        cursor: pointer;
+        background: $bg-transparent;
+        display: none;
+
+        @include large {
+          display: block;
+        }
+
+        svg {
+          @include dimensions(21px, 21px);
+          stroke: $third-txt-color;
+        }
+      }
+    }
+    
+    .logo-wrapper {
+      @include flex(center, center);
+      @include dimensions(100%, 100%);
+      padding-left: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+
+      @include extra-large {
+        display: flex;
+      }
+    }
+  }
+}
+
+.navbar-main-wrapper.horizontal-menu {
+  padding: 0;
+
+  .navbar-main {
+    border-radius: $none-rounded;
+    padding: 12px 14px;
+
+    @include small {
+      padding: 12px 25px;
+    }
+  }
+}

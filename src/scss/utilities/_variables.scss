@@ -1,0 +1,108 @@
+$main-bg: #ffffff;
+$second-bg: #f8f8f8;
+
+$main-color: #006eff;
+$second-color: #0085ff;
+
+$color-light: rgba(115, 103, 240, 0.12);
+
+$main-txt-color:#5e5873;
+$second-txt-color: #625f6e;
+$third-txt-color: #6e6b7b;
+$fourth-txt-color: #a6a4b0;
+$txt-custom: #383540;
+$txt-white: #ffffff;
+$txt-black: #000000;
+
+$main-color-blue: #006eff;
+$second-color-blue: #0085ff;
+
+$main-color-red: #e64a4a;
+$second-color-red: #ff4646;
+
+$main-color-green: #28c76f;
+$second-color-green: #28ed80;
+
+$main-color-orang: #ff9f43;
+$second-color-orang: #ffc543;
+
+$main-color-skyblue: #00cfe8;
+$second-color-skyblue: #0bf1f1;
+
+$main-color-indigo: #7367f0;
+$second-color-indigo: #9991F3;
+
+$main-custom-bg: #f6f6f6;
+$second-custom-bg: #e3e3e3;
+
+$color-light-blue: rgba(115, 103, 240, 0.12);
+$color-light-red: rgba(234,84,85,.12);
+$color-light-green: rgba(40,199,111,.12);
+$color-light-orang: rgba(255,159,67,.12);
+
+$bg-transparent: transparent;
+$main-border-color: #ebe9f1;
+$second-border-color: #d8d6de;
+
+$main-box-shadow: 0px 2px 8px 0px rgba(34, 41, 47, .07);
+$second-box-shadow: 0px 2px 8px 0px rgba(34, 41, 47, .11);
+$third-box-shadow: 0px 2px 8px 0px rgba(34, 41, 47, .10);
+$fourth-box-shadow: 0px 2px 8px 0px rgba(34, 41, 47, .13);
+$fiveth-box-shadow: 0px 2px 15px 0px rgba(34, 41, 47, .18);
+
+$main-bg-light: #ffffff;
+$second-bg-light: #e8ebee;
+$main-txt-color-light: #5e5873;
+$second-txt-color-light: #625f6e;
+$third-txt-color-light: #6e6b7b;
+$fourth-txt-color-light: #a6a4b0;
+$main-border-color-light: #ebe9f1;
+$second-border-color-light: #ebe9f1;
+
+$main-bg-dark: #283046;
+$second-bg-dark: #161D30;
+$main-txt-color-dark: #d0d2d6;
+$second-txt-color-dark: #d0d2d6;
+$third-txt-color-dark: #b4b7bd;
+$fourth-txt-color-dark: #676d7d;
+$main-border-color-dark: #3b4253;
+$second-border-color-dark: #3b4253;
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$main-sidebar-width: 250px;
+$second-sidebar-width: 80px;
+
+$main-rounded: 5px;
+$second-rounded: 7px;
+$third-rounded: 16px;
+$fourth-rounded: 22px;
+$full-rounded: 1000px;
+$none-rounded: 0;
+
+$main-bg-gradient: linear-gradient(40deg, $main-color, $second-color);
+$bg-blue-gradient: linear-gradient(40deg, $main-color-blue, $second-color-blue);
+$bg-red-gradient: linear-gradient(40deg, $main-color-red, $second-color-red);
+$bg-green-gradient: linear-gradient(40deg, $main-color-green, $second-color-green);
+$bg-orang-gradient: linear-gradient(40deg, $main-color-orang, $second-color-orang);
+$bg-skyblue-gradient: linear-gradient(40deg, $main-color-skyblue, $second-color-skyblue);
+$bg-indigo-gradient: linear-gradient(40deg, $main-color-indigo, $second-color-indigo);
+
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12);
+
+$colors: (
+    "black": #000,
+    "red": #e64a4a,
+    "green": #28c76f,
+    "blue": #006eff,
+    "gold": #ffd700,
+    "yellow": #ffff00,
+    "rose-gold": #b76e79,
+    "pink": #ffc0cb,
+    "gray": #808080,
+    "silver": #c0c0c0,
+    "white": #fff
+)

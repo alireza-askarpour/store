@@ -1,0 +1,42 @@
+.side-drawer {
+    @include dimensions(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+
+    @include extra-large {
+        display: none;
+    }
+
+    .menu {
+        @include dimensions($main-sidebar-width, 100%);
+        position: absolute;
+        background-color: $main-bg;
+        left: -100%;
+        transition: all .3s ease;
+
+        &-logo {
+            padding: 15px 20px;
+        }
+    }
+
+    .backdrop {
+        @include dimensions(100%, 100%);
+        min-height: 100vh;
+        background-color: rgba(34,41,47,.5);
+    }
+}
+
+.side-drawer.active {
+    opacity: 1;
+    visibility: visible;
+
+    .menu {
+        left: 0;
+    }
+}

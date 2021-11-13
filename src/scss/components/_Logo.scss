@@ -1,0 +1,15 @@
+.logo {
+  @include flex(flex-start, center);
+
+  &-img {
+    width: 39px;
+  }
+
+  &-title {
+    font-size: 24px;
+    color: $main-color;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    font-family: "Goldman", sans-serif;
+  }
+}

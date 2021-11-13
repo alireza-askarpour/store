@@ -1,0 +1,20 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transition: left .3s;
+  z-index: 10;
+}
+
+.header.menu-collaps {
+  @include extra-large {
+    left: $second-sidebar-width;
+  }
+}
+
+.header.menu-open {
+  @include extra-large {
+    left: $main-sidebar-width;
+  }
+}

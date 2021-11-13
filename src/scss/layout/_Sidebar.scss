@@ -1,0 +1,53 @@
+.sidebar {
+  @include flex(flex-start, flex-start, column);
+  @include dimensions($second-sidebar-width, 100vh);
+  background-color: $main-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 0;
+  overflow: hidden;
+  box-shadow: $main-box-shadow;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 25;
+  
+  @include extra-large {
+    transition: all .3s;
+    opacity: 1;
+    visibility: visible;
+    max-width: 100%;
+  }
+
+  &-logo {
+    padding: 15px 20px;
+  }
+
+  &-toggle {
+    width: 100%;
+    margin-top: auto;
+
+    &-btn {
+      @include flex(center, center);
+      @include dimensions(50px, 38px);
+      color: $second-txt-color;
+      background: $bg-transparent;
+      margin: 0 0 15px 15px;
+      border-radius: $main-rounded;
+      cursor: pointer;
+
+      svg {
+        @include dimensions(20px, 20px);
+      }
+    }
+
+    &-btn.bg-blue {
+      background: $main-bg-gradient;
+      color: $txt-white !important;
+    }
+  }
+}
+
+.sidebar.open-menu {
+  width: $main-sidebar-width;
+}

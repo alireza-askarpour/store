@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    background-color: $second-bg;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.grid {
+    display: grid;
+}
+
+::-webkit-scrollbar {
+    @include dimensions(12px, 12px);
+}
+
+::-webkit-scrollbar-track {
+    background-color: $main-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $fourth-txt-color;
+    border: 2px solid $main-bg;
+    border-radius: $full-rounded;
+}
+
+input[type="text"] {
+    color: $main-txt-color;
+}
+
+.card {
+    background-color: $main-bg;
+    border-radius: $second-rounded;
+    box-shadow: $main-box-shadow;
+    padding: 25px;
+}

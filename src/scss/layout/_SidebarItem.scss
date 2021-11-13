@@ -1,0 +1,38 @@
+.sidebar-item {
+  color: $main-txt-color;
+  margin: 0 15px;
+
+  a {
+    .sidebar-item-inner {
+      @include flex(flex-start, center);
+      padding: 10px 15px;
+      border-radius: $main-rounded;
+
+      &:hover {
+        background-color: $second-bg;
+      }
+
+      .item-icon,
+      .item-icon svg {
+        @include dimensions(20px, 20px);
+      }
+
+      .item-title {
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.sidebar-item.active {
+  a {
+    .sidebar-item-inner {
+      background-image: $main-bg-gradient;
+
+      svg, span {
+        color: $txt-white;
+      }
+    }
+  }
+}

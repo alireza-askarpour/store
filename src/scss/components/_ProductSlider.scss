@@ -1,0 +1,44 @@
+.product-slider {
+  .swiper-container {
+    .swiper-slide {
+      background-color: $second-bg;
+      border-radius: $second-rounded;
+      text-align: center;
+      
+      a {
+          padding: 20px 0;
+          display: inline-block;
+        .item-heading {
+            text-align: center;
+            
+            .title {
+                font-size: 16px;
+                font-weight: 500;
+                color: $main-txt-color;
+          }
+
+          .brand {
+            font-size: 12px;
+            color: $third-txt-color;
+          }
+        }
+
+        .img-container {
+          img {
+            width: 100%;
+            max-width: 270px;
+          }
+        }
+
+        .item-meta {
+          @include flex(center, center, column);
+
+          .price {
+            font-size: 15px;
+            color: $main-color-blue;
+          }
+        }
+      }
+    }
+  }
+}

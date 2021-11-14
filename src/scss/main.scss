@@ -5,6 +5,8 @@
 @import './base/reset';
 @import './base/typography';
 
+@import './pages/Home';
+
 @import './layout/Layout';
 @import './layout/Header';
 @import './layout/Sidebar';
@@ -21,7 +23,17 @@
 @import './layout/DropdownUserMenuItem';
 @import './layout/SideDrawer';
 @import './layout/SidebarMenu';
+@import './layout/Footer';
 
 @import './components/Logo';
 @import './components/Button';
 @import './components/QuantityInput';
+
+@import './components/Logo';
+@import './components/Button';
+@import './components/QuantityInput';
+@import './components/Popular';
+@import './components/RatingsList';
+@import './components/ServiceBox';
+@import './components/ProductSlider';
+@import './components/SliderHeading';

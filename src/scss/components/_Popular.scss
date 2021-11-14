@@ -1,0 +1,228 @@
+.popular {
+  &-item.main {
+    background: $bg-indigo-gradient;
+
+    @include small {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 1;
+    }
+
+    @include medium {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 2;
+    }
+
+    .popular-item-image {
+      @include flex(center, center);
+      @include medium {
+        width: 55%;
+        order: 2;
+      }
+
+      img {
+        width: 100%;
+
+        @include extra-large {
+          max-width: 400px;
+        }
+      }
+    }
+
+    .popular-item-content {
+      @include flex(center, flex-start, column);
+      @include medium {
+        width: 45%;
+        order: 1;
+        margin-left: 18px;
+        margin-top: -50px;
+        width: 45%;
+      }
+
+      .content-caption {
+        .caption-title {
+          margin-top: 7px;
+          font-weight: 600;
+          font-size: 24px;
+          color: $txt-white;
+          @include medium {
+            font-size: 28px;
+          }
+        }
+
+        .caption-description {
+          font-weight: 500;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          margin-top: 15px;
+          line-height: 24px;
+          font-weight: 400;
+          font-size: 16px;
+          color: $txt-white;
+          @include medium {
+            margin-top: 20px;
+          }
+        }
+      }
+
+      .content-btn {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  &-item.second {
+    background: $bg-green-gradient;
+
+    @include small {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+
+    @include medium {
+      grid-column: 3 / span 1;
+      grid-row: 1 / span 1;
+    }
+  }
+
+  &-item.third {
+    background: $bg-orang-gradient;
+
+    @include small {
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 1;
+    }
+
+    @include medium {
+      grid-column: 3 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+
+  &-item.second,
+  &-item.third {
+    display: flex;
+
+    .popular-item-image {
+      @include flex(center, center);
+      width: 50%;
+
+      @include extra-large {
+        img {
+          max-width: 172px;
+        }
+      }
+    }
+
+    .popular-item-content {
+      width: 50%;
+
+      .content-badge {
+        text-align: right;
+
+        .badge {
+          color: $second-color-red;
+          border-radius: $full-rounded;
+          border: 1px solid $second-color-red;
+          font-size: 13px;
+          padding: 3px 7px;
+          font-weight: 500;
+        }
+      }
+
+      .content-caption {
+        margin-top: 10px;
+        color: $txt-white;
+
+        .caption-brand {
+          font-weight: 500;
+        }
+
+        .caption-title {
+          font-weight: 600;
+          font-size: 20px;
+        }
+
+        .caption-price {
+          margin-top: 6px;
+          font-weight: 500;
+        }
+      }
+
+      .content-btn {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  &-item {
+    @include medium {
+      display: flex;
+    }
+  }
+
+  // Background Colors
+
+  &-item.bg-blue {
+    background: $main-color-blue;
+  }
+
+  &-item.bg-indigo {
+    background: $main-color-indigo;
+  }
+
+  &-item.bg-red {
+    background: $main-color-red;
+  }
+
+  &-item.bg-green {
+    background: $main-color-green;
+  }
+
+  &-item.bg-orang {
+    background: $main-color-orang;
+  }
+
+  &-item.bg-skyblue {
+    background: $main-color-skyblue;
+  }
+}
+
+.popular.revers {
+  .popular-item.main {
+    @include small {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    @include medium {
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 2;
+    }
+  }
+
+  .popular-item.second {
+    @include small {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    @include medium {
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 1;
+    }
+  }
+
+  .popular-item.third {
+    @include small {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 1;
+    }
+
+    @include medium {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 1;
+    }
+  }
+}

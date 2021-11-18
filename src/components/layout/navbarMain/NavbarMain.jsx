@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useLayout } from '../../../providers/layout'
-import { useSideDrawer } from '../../../providers/sideDrawer'
 import Logo from '../../shared/Logo'
 import Search from './Search'
 import Dropdown from '../../shared/Dropdown'
@@ -11,6 +10,8 @@ import DropdownMenuItem from './DropdownMenuItem'
 import DropdownMenuEmpty from './DropdownMenuEmpty'
 import DropdownMenuFooter from './DropdownMenuFooter'
 import DropdownUserMenuItem from './DropdownUserMenuItem'
+import SideDrawer from '../SideDrawer'
+import SidebarMenu from '../sidebar/SidebarMenu'
 
 import { bell, cart, star, mail, menu, moon, messageSquare, checkSquare } from '../../../assets/icons'
 import { userMenuItem } from '../../../assets/data/user'
@@ -76,23 +77,32 @@ const renderCartFooter = (
 )
 
 const NavbarMain = () => {
-
     const { menuLayout } = useLayout()
-    const { showSideDrawer } = useSideDrawer()
+
+    const [showSideDrawer, setShowSideDrawer] = useState(false)
+
+    const handleShowSideDrawer = () => setShowSideDrawer(true)
+    const handleCloseSideDrawer = () => setShowSideDrawer(false)
     
-    const logo = menuLayout === 'horizontal' ? (
+    const logo = menuLayout === 'horizontal' && (
         <div className="logo-wrapper">
             <Logo />
         </div> 
-    ) : null
+    )
 
     const horizontalMenu = menuLayout === 'horizontal' ? 'horizontal-menu' : ''
 
     return (
         <nav className={`navbar-main-wrapper ${horizontalMenu}`}>
             <section className="navbar-main">
+                <SideDrawer show={showSideDrawer} hideMenu={handleCloseSideDrawer}>
+                    <div className="menu-logo">
+                        <Logo/>
+                    </div>
+                    <SidebarMenu/>
+                </SideDrawer>
                 <div className="menu-left">
-                    <button className="burger-menu" onClick={showSideDrawer}>
+                    <button className="burger-menu" onClick={handleShowSideDrawer}>
                         {menu}
                     </button>
                     <div className="bookmarks">
@@ -139,7 +149,7 @@ const NavbarMain = () => {
                         customToggle={<DropdownUserToggle/>}
                         menuData={userMenuItem}
                         renderItems={renderUserMenuItem}
-                        userMenu
+                        size="small"
                     /> 
                 </div>
             </section>

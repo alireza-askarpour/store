@@ -19,6 +19,7 @@
 .btn.btn-small {
     padding: 11px 16px;
     font-size: 14px;
+    font-weight: 400;
 }
 
 .btn.btn-xs {
@@ -119,4 +120,11 @@
 
 .btn.color-custom {
     color: $txt-custom!important;
+}
+
+// Pointer Events
+
+.btn.unavailable {
+    pointer-events: none;
+    background: $bg-red-gradient!important;
 }

@@ -3,10 +3,10 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 const initialValue = {
     menuLayout: '',
     menuCollaps: null,
-    productsList: '',
+    productsListLayout: '',
     changeMenuLayout: () => {},
     toggleMenuCollaps: () => {},
-    changeProductsList: () => {}
+    changeProductsListLayout: () => {}
 }
 
 const LayoutContext = createContext(initialValue)
@@ -15,22 +15,22 @@ export const LayoutProvider = ({ children }) => {
 
     const [menuLayout, setMenuLayout] = useState('vertical') // for layout site. vertical or horizontal
     const [menuCollaps, setMenuCollaps] = useState(true)     // for sidebar menu
-    const [productsList, setProductsList] = useState('grid') // for layout product list in products page
+    const [productsListLayout, setProductsListLayout] = useState('grid') // for layout product list in products page
 
     const changeMenuLayout = (layout) => {
         setMenuLayout(layout)
         localStorage.setItem('menu-layout', layout)
     }
     const toggleMenuCollaps = () => setMenuCollaps(!menuCollaps)
-    const changeProductsList = (layout) => setProductsList(layout)
+    const changeProductsListLayout = (layout) => setProductsListLayout(layout)
 
     const value = {
         menuLayout,
         menuCollaps,
-        productsList,
+        productsListLayout,
         changeMenuLayout,
         toggleMenuCollaps,
-        changeProductsList
+        changeProductsListLayout
     }
 
     useEffect(() => {

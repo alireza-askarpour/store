@@ -1,0 +1,132 @@
+.products {
+  .content-header {
+    margin-bottom: 20px;
+  }
+
+  .content-wrapper {
+    display: flex;
+
+    .content-aside {
+      width: 100%;
+      max-width: 260px;
+      display: none;
+      margin-right: 28px;
+
+      @include large {
+        display: block;
+      }
+
+      .filter-menu-wrapper {
+        .filter-menu-heading {
+          @include flex(flex-start, center);
+          height: 40px;
+          margin-bottom: 15px;
+
+          .menu-title {
+            font-weight: 500;
+            font-size: 14px;
+          }
+        }
+
+        .filter-menu-content {
+          position: sticky;
+          top: 50px;
+          left: 0;
+        }        
+      }
+    }
+
+    .content-body {
+      width: 100%;
+
+      @include large {
+        width: calc(100% - 260px);
+      }
+
+      .main {
+        .products-header-items {
+          @include flex(space-between, center);
+          width: 100%;
+          margin-bottom: 15px;
+
+          .burger-menu {
+            background: $bg-transparent;
+
+            @include large {
+                display: none;
+            }
+
+            svg {
+              @include dimensions(21px, 21px);
+              stroke: $third-txt-color;
+            }
+          }
+
+          .result-toggler {
+            display: none;
+            font-weight: 500;
+            font-size: 14px;
+
+            @include large {
+              display: block;
+            }
+          }
+
+          .view-options {
+            @include flex(center, center);
+
+            .view-option:first-child {
+              margin-right: 15px;
+            }
+          }
+        }
+
+        .searchbar {
+            position: relative;
+            box-shadow: $third-box-shadow;
+            border-radius: $main-rounded;
+            overflow: hidden;
+
+            ::placeholder {
+                color: $fourth-txt-color;
+                font-size: 14px;
+            }
+
+            .search-product {
+                width: 100%;
+                padding: 14px 53px 14px 18px;
+                border-radius: $second-rounded;
+                font-size: 14px;
+                color: $third-txt-color;
+            }
+
+            .search-icon {
+                @include flex(center, center);
+                position: absolute;
+                right: 18px;
+                top: 50%;
+                transform: translateY(-50%);
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                    color: $fourth-txt-color;
+                }
+            }
+        }
+
+        .products-view {
+          margin-top: 28px;
+          gap: 28px;
+
+          .no-results-found {
+            text-align: center;
+            margin-top: 10rem;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,29 +1,14 @@
 import React from 'react'
 
-import { useSideDrawer } from '../../providers/sideDrawer'
-import Logo from '../shared/Logo'
-import SidebarMenu from './sidebar/SidebarMenu'
-
-const SideDrawer = ({ click, sidebar }) => {
-    const { sideDrawer, hideSideDrawer } = useSideDrawer()
-
-    const sidedrawer = sideDrawer ? 'side-drawer active' : 'side-drawer'
+const SideDrawer = ({ children, show, hideMenu }) => {
+    const sideDrawerClass = show ? 'side-drawer active' : 'side-drawer'
 
     return (
-        <div className={sidedrawer}>
+        <div className={sideDrawerClass}>
             <div className="menu">
-                {
-                    sidebar && (
-                        <>
-                            <div className="menu-logo">
-                                <Logo click={hideSideDrawer} />
-                            </div>
-                            <SidebarMenu/>
-                        </>
-                    )
-                }
+                {children}
             </div>
-            <div className="backdrop" onClick={click}></div>
+            <div className="backdrop" onClick={hideMenu}></div>
         </div>
     )
 }

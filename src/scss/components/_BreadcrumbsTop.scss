@@ -1,0 +1,50 @@
+.breadcrumbs-top {
+    @include flex(flex-start, center);
+    width: 100%;
+
+    .breadcrumbs-header {
+        font-size: 22px;
+        font-weight: 500;
+        
+        @include small {
+            padding-right: 14px;
+            border-right: 1px solid $second-border-color
+        }
+    }
+
+    .breadcrumb {
+        @include flex(flex-start, center);
+        padding-left: 14px;
+        display: none;
+
+        @include small {
+            display: flex;
+        }
+
+        &-item {
+            &:first-child {
+                @include flex(center, center);
+
+                svg {
+                    @include dimensions(16px, 16px);
+                    stroke: $main-color;
+                }
+            }
+
+            &:last-child {
+                padding-left: 8px;
+                font-size: 14px;
+            }
+        }
+
+        .chevron-right {
+            @include flex(center, center);
+            padding-left: 8px;
+
+            svg {
+                @include dimensions(15px, 15px);
+                stroke: $main-txt-color;
+            }
+        }
+    }
+}

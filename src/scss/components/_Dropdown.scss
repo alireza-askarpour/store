@@ -1,5 +1,4 @@
 .dropdown {
-
     @include medium {
         position: relative;
     }
@@ -13,7 +12,7 @@
 
         svg {
             @include dimensions(21px, 21px);
-            color: $third-txt-color;
+            stroke: $third-txt-color;
         }
 
         &-badge {
@@ -52,6 +51,7 @@
         transition: unset;
         box-shadow: $main-box-shadow;
         transform: translateY(20px);
+        z-index: 5;
         
         
         @include medium {
@@ -69,7 +69,7 @@
         }
     }
 
-    &-menu.user-menu {
+    &-menu.small {
         @include flex(center, flex-start, column);
         padding: 5px 0!important;
         width: 100%;
@@ -78,6 +78,14 @@
         
         @include medium {
             width: 10.625rem;
+        }
+    }
+
+    &-menu.xs {
+        top: 25px;
+        transform: translateY(10px);
+        @include medium {
+            width: 9.5rem;
         }
     }
 

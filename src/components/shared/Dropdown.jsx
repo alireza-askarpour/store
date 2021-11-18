@@ -24,8 +24,8 @@ const Dropdown = ({
     renderItems,
     renderFooter,
     renderHeader,
-    userMenu,
-    renderEmpty
+    renderEmpty,
+    size
 }) => {
 
     const dropdownToggleRef = useRef(null)
@@ -33,7 +33,7 @@ const Dropdown = ({
     
     handleClick(dropdownMenuRef, dropdownToggleRef)
 
-    const user = userMenu ? 'user-menu' : ''
+    const user = size === 'small' ? 'small' : (size === 'xs' ? 'xs' : '')
 
     return (
         <div className="dropdown">
@@ -72,7 +72,7 @@ Dropdown.propTypes = {
     renderFooter: PropTypes.object,
     renderHeader: PropTypes.object,
     userMenu: PropTypes.bool,
-    // renderEmpty: PropTypes.func
+    size: PropTypes.string
 }
 
 export default Dropdown

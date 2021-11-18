@@ -1,11 +1,8 @@
 .dropdown-menu-item {
     position: relative;
+    border-bottom: 1px solid $main-border-color;
     
-    &:not(:last-child) {
-        border-bottom: 1px solid $main-border-color;
-    }
-    
-    :hover {
+    &:hover {
         background-color: $second-bg;
     }
     

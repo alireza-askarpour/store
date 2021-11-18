@@ -1,12 +1,10 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Logo = ({ hiddenTitle, click }) => {
-    const onClick = click ? click : null
+const Logo = ({ hiddenTitle }) => {
 
     return (
         <Link to="/">
-            <div className="logo" onClick={onClick} >
+            <div className="logo">
                     <img src="images/logo.png" className="logo-img" alt="Arcilux" />
                     {
                         !hiddenTitle && (

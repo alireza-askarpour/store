@@ -4,10 +4,10 @@
     top: 0;
     left: 0;
     min-height: 100vh;
-    z-index: 100;
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease;
+    z-index: 100;
 
     @include extra-large {
         display: none;
@@ -19,10 +19,8 @@
         background-color: $main-bg;
         left: -100%;
         transition: all .3s ease;
-
-        &-logo {
-            padding: 15px 20px;
-        }
+        height: 100vh;
+        overflow-y: auto;
     }
 
     .backdrop {

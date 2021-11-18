@@ -6,6 +6,7 @@
 @import './base/typography';
 
 @import './pages/Home';
+@import './pages/Products';
 
 @import './layout/Layout';
 @import './layout/Header';
@@ -14,7 +15,6 @@
 @import './layout/NavbarMain';
 @import './layout/NavbarMenu';
 @import './layout/Search';
-@import './layout/Dropdown';
 @import './layout/DropdownMenuHeader';
 @import './layout/DropdownMenuItem';
 @import './layout/DropdownMenuEmpty';
@@ -25,10 +25,7 @@
 @import './layout/SidebarMenu';
 @import './layout/Footer';
 
-@import './components/Logo';
-@import './components/Button';
-@import './components/QuantityInput';
-
+@import './components/Dropdown';
 @import './components/Logo';
 @import './components/Button';
 @import './components/QuantityInput';
@@ -37,3 +34,11 @@
 @import './components/ServiceBox';
 @import './components/ProductSlider';
 @import './components/SliderHeading';
+@import './components/BreadcrumbsTop';
+@import './components/CheckBox';
+@import './components/FilterMenu';
+@import './components/ProductCard';
+@import './components/Tabs';
+@import './components/Radio';
+@import './components/ToggleSwitch';
+@import './components/SelectBox';

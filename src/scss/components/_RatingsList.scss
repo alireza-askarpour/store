@@ -14,7 +14,7 @@
     }
 }
 
-.ratings-list.one {
+.ratings-list.rating-1 {
     li:nth-child(1) {
         svg {
             fill: $main-color-orang;
@@ -23,7 +23,7 @@
     } 
 }
 
-.ratings-list.tow {
+.ratings-list.rating-2 {
     li:nth-child(1),
     li:nth-child(2) {
         svg {
@@ -33,7 +33,7 @@
     } 
 }
 
-.ratings-list.three {
+.ratings-list.rating-3 {
     li:nth-child(1),
     li:nth-child(2),
     li:nth-child(3) {
@@ -44,7 +44,7 @@
     } 
 }
 
-.ratings-list.foure {
+.ratings-list.rating-4 {
     li:nth-child(1),
     li:nth-child(2),
     li:nth-child(3),
@@ -56,7 +56,7 @@
     } 
 }
 
-.ratings-list.five {
+.ratings-list.rating-5 {
     li:nth-child(1),
     li:nth-child(2),
     li:nth-child(3),

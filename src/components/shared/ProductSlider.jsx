@@ -34,7 +34,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>
@@ -50,7 +50,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>
@@ -66,7 +66,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>
@@ -82,7 +82,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>
@@ -98,7 +98,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>
@@ -114,7 +114,7 @@ const ProductSlider = () => {
               <img src="images/apple-watch-series-6-3.png" alt="" />
             </div>
             <div className="item-meta">
-              <RatingsList rating="five" />
+              <RatingsList rating={5} />
               <p className="price">$399.98</p>
             </div>
           </Link>

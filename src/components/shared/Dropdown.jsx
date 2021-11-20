@@ -37,13 +37,24 @@ const Dropdown = ({
 
     return (
         <div className="dropdown">
-            <button ref={dropdownToggleRef} className="dropdown-toggle">
+            <button 
+                ref={dropdownToggleRef} 
+                className="dropdown-toggle"
+            >
                 {icon && icon}
-                {badge && color && <span className={`dropdown-toggle-badge ${color}`}>{badge}</span>}
+                {
+                 badge && color && 
+                  <span className={`dropdown-toggle-badge ${color}`}>
+                      {badge}
+                  </span>
+                }
                 {customToggle && customToggle}
             </button>
-            <div ref={dropdownMenuRef} className={`dropdown-menu ${user}`}>
-                {renderHeader &&  renderHeader}
+            <div 
+                ref={dropdownMenuRef} 
+                className={`dropdown-menu ${user}`}
+            >
+                {renderHeader && renderHeader}
                 {menuData && renderItems && (
                     <div className="dropdown-menu-items">
                         {

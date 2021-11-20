@@ -3,6 +3,7 @@
     border: 1px solid $second-border-color;
     border-radius: $main-rounded;
     overflow: hidden;
+    max-width: 99px;
 
     button {
         @include flex(center, center);

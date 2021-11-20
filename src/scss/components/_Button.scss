@@ -17,7 +17,7 @@
 // Bottom Size
 
 .btn.btn-small {
-    padding: 11px 16px;
+    padding: 10px 16px;
     font-size: 14px;
     font-weight: 400;
 }
@@ -75,6 +75,10 @@
     background: $txt-white!important;
 }
 
+.btn.bg-transparent {
+    background: $bg-transparent;
+}
+
 .btn.bg-custom {
     background: $main-custom-bg!important;
     transition: background .2s;
@@ -122,9 +126,39 @@
     color: $txt-custom!important;
 }
 
+.btn.color-gray {
+    color: $third-txt-color!important;
+
+    &:focus {
+        background-color: $color-light-gray;
+    }
+}
+
 // Pointer Events
 
 .btn.unavailable {
     pointer-events: none;
     background: $bg-red-gradient!important;
+}
+
+// Border
+
+[class*="border-"] {
+    padding: 9px 16px!important;
+}
+
+.btn.border-main {
+    border: 1px solid $main-border-color;
+}
+
+.btn.border-second {
+    border: 1px solid $second-border-color;
+}
+
+.btn.border-third {
+    border: 1px solid $third-border-color;
+}
+
+.btn.border-fiveth {
+    border: 1px solid $fiveth-border-color;
 }

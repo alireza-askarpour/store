@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import RatingsList from '../../shared/RatingsList'
-import Button from '../../shared/Button'
 import { useLayout } from '../../../providers/layout'
+import Button from '../../shared/Button'
+import RatingsList from '../../shared/RatingsList'
 import numberWithCommas from '../../../utils/numberWithCommas'
 
 import { heart } from '../../../assets/icons'

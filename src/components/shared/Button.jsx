@@ -13,13 +13,15 @@ const Button = (
         roundedNone, 
         size, 
         click, 
-        stock 
+        stock ,
+        btnBorder
     }
 ) => {
 
     const bg = bgColor ? `bg-${bgColor}` : 'bg-main'
     const color = txtColor ? `color-${txtColor}` : 'color-main'
     const block = btnBlock ? 'btn-block' : ''
+    const border = btnBorder ? `border-${btnBorder}` : ''
     const btnSize = size === 'large' ? 'btn-large' : (size === 'small' ? 'btn-small' : (size === 'xs' ? 'btn-xs' : ''))
     const fullRounded = roundedFull ? 'full-rounded' : ''
     const noneRounded = roundedNone ? 'none-rounded' : ''
@@ -32,12 +34,37 @@ const Button = (
             {
                 link ? (
                     <Link to={link}>
-                        <button className={`btn ${color} ${bg} ${block} ${fullRounded} ${noneRounded} ${btnSize} ${unavailable}`}>
+                        <button 
+                            className={
+                                `btn 
+                                ${color} 
+                                ${bg} 
+                                ${fullRounded} 
+                                ${noneRounded} 
+                                ${btnSize} 
+                                ${unavailable}
+                                ${border}
+                                ${block} `
+                            }
+                        >
                             {children}
                         </button>
                     </Link>
                 ) : (
-                    <button onClick={handleClick} className={`btn ${color} ${bg} ${block} ${fullRounded} ${noneRounded} ${btnSize} ${unavailable}`}>
+                    <button 
+                        onClick={handleClick} 
+                        className={`
+                            btn 
+                            ${color} 
+                            ${bg} 
+                            ${fullRounded} 
+                            ${noneRounded} 
+                            ${btnSize} 
+                            ${unavailable}
+                            ${border}
+                            ${block}`
+                        }
+                    >
                         {children}
                     </button>
                 )
@@ -56,6 +83,7 @@ Button.propTypes = {
     size: PropTypes.string,
     stock: PropTypes.bool,
     click: PropTypes.func,
+    btnBorder: PropTypes.string
 }
 
 export default Button

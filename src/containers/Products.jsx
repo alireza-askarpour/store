@@ -167,7 +167,7 @@ const Products = () => {
                                                         title={item.name} 
                                                         description={item.description} 
                                                         rating={item.rating}
-                                                        link={`/products/${item.id}`}
+                                                        link={`/product/${item.id}`}
                                                         brand={item.brand.replace('-', ' ')}
                                                         stock={item.inStock}
                                                     />

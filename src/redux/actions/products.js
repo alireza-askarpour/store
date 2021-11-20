@@ -1,7 +1,7 @@
 import axios from '../../config/instance'
 import * as types from '../types'
 
-// Get products data from API and filter it
+// fetch products data from api
 export const productsAction = () => async (dispatch) => {
     try {
         dispatch({ type: types.PRODUCT_LIST_REQUEST })
@@ -47,4 +47,14 @@ export const sortPriceAction = (sort) => (dispatch) => {
 
 export const clearFiltersAction = () => (dispatch) => {
     dispatch({ type: types.CLEAR_FILTERS })
+}
+
+// fetch product details data from api
+
+export const productDetailsAction = (id) => async (dispatch) => {
+    dispatch({ type: types.PRODUCT_DETAILS_REQUEST })
+
+    const { data } = await axios.get(`/products/${id}`)
+
+    dispatch({ type: types.PRODUCT_DETAILS_SUCCESS, payload: data })
 }

@@ -16,15 +16,19 @@ const handleClick = (menu, field) => {
     })
 }
 
-const SelectBox = ({ menuData, value, onClick }) => {
+const SelectBox = ({ menuData, value, onClick, size, color, selectBlock }) => {
     const selectFieldRef = useRef(null)
     const selectMenuRef = useRef(null)  
 
     handleClick(selectMenuRef, selectFieldRef)
 
+    const selectSize = size ? size : ''
+    const selectColor = color ? color : ''
+    const block = selectBlock ? 'select-block' : ''
+    
     return (
-        <div className="selector">
-            <div ref={selectFieldRef} className="select-field">
+        <div className={`selector ${selectSize}`}>
+            <div ref={selectFieldRef} className={`select-field ${selectColor} ${block}`}>
                 <span className="select-text">{value}</span>
                 {chevronDown}
             </div>
@@ -43,8 +47,10 @@ const SelectBox = ({ menuData, value, onClick }) => {
 
 SelectBox.propTypes = {
     menuData: PropTypes.array,
-    value: PropTypes.string, 
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    size: PropTypes.string,
+    color: PropTypes.string,
+    selectBlock: PropTypes.bool
 }
 
 export default SelectBox

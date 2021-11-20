@@ -51,9 +51,10 @@
 
           .burger-menu {
             background: $bg-transparent;
+            cursor: pointer;
 
             @include large {
-                display: none;
+              display: none;
             }
 
             svg {

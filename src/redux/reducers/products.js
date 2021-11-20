@@ -1,5 +1,22 @@
 import * as types from '../types'
 
+// Products List
+
+export const productsListReducer = (state = { products: [] }, action) => {
+    switch (action.type) {
+        case types.PRODUCT_LIST_REQUEST:
+            return { loading: true, products: [] }
+
+        case types.PRODUCT_LIST_SUCCESS:
+            return { loading: false, products: action.payload }
+
+        default:
+            return state
+    }
+}
+
+// Filter List
+
 const initialState = {
     multiRange: 'all',
     category: [],
@@ -8,17 +25,6 @@ const initialState = {
     stock: false,
     sort: 'featured',
     search: '', 
-}
-
-export const productsListReducer = (state = { products: [] }, action) => {
-    switch (action.type) {
-        case types.PRODUCT_LIST_REQUEST:
-            return { loading: true, products: [] }
-        case types.PRODUCT_LIST_SUCCESS:
-            return { loading: false, products: action.payload }
-        default:
-            return state
-    }
 }
 
 export const filtersReducer = (state = initialState, action) => {
@@ -62,6 +68,21 @@ export const filtersReducer = (state = initialState, action) => {
             return initialState
 
         default: 
+            return state
+    }
+}
+
+// Product Details
+
+export const productDetailsReducer = (state = { product: [] }, action) => {
+    switch (action.type) {
+        case types.PRODUCT_DETAILS_REQUEST:
+            return { loading: true , product: [] }
+
+        case types.PRODUCT_DETAILS_SUCCESS:
+            return { loading: false, product: action.payload }
+
+        default:
             return state
     }
 }

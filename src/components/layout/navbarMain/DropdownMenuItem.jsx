@@ -29,30 +29,30 @@ const DropdownMenuItem = (props) => {
             }
             {
                 cartItem && image && price && brand &&  (
-                    <div className="cart-item">
-                        <div className="cart-item-img">
+                    <div className="dropdown-cart-item">
+                        <div className="dropdown-cart-item-img">
                             <img src={image} alt={""} />
                         </div>
-                        <div className="cart-item-body">
-                            <div className="cart-item-heading">
-                                <h6 className="cart-item-title">
+                        <div className="dropdown-cart-item-body">
+                            <div className="dropdown-cart-item-heading">
+                                <h6 className="dropdown-cart-item-title">
                                     <Link to={'/'}>Apple iMac 27-inch</Link>
                                 </h6>
-                                <small className="cart-item-brand">{brand}</small>
+                                <small className="dropdown-cart-item-brand">{brand}</small>
                             </div>
-                            <div className="cart-item-qty">
+                            <div className="dropdown-cart-item-qty">
                                 <QuantityInput
                                     inc={() => {}}
                                     dec={() => {}}
                                     qty={10}
                                 />
                             </div>
-                            <div className="cart-item-price">
+                            <div className="dropdown-cart-item-price">
                                 <h5>
                                     {price}
                                 </h5>
                             </div>
-                            <div className="cart-item-remove">
+                            <div className="dropdown-cart-item-remove">
                                 {x}
                             </div>
                         </div>

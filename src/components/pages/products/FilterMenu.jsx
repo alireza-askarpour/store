@@ -14,7 +14,7 @@ import {
     filterMultiRangeAction, 
     filterStockAction, 
     clearFiltersAction 
-} from '../../../redux/actions/products'
+} from '../../../redux/actions/filters'
 
 import { brands, categories, multi_range } from '../../../assets/data/products_filter'
 import { ratings } from '../../../assets/data/ratings'

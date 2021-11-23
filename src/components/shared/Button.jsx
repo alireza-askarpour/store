@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 
 const Button = (
     { 
@@ -8,7 +7,6 @@ const Button = (
         txtColor, 
         bgColor, 
         btnBlock, 
-        link, 
         roundedFull, 
         roundedNone, 
         size, 
@@ -30,46 +28,22 @@ const Button = (
     const handleClick = click ? click : null
 
     return (
-        <>
-            {
-                link ? (
-                    <Link to={link}>
-                        <button 
-                            className={
-                                `btn 
-                                ${color} 
-                                ${bg} 
-                                ${fullRounded} 
-                                ${noneRounded} 
-                                ${btnSize} 
-                                ${unavailable}
-                                ${border}
-                                ${block} `
-                            }
-                        >
-                            {children}
-                        </button>
-                    </Link>
-                ) : (
-                    <button 
-                        onClick={handleClick} 
-                        className={`
-                            btn 
-                            ${color} 
-                            ${bg} 
-                            ${fullRounded} 
-                            ${noneRounded} 
-                            ${btnSize} 
-                            ${unavailable}
-                            ${border}
-                            ${block}`
-                        }
-                    >
-                        {children}
-                    </button>
-                )
+        <button 
+            onClick={handleClick} 
+            className={`
+                btn 
+                ${color} 
+                ${bg} 
+                ${fullRounded} 
+                ${noneRounded} 
+                ${btnSize} 
+                ${unavailable}
+                ${border}
+                ${block}`
             }
-        </>
+        >
+            {children}
+        </button>
     )
 }
 
@@ -77,7 +51,6 @@ Button.propTypes = {
     txtColor: PropTypes.string, 
     bgColor: PropTypes.string, 
     btnBlock: PropTypes.bool, 
-    link: PropTypes.string,
     roundedFull: PropTypes.bool,
     roundedNone: PropTypes.bool,
     size: PropTypes.string,

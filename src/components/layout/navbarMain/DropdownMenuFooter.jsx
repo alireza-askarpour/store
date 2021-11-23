@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import Button from '../../shared/Button'
 
@@ -14,9 +15,11 @@ const DropdownMenuFooter = ({ total, title, link }) => {
                     </div>
                 )
             }
-            <Button btnBlock link={link}>
-                {title}
-            </Button>
+            <Link to="/cart">
+                <Button btnBlock>
+                    {title}
+                </Button>
+            </Link>
         </div>
     )
 }

@@ -18,7 +18,7 @@ const BreadcrumbsTop = ({ title }) => {
 }
 
 BreadcrumbsTop.propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired
 }
 
 export default BreadcrumbsTop

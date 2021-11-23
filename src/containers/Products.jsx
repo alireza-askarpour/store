@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { useLayout } from '../providers/layout'
-import { productsAction, sortPriceAction } from '../redux/actions/products'
-import { filterSearchAction } from '../redux/actions/products'
+import { productsAction } from '../redux/actions/products'
+import { sortPriceAction } from '../redux/actions/filters'
+import { filterSearchAction } from '../redux/actions/filters'
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 import ProductCard from '../components/pages/products/ProductCard'
 import FilterMenu from '../components/pages/products/FilterMenu'
@@ -123,7 +124,7 @@ const Products = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="content-body">
+                            <div className="content-main">
                                 <div className="main">
                                     <div className="products-header-items">
                                         <button className="burger-menu" onClick={handleShowSideDrawer}>

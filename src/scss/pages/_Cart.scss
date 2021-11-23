@@ -1,0 +1,85 @@
+.cart {
+    .content-header {
+        margin-bottom: 25px;
+    }
+
+    .content-wrapper {
+        gap: 25px;
+
+        .cart-options {
+            @include large {
+                grid-column: 3 / 4;
+            }
+            
+            &-heading {
+                margin-bottom: 25px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            &-content {
+                background: $main-bg;
+                padding: 21px;
+                border-radius: $second-rounded;
+                box-shadow: $third-box-shadow;
+
+                .options {
+                    color: $fourth-txt-color;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .price-details {
+                    margin-top: 21px;
+
+                    .price-title {
+                        font-weight: 600;
+                        font-size: 14px;
+                        color: $third-txt-color;
+                    }
+
+                    .price-details-main {
+                        margin-bottom: 15px;
+
+                        .price-detail {
+                            @include flex(space-between, center);
+                            margin-top: 13px;
+
+                            div {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .price-details-footer {
+                        border-top: 1px solid $main-border-color;
+
+                        .price-detail {
+                            margin: 14px 0;
+                            font-weight: 600;
+                            font-size: 14px;
+                            color: $third-txt-color;
+
+                            @include flex(space-between, center);
+                        }
+                    }
+                }
+            }
+            
+        }
+        
+        .cart-items {
+            @include large {
+                grid-column: 1 / span 2;
+            }
+
+            .cart-items-heading {
+                margin-bottom: 25px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        
+        }
+    }
+}

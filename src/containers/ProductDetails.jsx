@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { withRouter } from 'react-router'
 
 import { productsAction, productDetailsAction } from '../redux/actions/products'
+import { addToCartAction } from '../redux/actions/cart'
 
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 import RatingsList from '../components/shared/RatingsList'
@@ -45,8 +45,23 @@ const ProductDetails = ({ match, history }) => {
     }
 
     const handleAddToCart = () => {
-        console.log({ color, quantity })
-        history.push('/cart')
+        if (product.inStock) {
+            history.push('/cart')
+        
+            dispatch(addToCartAction({
+                brand: product.brand,
+                category: product.category,
+                id: product.id,
+                stock: product.inStock,
+                name: product.name,
+                price: product.price,
+                image: product.images[0],
+                rating: product.rating,
+                freeShopping: product.freeShopping,
+                quantity,
+                color
+            }))
+        }
     }
 
     const selectedColor = color && color.replace('-', ' ') 
@@ -60,7 +75,7 @@ const ProductDetails = ({ match, history }) => {
                     <BreadcrumbsTop title="Product Details" />
                 </div>
 
-                <div className="card content-body">
+                <div className="card content-main">
 
                     {/* Product Info */}
 
@@ -255,4 +270,4 @@ const ProductDetails = ({ match, history }) => {
     )
 }
 
-export default withRouter(ProductDetails) 
+export default ProductDetails 

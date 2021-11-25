@@ -24,10 +24,45 @@
                 box-shadow: $third-box-shadow;
 
                 .options {
-                    color: $fourth-txt-color;
-                    font-size: 12px;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
+                    margin-bottom:  10px;
+                    
+                    span {
+                        color: $fourth-txt-color;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .apply-discount {
+                    @include flex(space-between, center);
+                    border-bottom: 1px solid $main-border-color;
+                    padding-bottom: 14px;
+
+                    ::placeholder {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: $third-txt-color;
+                    }
+                    
+                    input {
+                        background: $bg-transparent;
+                        width: 100%;
+                        padding: 7px 0;
+                        color: 14px;
+                        font-weight: 600;
+                        color: $third-txt-color;
+                    }
+
+                    .input-text {
+                        span {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: $main-color;
+                            cursor: pointer;
+                            margin-left: 7px;
+                        }
+                    }
                 }
 
                 .price-details {
@@ -78,6 +113,15 @@
                 margin-bottom: 25px;
                 font-size: 14px;
                 font-weight: 500;
+            }
+
+            .cart-items-content {
+                .cart-empty {
+                    text-align: center;
+                    margin-top: 160px;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
             }
         
         }

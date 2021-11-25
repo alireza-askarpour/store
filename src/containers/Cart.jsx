@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { removeFromCartAction } from '../redux/actions/cart'
@@ -7,13 +7,19 @@ import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 import CartItem from '../components/pages/cart/CartItem'
 import Button from '../components/shared/Button'
 
-const Cart = () => {
+import numberWithCommas from '../utils/numberWithCommas'
+
+const Cart = ({ history }) => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart 
 
-    const handleRemoveFromCart = (id, color) => dispatch(removeFromCartAction(id, color))
-    
+    const handleRemoveFromCart = (id, color, category) => dispatch(removeFromCartAction(id, color, category))
+    const handleClickBtn = () => cartItems.length > 0 && history.push('/checkout')
+
+    const totalPrice = numberWithCommas(cartItems.reduce((acc, item) => acc + item.totalPrice, 0))
+    const estimatedTax = cartItems.length * 0.10 
+
     return (
         <div className="cart">
             <div className="content-header">
@@ -29,20 +35,13 @@ const Cart = () => {
                             cartItems.map((item, index) => (
                                 <CartItem
                                     key={index}
-                                    img={item.image}
-                                    alt={item.name}
-                                    price={item.price} 
-                                    title={item.name} 
-                                    description={item.description} 
-                                    rating={item.rating}
-                                    link={`/product/${item.id}`}
-                                    brand={item.brand.replace('-', ' ')}
-                                    stock={item.stock}
-                                    quantity={item.quantity}
-                                    color={item.color}
-                                    removeFromCart={() => handleRemoveFromCart(item.id, item.color)}
+                                    item={item}
+                                    removeFromCart={() => handleRemoveFromCart(item.id, item.color, item.category)}
                                 />
                             ))
+                        }
+                        {
+                            cartItems.length === 0 && <p className="cart-empty">Your shopping cart is empty</p>
                         }
                     </div>
                 </div>
@@ -51,21 +50,33 @@ const Cart = () => {
                         <p>Order Summary</p>
                     </div>
                     <div className="cart-options-content">
-                        <span className="options">Options</span>
+                        <div className="options">
+                            <span>Options</span>
+                        </div>
+                        <div className="apply-discount">
+                            <input type="text" placeholder="Coupons"/>
+                            <div className="input-text">
+                                <span>Apply</span>
+                            </div>
+                        </div>
                         <div className="price-details">
                             <h5 className="price-title">Price Details</h5>
                             <ul className="price-details-main">
                                 <li className="price-detail">
-                                    <div className="detail-title">Total MRP</div>
-                                    <div className="detail-amt">$598</div>
+                                    <div className="detail-title">Total</div>
+                                    <div className="detail-amt">{totalPrice && numberWithCommas(totalPrice)}</div>
                                 </li>
                                 <li className="price-detail">
                                     <div className="detail-title">Bag Discount</div>
-                                    <div className="detail-amt color-green">-25$</div>
+                                    <div className="detail-amt color-green">0</div>
                                 </li>
                                 <li className="price-detail">
                                     <div className="detail-title">Estimated Tax</div>
-                                    <div className="detail-amt">$1.3</div>
+                                    <div className="detail-amt">
+                                    {
+                                        cartItems.length > 0 ? numberWithCommas(estimatedTax) : '0'
+                                    }
+                                    </div>
                                 </li>
                                 <li className="price-detail">
                                     <div className="detail-title">EMI Eligibility</div>
@@ -79,10 +90,11 @@ const Cart = () => {
                             <div className="price-details-footer">
                                 <h4 className="price-detail">
                                     <div>Total</div>
-                                    <div>$574</div>
+                                    <div>{cartItems.length > 0 ? totalPrice + estimatedTax : totalPrice}</div>
                                 </h4>
                                 <Button
                                     btnBlock
+                                    click={handleClickBtn}
                                 >
                                     Place Order
                                 </Button>

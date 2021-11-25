@@ -1,41 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
+import { updateCartItemAction } from '../../../redux/actions/cart'
 
 import Button from '../../shared/Button'
 import RatingsList from '../../shared/RatingsList'
 import numberWithCommas from '../../../utils/numberWithCommas'
-
-import { x } from '../../../assets/icons'
 import QuantityInput from '../../shared/QuantityInput'
 
-const CartItem = ({ 
-    brand, 
-    color, 
-    id, 
-    img, 
-    title, 
-    price, 
-    quantity, 
-    stock, 
-    link, 
-    rating, 
-    removeFromCart, 
-    freeShopping 
-}) => {
+import { x } from '../../../assets/icons'
+
+const CartItem = ({ item, removeFromCart }) => {
+    const dispatch = useDispatch()
+
+    const { id, brand, color, image, name, quantity, totalPrice, stock, rating, freeShipping } = item
+
+    const updateQuantity = (type) => {
+        if (type === 'inc') {
+            const qtyLimit = quantity + 1 > 100 ? 100 : quantity + 1
+            dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
+        } else {
+            const qtyLimit = quantity - 1 === 0 ? 1 : quantity - 1
+            dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
+        }
+    }
     
     return (
         <div className="cart-item">
             <div className="cart-item-image">
-                <img src={img} className="cart-img" alt={title} />
+                <img src={image} className="cart-img" alt={name} />
             </div>
             <div className="cart-item-body">
                 <h3 className="cart-item-heading">
-                    <Link to={link}>
-                        <span className="cart-item-title">{title}</span>
+                    <Link to={`/product/${id}`}>
+                        <span className="cart-item-title">{name}</span>
                     </Link>
                 </h3>
-                <p className="cart-item-brand">By <span>{brand}</span></p>
+                <p className="cart-item-brand">By <span>{brand.replace('-', ' ')}</span></p>
                 <div className="cart-item-rating">
                     <RatingsList rating={rating} small/>
                 </div>
@@ -49,8 +52,8 @@ const CartItem = ({
                 <div className="cart-item-quantity">
                     <span>Qty:</span>
                     <QuantityInput
-                        qty={quantity}
-                        updateQty={() => {}}
+                        qty={item.quantity}
+                        updateQty={updateQuantity}
                     />  
                 </div>
             </div>
@@ -58,12 +61,16 @@ const CartItem = ({
                 <div className="card-price-wrapper">
                     {
                         stock 
-                        ?   <h4 className="card-price">{numberWithCommas(price)}</h4>
+                        ?   <h4 className="card-price">{numberWithCommas(totalPrice)}</h4>
                         :   <span className="card-unavailable">Unavailable</span>
                     }
                 </div>
                 {
-                    freeShopping && <div className="cart-badge">Free Shipping</div>
+                    freeShipping && (
+                        <p>
+                            <span className="cart-badge">Free Shipping</span>
+                        </p>
+                    )
                 } 
                 <div className="card-btn-wishlist">
                     <Button 
@@ -88,18 +95,8 @@ const CartItem = ({
 }
 
 CartItem.prototype = {
-    brand: PropTypes.string, 
-    color: PropTypes.string, 
-    id: PropTypes.string, 
-    img: PropTypes.string, 
-    title: PropTypes.string, 
-    price: PropTypes.string, 
-    quantity: PropTypes.string, 
-    stock: PropTypes.string, 
-    link: PropTypes.string, 
-    rating: PropTypes.string, 
-    removeFromCart: PropTypes.string, 
-    freeShopping: PropTypes.string,
+    item: PropTypes.object,
+    removeFromCart: PropTypes.func,
 }
 
 export default CartItem

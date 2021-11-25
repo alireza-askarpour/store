@@ -128,18 +128,27 @@
             }            
         }
 
-        .cart-badge {
-            color: $main-color-green;
-            background-color: $color-light-green;
+        p {
+            text-align: center;
+            margin-top: 10px;
+
+            .cart-badge {
+                color: $main-color-green;
+                background-color: $color-light-green;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 3px 8px;
+                border-radius: $full-rounded;
+            }
         }
         
         .card-btn-wishlist {
             width: 100%;
-            padding-top: 14px;
+            margin-top: 14px;
         }
         
         .card-btn-cart {
-            padding-top: 14px;
+            margin-top: 14px;
             width: 100%;
         }
     }

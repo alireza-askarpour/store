@@ -57,7 +57,7 @@ const ProductDetails = ({ match, history }) => {
                 price: product.price,
                 image: product.images[0],
                 rating: product.rating,
-                freeShopping: product.freeShopping,
+                freeShipping: product.freeShipping,
                 quantity,
                 color
             }))

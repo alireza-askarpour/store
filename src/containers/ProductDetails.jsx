@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { productsAction, productDetailsAction } from '../redux/actions/products'
 import { addToCartAction } from '../redux/actions/cart'
+import { wishlistAction } from '../redux/actions/wishlist'
 
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 import RatingsList from '../components/shared/RatingsList'
@@ -20,10 +21,11 @@ const ProductDetails = ({ match, history }) => {
     const dispatch = useDispatch()
     const productsList = useSelector(state => state.productsList)
     const productDetails = useSelector(state => state.productDetails)
+    const wishlist = useSelector(state => state.wishlist)
     
     const [color, setColor] = useState(null)
     const [quantity, setQuantity] = useState(1)
-
+    
     const { products } = productsList
     const { product } = productDetails
     
@@ -49,22 +51,19 @@ const ProductDetails = ({ match, history }) => {
             history.push('/cart')
         
             dispatch(addToCartAction({
-                brand: product.brand,
-                category: product.category,
-                id: product.id,
-                stock: product.inStock,
-                name: product.name,
-                price: product.price,
+                ...product,
                 image: product.images[0],
-                rating: product.rating,
-                freeShipping: product.freeShipping,
                 quantity,
                 color
             }))
         }
     }
 
+    const handleWishlist = () => dispatch(wishlistAction(product))
+
     const selectedColor = color && color.replace('-', ' ') 
+
+    const like = wishlist.wishlist.some(i => i.id === + product.id)
 
     return (
         productsList.loading && 
@@ -186,13 +185,14 @@ const ProductDetails = ({ match, history }) => {
                                         }
                                     </Button>
                                 </div>
-                                <div className="content-option">
+                                <div className={`content-option ${like ? 'like' : ''}`}>
                                     <Button
                                         size="small"
                                         bgColor="transparent"
                                         txtColor="gray"
                                         btnBorder="fiveth"
                                         btnBlock
+                                        click={handleWishlist}
                                     >
                                         {heart} Wishlist
                                     </Button>

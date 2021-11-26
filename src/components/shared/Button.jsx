@@ -11,7 +11,7 @@ const Button = (
         roundedNone, 
         size, 
         click, 
-        stock ,
+        stock,
         btnBorder
     }
 ) => {

@@ -1,19 +1,19 @@
 import * as types from '../types'
 
 export const filterMultiRangeAction = (multiRange) => (dispatch) => {
-    dispatch({ type: types.FILTER_BY_MULTI_RANGE, payload: multiRange })
+    dispatch({ type: types.FILTER_BY_MULTI_RANGE, paylod: multiRange })
 }
 
 export const filterCategoryAction = (category, checked) => (dispatch) => {
-    dispatch({ type: types.FILTER_BY_CATEGORY, payload: category, checked })
+    dispatch({ type: types.FILTER_BY_CATEGORY, paylod: category, checked })
 }
 
 export const filterBrandAction = (brand, checked) => (dispatch) => {
-    dispatch({ type: types.FILTER_BY_BRAND, payload: brand, checked })
+    dispatch({ type: types.FILTER_BY_BRAND, paylod: brand, checked })
 }
 
 export const filterRatingAction = (rating) => (dispatch) => {
-    dispatch({ type: types.FILTER_BY_RATING, payload: rating })
+    dispatch({ type: types.FILTER_BY_RATING, paylod: rating })
 }
 
 export const filterStockAction = (checked) => (dispatch) => {
@@ -21,11 +21,11 @@ export const filterStockAction = (checked) => (dispatch) => {
 }
 
 export const filterSearchAction = (search) => (dispatch) => {
-    dispatch({ type: types.FILTER_BY_SEARCH, payload: search })
+    dispatch({ type: types.FILTER_BY_SEARCH, paylod: search })
 }
 
 export const sortPriceAction = (sort) => (dispatch) => {
-    dispatch({ type: types.SORT_BY_PRICE, payload: sort })
+    dispatch({ type: types.SORT_BY_PRICE, paylod: sort })
 }
 
 export const clearFiltersAction = () => (dispatch) => {

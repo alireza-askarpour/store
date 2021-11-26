@@ -151,15 +151,11 @@
             margin-top: 14px;
             width: 100%;
         }
+        
+        .card-btn-cart.like {
+            svg {
+                fill: $txt-white;
+            }
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-

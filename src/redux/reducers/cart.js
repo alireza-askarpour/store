@@ -20,10 +20,8 @@ export const cartReducer = (state = initialState, action) => {
                 return { cartItems: cartItemsUpdated }
 
             } else {
-                if (!newItem.stock)  {
-                    return {
-                        ...state
-                    }
+                if (!newItem.inStock)  {
+                    return { ...state }
 
                 } else {
                     return {

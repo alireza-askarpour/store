@@ -76,8 +76,20 @@
             display: none;
         }
 
-        .card-btn-wishlist {
+        .card-btn-left {
             width: 45%;
+            color: $main-txt-color;
+
+            svg {
+                stroke: $main-txt-color;
+            }
+        }
+        
+        .card-btn-left.like {
+            svg {
+                stroke: $main-color-red;
+                fill: $main-color-red;
+            }
         }
         
         .card-btn-cart {
@@ -181,7 +193,7 @@
             }            
         }
         
-        .card-btn-wishlist {
+        .card-btn-left {
             width: 100%;
             padding-top: 14px;
         }
@@ -190,5 +202,6 @@
             padding-top: 14px;
             width: 100%;
         }
+
     }
 }

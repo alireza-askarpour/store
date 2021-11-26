@@ -1,0 +1,16 @@
+.wishlist {
+    .content-header {
+        margin-bottom: 20px;
+    }
+
+    .content-main {
+        .wishlist-items {
+            gap: 25px;
+        }
+
+        .empty-text {
+            text-align: center;
+            margin-top: 11rem;
+        }
+    }
+}   

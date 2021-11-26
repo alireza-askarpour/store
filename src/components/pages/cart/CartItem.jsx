@@ -1,21 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { updateCartItemAction } from '../../../redux/actions/cart'
+import { wishlistAction } from '../../../redux/actions/wishlist'
 
 import Button from '../../shared/Button'
 import RatingsList from '../../shared/RatingsList'
 import numberWithCommas from '../../../utils/numberWithCommas'
 import QuantityInput from '../../shared/QuantityInput'
 
-import { x } from '../../../assets/icons'
+import { x, heart } from '../../../assets/icons'
 
 const CartItem = ({ item, removeFromCart }) => {
     const dispatch = useDispatch()
-
-    const { id, brand, color, image, name, quantity, totalPrice, stock, rating, freeShipping } = item
+    const state = useSelector(state => state.wishlist)
+    const { wishlist } = state
+    const { id, brand, color, image, name, quantity, totalPrice, inStock, rating, freeShipping } = item
+    const like = wishlist.some(i => i.id === id)
+    
+    const handleWishlist = () => dispatch(wishlistAction(item))
 
     const updateQuantity = (type) => {
         if (type === 'inc') {
@@ -26,7 +31,7 @@ const CartItem = ({ item, removeFromCart }) => {
             dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
         }
     }
-    
+    console.log(item.inStock)
     return (
         <div className="cart-item">
             <div className="cart-item-image">
@@ -42,8 +47,8 @@ const CartItem = ({ item, removeFromCart }) => {
                 <div className="cart-item-rating">
                     <RatingsList rating={rating} small/>
                 </div>
-                <p className={`cart-item-status ${stock ? 'color-green' : 'color-red'}`}>
-                    {stock ? 'In Stock' : 'Unavailable'}
+                <p className={`cart-item-status ${inStock ? 'color-green' : 'color-red'}`}>
+                    {inStock ? 'In Stock' : 'Unavailable'}
                 </p>
                 <div className="cart-item-color">
                     <span>Color:</span>
@@ -60,7 +65,7 @@ const CartItem = ({ item, removeFromCart }) => {
             <div className="cart-item-options">
                 <div className="card-price-wrapper">
                     {
-                        stock 
+                        inStock 
                         ?   <h4 className="card-price">{numberWithCommas(totalPrice)}</h4>
                         :   <span className="card-unavailable">Unavailable</span>
                     }
@@ -84,9 +89,13 @@ const CartItem = ({ item, removeFromCart }) => {
                         Remove
                     </Button>
                 </div>
-                <div className="card-btn-cart">
-                    <Button btnBlock size="small" stock={!stock}>
-                        { stock ? 'View in Cart': 'Unavailable' }
+                <div className={`card-btn-cart ${like ? 'like' : ''}`}>
+                    <Button
+                        btnBlock 
+                        size="small" 
+                        click={handleWishlist}
+                    >
+                        {heart} Wishlist
                     </Button>
                 </div>
             </div>

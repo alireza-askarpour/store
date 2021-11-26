@@ -5,6 +5,7 @@ import Products from '../containers/Products'
 import ProductDetails from '../containers/ProductDetails'
 import Cart from '../containers/Cart'
 import Checkout from '../containers/Checkout'
+import Wishlist from '../containers/Wishlist'
 
 const Routes = () => {
     return (
@@ -14,6 +15,7 @@ const Routes = () => {
             <Route path="/product/:id" component={ProductDetails} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={Checkout} />
+            <Route path="/wishlist" component={Wishlist} />
         </Switch>
     )
 }

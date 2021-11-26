@@ -175,6 +175,13 @@
               }
             }
           }
+
+          .content-option.like {
+            svg {
+              stroke: $main-color-red;
+              fill: $main-color-red;
+            }
+          }
         }
 
         .product-info-quantity {

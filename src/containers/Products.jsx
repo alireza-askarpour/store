@@ -5,8 +5,10 @@ import { useLayout } from '../providers/layout'
 import { productsAction } from '../redux/actions/products'
 import { sortPriceAction } from '../redux/actions/filters'
 import { filterSearchAction } from '../redux/actions/filters'
+import { wishlistAction } from '../redux/actions/wishlist'
+
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import ProductCard from '../components/pages/products/ProductCard'
+import ProductCard from '../components/shared/ProductCard'
 import FilterMenu from '../components/pages/products/FilterMenu'
 import SelectBox from '../components/shared/SelectBox'
 import Tabs from '../components/pages/products/Tabs'
@@ -15,6 +17,7 @@ import SideDrawer from '../components/layout/SideDrawer'
 import menu from '../assets/icons/menu'
 import featherSearch from '../assets/icons/search'
 import { productsSort } from '../assets/data/products_sort'
+import { heart } from '../assets/icons'
 
 const Products = () => {
     const [filterSelect, setFilterSelect] = useState([])
@@ -34,6 +37,14 @@ const Products = () => {
     const handleShowSideDrawer = () => setShowSideDrawer(true)
     const handleCloseSideDrawer = () => setShowSideDrawer(false)
 
+    const handleWishlist = (item) => {
+        const updateItem = {
+            ...item,
+            img: item.images[0]
+        }
+        dispatch(wishlistAction(updateItem))
+    }
+
     useEffect(() => {
         dispatch(productsAction())
     }, [])
@@ -44,7 +55,7 @@ const Products = () => {
                 let temp = products
                 
                 if (category.length > 0) {
-                temp = temp.filter(i => category.includes(i.category))
+                    temp = temp.filter(i => category.includes(i.category))
                 }
 
                 if (brand.length > 0) {
@@ -99,7 +110,7 @@ const Products = () => {
     }, [updateProducts, productsList, filters])
 
     const products_list = productsListLayout === 'grid' && filterSelect.length > 0  ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3' : 'products-view'   
-    
+        
     return (
         <div className="products">
             {
@@ -156,21 +167,23 @@ const Products = () => {
                                         </div>    
                                     </div>
                                     <div className={products_list}>
-                                        
                                         {
                                             filterSelect.length > 0 ? (
                                                 filterSelect.map((item, index) => (
                                                     <ProductCard
                                                         key={index}
-                                                        img={item.images[0]}
-                                                        alt={item.name}
+                                                        id={item.id}
+                                                        image={item.images[0]}
                                                         price={item.price} 
                                                         title={item.name} 
                                                         description={item.description} 
                                                         rating={item.rating}
                                                         link={`/product/${item.id}`}
                                                         brand={item.brand.replace('-', ' ')}
-                                                        stock={item.inStock}
+                                                        inStock={item.inStock}
+                                                        leftBtnClick={() => handleWishlist(item)}
+                                                        rightBtnLink={`/product/${item.id}`}
+                                                        leftBtnText={<>{heart} Wishlist</>}
                                                     />
                                                 ))
                                             ) : 

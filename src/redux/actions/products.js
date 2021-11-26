@@ -1,4 +1,4 @@
-import axios from '../../config/instance'
+import axios from '../../config/axios'
 import * as types from '../types'
 
 export const productsAction = () => async (dispatch) => {
@@ -7,7 +7,7 @@ export const productsAction = () => async (dispatch) => {
         
         const { data } = await axios.get('/products')
 
-        dispatch({ type: types.PRODUCT_LIST_SUCCESS, payload: data, })
+        dispatch({ type: types.PRODUCT_LIST_SUCCESS, paylod: data, })
         
     } catch (err) {
         console.log(err)
@@ -19,5 +19,5 @@ export const productDetailsAction = (id) => async (dispatch) => {
 
     const { data } = await axios.get(`/products/${id}`)
 
-    dispatch({ type: types.PRODUCT_DETAILS_SUCCESS, payload: data })
+    dispatch({ type: types.PRODUCT_DETAILS_SUCCESS, paylod: data })
 }

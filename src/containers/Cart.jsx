@@ -68,13 +68,13 @@ const Cart = ({ history }) => {
                                 </li>
                                 <li className="price-detail">
                                     <div className="detail-title">Bag Discount</div>
-                                    <div className="detail-amt color-green">0</div>
+                                    <div className="detail-amt color-green">$0</div>
                                 </li>
                                 <li className="price-detail">
                                     <div className="detail-title">Estimated Tax</div>
                                     <div className="detail-amt">
                                     {
-                                        cartItems.length > 0 ? numberWithCommas(estimatedTax) : '0'
+                                        cartItems.length > 0 ? numberWithCommas(estimatedTax) : '$0'
                                     }
                                     </div>
                                 </li>
@@ -90,7 +90,7 @@ const Cart = ({ history }) => {
                             <div className="price-details-footer">
                                 <h4 className="price-detail">
                                     <div>Total</div>
-                                    <div>{cartItems.length > 0 ? totalPrice + estimatedTax : totalPrice}</div>
+                                    <div>{totalPrice}</div>
                                 </h4>
                                 <Button
                                     btnBlock

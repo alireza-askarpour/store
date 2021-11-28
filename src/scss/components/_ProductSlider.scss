@@ -6,15 +6,21 @@
       text-align: center;
       
       a {
-          padding: 20px 0;
-          display: inline-block;
+        padding: 20px 0;
+        display: inline-block;
+
         .item-heading {
             text-align: center;
             
-            .title {
-                font-size: 16px;
-                font-weight: 500;
-                color: $main-txt-color;
+          .title {
+            padding: 0 17px;
+            font-size: 16px;
+            font-weight: 500;
+            color: $main-txt-color;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
 
           .brand {
@@ -33,9 +39,19 @@
         .item-meta {
           @include flex(center, center, column);
 
-          .price {
+          .price,
+          .unavailable {
             font-size: 15px;
+            font-weight: 500;
+            margin-top: 7px;
+          }
+
+          .price {
             color: $main-color-blue;
+          }
+
+          .unavailable {
+            color: $main-color-red;
           }
         }
       }

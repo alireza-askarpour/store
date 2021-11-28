@@ -2,7 +2,11 @@ import React from 'react'
 
 import Button from '../../shared/Button'
 
-const Popular = ({ revers, main, second, third }) => {
+import numberWithCommas from '../../../utils/numberWithCommas'
+
+const Popular = ({ revers, main, second, third, history }) => {
+    const handleClick = (link) => history.push(link)
+
     const layoutRevers = revers ? 'revers' : ''
 
     return (
@@ -11,14 +15,19 @@ const Popular = ({ revers, main, second, third }) => {
                 <div className="popular-item-image">
                     <img src={main.image} alt={main.title} />
                 </div>
-
                 <div className="popular-item-content">
                     <div className="content-caption">
                         <h3 className="caption-title">{main.title}</h3>
                         <p className="caption-description">{main.description}</p>
                     </div>
                     <div className="content-btn">
-                        <Button roundedFull bgColor="white" size="large" txtColor={main.btnColor}>
+                        <Button 
+                            roundedFull 
+                            bgColor="white" 
+                            size="large" 
+                            txtColor={main.btnColor}
+                            click={() => handleClick(main.link)}
+                        >
                             {main.btnText}
                         </Button>
                     </div>
@@ -36,10 +45,16 @@ const Popular = ({ revers, main, second, third }) => {
                     <div className="content-caption">
                         <h5 className="caption-brand">by <span>{second.brand}</span></h5>
                         <h3 className="caption-title">{second.title}</h3>
-                        <p className="caption-price">{second.price}</p>
+                        <p className="caption-price">{numberWithCommas(+second.price)}</p>
                     </div>
                     <div className="content-btn">
-                        <Button roundedFull bgColor="white" txtColor={second.btnColor} size="xs">
+                        <Button 
+                            roundedFull 
+                            bgColor="white" 
+                            txtColor={second.btnColor} 
+                            size="xs"
+                            click={() => handleClick(second.link)}
+                        >
                             {second.btnText}
                         </Button>
                     </div>
@@ -57,10 +72,16 @@ const Popular = ({ revers, main, second, third }) => {
                     <div className="content-caption">
                         <h5 className="caption-brand">by <span>{third.brand}</span></h5>
                         <h3 className="caption-title">{third.title}</h3>
-                        <p className="caption-price">{third.price}</p>
+                        <p className="caption-price">{numberWithCommas(+third.price)}</p>
                     </div>
                     <div className="content-btn">
-                        <Button roundedFull bgColor="white" txtColor={third.btnColor} size="xs">
+                        <Button 
+                            roundedFull 
+                            bgColor="white" 
+                            txtColor={third.btnColor} 
+                            size="xs"
+                            click={() => handleClick(third.link)}
+                        >
                             {third.btnText}
                         </Button>
                     </div>

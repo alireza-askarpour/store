@@ -7,19 +7,21 @@ export const firstPopular = {
         image: 'images/popular-1-1.png',
         btnText: 'Buy now',
         btnColor: 'indigo',
-        bgColor: 'bg-indigo'
+        bgColor: 'bg-indigo',
+        link: '/product/2'
     },
     second: {
         id: 2,
-        title: 'Galaxy Watch 4',
+        title: 'Galaxy Watch 6',
         brand: 'Samsung',
-        description: 'The Galaxy Watch is Samsungs most refined smartwatch due to its helpful fitness tracking and four-day battery life – if you opt for the larger 46mm size that we liked and recommend. All of this is packaged inside a sophisticated-looking circular silver-and-black smartwatch that has a rotating bezel for effortless menu navigation. Be warned, third-party apps are lacking and its iOS support is limited if you are using an iPhone. This is best for Samsung fans.',
-        price: '249.99',
+        description: 'Apple Watch Series 6 lets you measure your blood oxygen level with a revolutionary new sensor and app. Take an ECG from your wrist. See your fitness metrics on the enhanced Always-On Retina display, now 2.5x brighter outdoors when your wrist is down. Set a bedtime routine and track your sleep. And with cellular service, you can go without your phone. Its the ultimate device for a healthier, more active, more connected life.',
+        price: '459.99',
         image: 'images/popular-1-2.png',
         discount: '20%',
         btnText: 'Buy now',
         btnColor: 'green',
-        bgColor: 'bg-green'
+        bgColor: 'bg-green',
+        link: '/product/30'
     },
     third: {
         id: 3,
@@ -31,7 +33,8 @@ export const firstPopular = {
         discount: '20%',
         btnText: 'Buy now',
         btnColor: 'orang',
-        bgColor: 'bg-orang'
+        bgColor: 'bg-orang',
+        link: '/product/4',
     }
 }
 
@@ -43,7 +46,8 @@ export const secondPopular = {
         image: 'images/popular-2-1.png',
         btnText: 'Buy now',
         btnColor: 'blue',
-        bgColor: 'bg-blue'
+        bgColor: 'bg-blue',
+        link: '/product/8'
     },
     second: {
         title: 'iPhone 12 mini',
@@ -54,7 +58,8 @@ export const secondPopular = {
         discount: '20%',
         btnText: 'Buy now',
         btnColor: 'skyblue',
-        bgColor: 'bg-skyblue'
+        bgColor: 'bg-skyblue',
+        link: '/product/12'
     },
     third: {
         title: 'Apple AirPods Max',
@@ -65,6 +70,7 @@ export const secondPopular = {
         discount: '20%',
         btnText: 'Buy now',
         btnColor: 'orang',
-        bgColor: 'bg-orang'
+        bgColor: 'bg-orang',
+        link: '/product/29'
     }
 }

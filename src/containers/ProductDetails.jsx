@@ -262,7 +262,7 @@ const ProductDetails = ({ match, history }) => {
                             <h4>Related Products</h4>
                             <p>People also search for this items</p>
                         </div>
-                        <ProductSlider/>
+                        {/* <ProductSlider/> */}
                     </div>
                 </div>
             </div>

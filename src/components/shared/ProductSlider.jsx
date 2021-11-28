@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import RatingsList from './RatingsList'
 
-const ProductSlider = () => {
+import numberWithCommas from '../../utils/numberWithCommas'
+
+import RatingsList from './RatingsList'
+const ProductSlider = ({ sliderData }) => {
   const breakpoints = {
     768: {
       slidesPerView: 2,
@@ -24,104 +26,37 @@ const ProductSlider = () => {
         spaceBetween={20}
         breakpoints={breakpoints}
       >
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <Link to="/">
-            <div className="item-heading">
-              <h5 className="title">Apple Watch Series 6</h5>
-              <small className="brand">by Apple</small>
-            </div>
-            <div className="img-container">
-              <img src="images/apple-watch-series-6-3.png" alt="" />
-            </div>
-            <div className="item-meta">
-              <RatingsList rating={5} />
-              <p className="price">$399.98</p>
-            </div>
-          </Link>
-        </SwiperSlide>
+        {
+          sliderData.map((item, index) => (
+            <SwiperSlide key={index}>
+            <Link to={item.link}>
+              <div className="item-heading">
+                <h5 className="title">{item.title}</h5>
+                <small className="brand">by {item.brand}</small>
+              </div>
+              <div className="img-container">
+                <img src={item.image} alt={item.name}/>
+              </div>
+              <div className="item-meta">
+                <RatingsList rating={item.rating}/>
+                {
+                  item.inStock ? 
+                    <p className="price">{numberWithCommas(item.price)}</p>
+                  :
+                    <p className="unavailable">Unavailable</p>
+                }
+              </div>
+            </Link>
+          </SwiperSlide>
+          ))
+        }
       </Swiper>
     </div>
   )
+}
+
+ProductSlider.prototype = {
+  sliderData: PropTypes.object
 }
 
 export default ProductSlider

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { productsAction, productDetailsAction } from '../redux/actions/products'
 import { addToCartAction } from '../redux/actions/cart'
@@ -17,8 +18,11 @@ import numberWithCommas from '../utils/numberWithCommas'
 import { cart, dollarSign, heart, truck, share, clock, shield, award } from '../assets/icons'
 import { socialMedia } from '../assets/data/social_media'
 
-const ProductDetails = ({ match, history }) => {
+const ProductDetails = () => {
     const dispatch = useDispatch()
+    const params = useParams()
+    const navigate = useNavigate()
+
     const productsList = useSelector(state => state.productsList)
     const productDetails = useSelector(state => state.productDetails)
     const wishlist = useSelector(state => state.wishlist)
@@ -31,7 +35,7 @@ const ProductDetails = ({ match, history }) => {
     
     useEffect(() => {
         dispatch(productsAction())
-        dispatch(productDetailsAction(match.params.id))
+        dispatch(productDetailsAction(params.id))
     }, [])
 
     useEffect(() => {
@@ -48,7 +52,7 @@ const ProductDetails = ({ match, history }) => {
 
     const handleAddToCart = () => {
         if (product.inStock) {
-            history.push('/cart')
+            navigate('/cart')
         
             dispatch(addToCartAction({
                 ...product,

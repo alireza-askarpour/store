@@ -99,7 +99,7 @@ $bg-indigo-gradient: linear-gradient(40deg, $main-color-indigo, $second-color-in
 $numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12);
 
 $colors: (
-    "black": #000,
+    "black": #444,
     "red": #e64a4a,
     "green": #28c76f,
     "blue": #006eff,
@@ -109,5 +109,6 @@ $colors: (
     "pink": #ffc0cb,
     "gray": #808080,
     "silver": #c0c0c0,
-    "white": #fff
+    "white": #fff,
+    "skyblue": #55acee
 )

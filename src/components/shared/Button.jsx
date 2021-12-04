@@ -12,7 +12,9 @@ const Button = (
         size, 
         click, 
         stock,
-        btnBorder
+        btnBorder,
+        type,
+        bold
     }
 ) => {
 
@@ -24,6 +26,8 @@ const Button = (
     const fullRounded = roundedFull ? 'full-rounded' : ''
     const noneRounded = roundedNone ? 'none-rounded' : ''
     const unavailable = stock ? 'unavailable' : ''
+    const btnType = type ? type : 'button'
+    const txtBold = bold ? 'btn-bold' : ''
 
     const handleClick = click ? click : null
 
@@ -39,8 +43,10 @@ const Button = (
                 ${btnSize} 
                 ${unavailable}
                 ${border}
-                ${block}`
+                ${block}
+                ${txtBold}`
             }
+            type={btnType}
         >
             {children}
         </button>
@@ -56,7 +62,9 @@ Button.propTypes = {
     size: PropTypes.string,
     stock: PropTypes.bool,
     click: PropTypes.func,
-    btnBorder: PropTypes.string
+    btnBorder: PropTypes.string,
+    btnType: PropTypes.string,
+    bold: PropTypes.bool,
 }
 
 export default Button

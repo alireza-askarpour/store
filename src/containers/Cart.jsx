@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { removeFromCartAction } from '../redux/actions/cart'
 
@@ -9,13 +10,15 @@ import Button from '../components/shared/Button'
 
 import numberWithCommas from '../utils/numberWithCommas'
 
-const Cart = ({ history }) => {
+const Cart = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart 
 
     const handleRemoveFromCart = (id, color, category) => dispatch(removeFromCartAction(id, color, category))
-    const handleClickBtn = () => cartItems.length > 0 && history.push('/checkout')
+    const handleClickBtn = () => cartItems.length > 0 && navigate('/checkout')
 
     const totalPrice = numberWithCommas(cartItems.reduce((acc, item) => acc + item.totalPrice, 0))
     const estimatedTax = cartItems.length * 0.10 

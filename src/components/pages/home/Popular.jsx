@@ -1,11 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from '../../shared/Button'
 
 import numberWithCommas from '../../../utils/numberWithCommas'
 
-const Popular = ({ revers, main, second, third, history }) => {
-    const handleClick = (link) => history.push(link)
+const Popular = ({ revers, main, second, third }) => {
+    const navigate = useNavigate()
+
+    const handleClick = (link) => navigate(link)
 
     const layoutRevers = revers ? 'revers' : ''
 

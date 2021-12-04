@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Routes as Switch, Route } from 'react-router-dom'
 
 import Home from '../containers/Home'
 import Products from '../containers/Products'
@@ -10,12 +10,12 @@ import Wishlist from '../containers/Wishlist'
 const Routes = () => {
     return (
         <Switch>
-            <Route path="/" component={Home} exact/>
-            <Route path="/products" component={Products} exact/>
-            <Route path="/product/:id" component={ProductDetails} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/wishlist" component={Wishlist} />
+            <Route path="/" element={<Home/>}/>
+            <Route path="/products" element={<Products/>}/>
+            <Route path="/product/:id" element={<ProductDetails/>} />
+            <Route path="/cart" element={<Cart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
+            <Route path="/wishlist" element={<Wishlist/>} />
         </Switch>
     )
 }

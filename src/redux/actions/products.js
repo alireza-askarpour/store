@@ -7,7 +7,7 @@ export const productsAction = () => async (dispatch) => {
         
         const { data } = await axios.get('/products')
 
-        dispatch({ type: types.PRODUCT_LIST_SUCCESS, paylod: data, })
+        dispatch({ type: types.PRODUCT_LIST_SUCCESS, paylod: data })
         
     } catch (err) {
         console.log(err)
@@ -20,4 +20,9 @@ export const productDetailsAction = (id) => async (dispatch) => {
     const { data } = await axios.get(`/products/${id}`)
 
     dispatch({ type: types.PRODUCT_DETAILS_SUCCESS, paylod: data })
+}
+
+export const searchProductsAction = (search, pages, products) => (dispatch) => {
+    
+    dispatch({ type: types.SEARCHـPRODUCTS, paylod: { search, pages, products } })
 }

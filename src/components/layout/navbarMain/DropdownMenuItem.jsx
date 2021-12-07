@@ -3,11 +3,28 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import QuantityInput from '../../shared/QuantityInput'
+
 import { x } from '../../../assets/icons'
 
-const DropdownMenuItem = (props) => {
-    const { notificationItem, cartItem, icon, title, text, price, brand, image, color } = props
+const DropdownMenuItem = props => {
+    const { 
+        notificationItem, 
+        cartItem, 
+        icon, 
+        title, 
+        text, 
+        price, 
+        brand, 
+        image, 
+        color, 
+        item, 
+        updateQuantity, 
+        removeFromCart 
+    } = props
     
+    const handleUpdateQuantity = type => updateQuantity(type, item)
+    const handleRemoveFromCart = () => removeFromCart(item.id, item.color, item.category)
+
     return (
         <div className="dropdown-menu-item">
             {
@@ -28,7 +45,7 @@ const DropdownMenuItem = (props) => {
                 )
             }
             {
-                cartItem && image && price && brand &&  (
+                cartItem && image && price && brand && title &&  (
                     <div className="dropdown-cart-item">
                         <div className="dropdown-cart-item-img">
                             <img src={image} alt={""} />
@@ -36,15 +53,16 @@ const DropdownMenuItem = (props) => {
                         <div className="dropdown-cart-item-body">
                             <div className="dropdown-cart-item-heading">
                                 <h6 className="dropdown-cart-item-title">
-                                    <Link to={'/'}>Apple iMac 27-inch</Link>
+                                    <Link to={'/'}>
+                                        <span>{title}</span>
+                                    </Link>
                                 </h6>
                                 <small className="dropdown-cart-item-brand">{brand}</small>
                             </div>
                             <div className="dropdown-cart-item-qty">
                                 <QuantityInput
-                                    inc={() => {}}
-                                    dec={() => {}}
-                                    qty={10}
+                                    qty={item.quantity}
+                                    updateQty={handleUpdateQuantity}
                                 />
                             </div>
                             <div className="dropdown-cart-item-price">
@@ -52,7 +70,10 @@ const DropdownMenuItem = (props) => {
                                     {price}
                                 </h5>
                             </div>
-                            <div className="dropdown-cart-item-remove">
+                            <div 
+                                className="dropdown-cart-item-remove" 
+                                onClick={handleRemoveFromCart}
+                            >
                                 {x}
                             </div>
                         </div>
@@ -72,7 +93,10 @@ DropdownMenuItem.propTypes = {
     price: PropTypes.string,
     brand: PropTypes.string,
     image: PropTypes.string,
-    color: PropTypes.string
+    item: PropTypes.object,
+    color: PropTypes.string,
+    updateQuantity: PropTypes.func,
+    removeFromCart: PropTypes.func
 }
 
 export default DropdownMenuItem

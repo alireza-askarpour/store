@@ -1,17 +1,30 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { search, x, cart, grid, heart, home } from '../../../assets/icons'
+import { searchProductsAction } from '../../../redux/actions/products'
+
+import { search, x } from '../../../assets/icons'
+import { sidebarMenu } from '../../../assets/data/navbar_menu'
 
 const Search = () => {
+    const dispatch = useDispatch()
+    const { searchProducts, productsList } = useSelector(state => state)
+
     const [searchValue, setSearchValue] = useState('')
-    
+
+    const { pages, products } = searchProducts
+
+    useEffect(() => {
+        dispatch(searchProductsAction(searchValue, sidebarMenu, productsList.products))
+    }, [productsList, searchValue])
+
     const searchMenuRef = useRef(null)
     const searchInputRef = useRef(null)
     const searchBtnRef = useRef(null)
     const closeSearchBtnRef = useRef(null)
     const closeXBtnRef = useRef(null)
-    const searchRef = useRef(null)
+    const searchRef = useRef(null)    
 
     const toggleSearch = (searchBox, searchInput, searchBtn, closeXBtn, closeSearchBtn, search) => {
         document.addEventListener('click', (e) => {
@@ -54,76 +67,36 @@ const Search = () => {
                 
                     <div className="search-menu-items">
                         <h4 className="menu-header">Pages</h4>
-                        {/* <p className="menu-items-text">No Results Found.</p> */}
-                        <div className="menu-item">
-                            <Link to="/">
-                                {home}
-                                <span>
-                                    Home
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {grid}
-                                <span>
-                                    Category
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {cart}
-                                <span>
-                                    Cart
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {heart}
-                                <span>
-                                    Wishlist
-                                </span>
-                            </Link>
-                        </div>
+                        {
+                            pages.map(item => (
+                                <div key={item.id} className="menu-item">
+                                    <Link to={item.route}>
+                                        {item.icon}
+                                        <span>{item.name}</span>
+                                    </Link>
+                                </div>
+                            ))
+                        }
+                        {
+                            pages.length === 0 && <p className="menu-items-text">No Results Found.</p>
+                        }
                     </div>
 
                     <div className="search-menu-items">
                         <h4 className="menu-header">Products</h4>
-                        {/* <p className="menu-items-text">No Results Found.</p> */}
-                        <div className="menu-item">
-                            <Link to="/">
-                                {search}
-                                <span>
-                                    MacBook Air - 13.3"
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {search}
-                                <span>
-                                    Galaxy Buds Pro
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {search}
-                                <span>
-                                    HP Spectre x360
-                                </span>
-                            </Link>
-                        </div>
-                        <div className="menu-item">
-                            <Link to="/">
-                                {search}
-                                <span>
-                                    Beats Headphones Solo Pro
-                                </span>
-                            </Link>
-                        </div>
+                        {
+                            products.map(item => (
+                                <div key={item.id} className="menu-item">
+                                    <Link to={`/product/${item.id}`}>
+                                        {search}
+                                        <span>{item.name}</span>
+                                    </Link>
+                                </div>
+                            ))
+                        }
+                        {
+                            products.length === 0 && <p className="menu-items-text">No Results Found.</p>
+                        }
                     </div>
                 </div>
             </div>

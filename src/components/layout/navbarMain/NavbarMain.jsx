@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { useLayout } from '../../../providers/layout'
+import { removeFromCartAction, updateCartItemAction } from '../../../redux/actions/cart'
+
 import Logo from '../../shared/Logo'
 import Search from './Search'
 import Dropdown from '../../shared/Dropdown'
@@ -13,82 +16,101 @@ import DropdownUserMenuItem from './DropdownUserMenuItem'
 import SideDrawer from '../SideDrawer'
 import SidebarMenu from '../sidebar/SidebarMenu'
 
+import numberWithCommas from '../../../utils/numberWithCommas'
+
 import { bell, cart, star, mail, menu, moon, messageSquare, checkSquare } from '../../../assets/icons'
 import { userMenuItem } from '../../../assets/data/user'
 import { notificationItems } from '../../../assets/data/notifications'
 
-const renderUserMenuItem = (item) => (
-    <DropdownUserMenuItem
-        icon={item.icon}
-        content={item.content}
-        route={item.route}
-    />
-)
-
-const renderNotificationHeader = (
-    <DropdownMenuHeader 
-        heading="Notification" 
-        badge="6 New" 
-    />
-)
-
-const renderNotificationItem = (item) => (
-    <DropdownMenuItem
-        notificationItem={true}
-        icon={item.icon} 
-        title={item.title} 
-        text={item.text} 
-        color={item.color}
-    />
-)
-
-const renderNotificationFooter = (
-    <DropdownMenuFooter
-        title="Read all notifications"
-    />
-)
-
-const renderCartHeader = (
-    <DropdownMenuHeader 
-        heading="My Cart" 
-        badge="5 Items" 
-    />
-)
-
-const renderCartItem = () => (
-    <DropdownMenuItem
-        cartItem
-        image="images/iMac-2020-1.png" 
-        price="$129.29"
-        brand="Apple"
-    />
-)
-
-const renderCartEmpty = (
-    <DropdownMenuEmpty text="Your cart is empty"/>
-)
-
-const renderCartFooter = (
-    <DropdownMenuFooter
-        title="Checkout"
-        total="$129.25"
-        link="/cart"
-    />
-)
-
-const NavbarMain = () => {
+const NavbarMain = ({ cartItems }) => {
+    const dispatch = useDispatch()
     const { menuLayout } = useLayout()
 
     const [showSideDrawer, setShowSideDrawer] = useState(false)
 
     const handleShowSideDrawer = () => setShowSideDrawer(true)
     const handleCloseSideDrawer = () => setShowSideDrawer(false)
-    
+    const handleRemoveFromCart = (id, color, category) => dispatch(removeFromCartAction(id, color, category))
+
+    const handleUpdateQuantity = (type, item) => {
+        if (type === 'inc') {
+            dispatch(updateCartItemAction({ ...item, quantity: item.quantity + 1 }))
+        } else {
+            const qtyLimit = item.quantity - 1 === 0 ? 1 : item.quantity - 1
+            dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
+        }
+    }
+
+    const totalPrice = cartItems.reduce((acc, item) => acc + item.totalPrice, 0)
+
     const logo = menuLayout === 'horizontal' && (
         <div className="logo-wrapper">
             <Logo />
         </div> 
     )
+
+    const renderUserMenuItem = (item) => (
+        <DropdownUserMenuItem
+            icon={item.icon}
+            content={item.content}
+            route={item.route}
+        />
+    )
+    
+    const renderNotificationHeader = (
+        <DropdownMenuHeader 
+            heading="Notification" 
+            badge="6 New" 
+        />
+    )
+    
+    const renderNotificationItem = (item) => (
+        <DropdownMenuItem
+            notificationItem={true}
+            icon={item.icon} 
+            title={item.title} 
+            text={item.text} 
+            color={item.color}
+        />
+    )
+    
+    const renderNotificationFooter = (
+        <DropdownMenuFooter
+            title="Read all notifications"
+        />
+    )
+    
+    const renderCartHeader = (
+        <DropdownMenuHeader 
+            heading="My Cart" 
+            badge={`${cartItems.length} Items`} 
+        />
+    )
+
+    const renderCartItem = (item) => (
+        <DropdownMenuItem
+            cartItem
+            image={item.image} 
+            price={numberWithCommas(item.totalPrice)}
+            brand={item.brand}
+            title={item.name}
+            item={item}
+            removeFromCart={handleRemoveFromCart}
+            updateQuantity={handleUpdateQuantity}
+        />
+    )
+    
+    const renderCartEmpty = (
+        <DropdownMenuEmpty text="Your cart is empty"/>
+    )
+    
+    const renderCartFooter = (
+        <DropdownMenuFooter
+            title="Checkout"
+            total={numberWithCommas(totalPrice)}
+            link="/cart"
+        />
+    )    
 
     const horizontalMenu = menuLayout === 'horizontal' ? 'horizontal-menu' : ''
 
@@ -126,9 +148,9 @@ const NavbarMain = () => {
                     <Search/>
                     <Dropdown
                         icon={cart}
-                        badge='5'
+                        badge={cartItems.length.toString()}
                         color="bg-blue"
-                        menuData={notificationItems}
+                        menuData={cartItems}
                         renderHeader={renderCartHeader}
                         renderItems={renderCartItem}
                         renderEmpty={renderCartEmpty}

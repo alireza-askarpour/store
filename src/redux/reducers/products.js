@@ -25,3 +25,20 @@ export const productDetailsReducer = (state = { product: [] }, action) => {
             return state
     }
 }
+
+export const searchProductsReducer = (state = { pages: [], products: [] }, action) => {
+    switch (action.type) {
+            case types.SEARCHـPRODUCTS:
+                const search = action.paylod.search
+                const pages = action.paylod.pages
+                const products = action.paylod.products
+
+                const filteredPages = pages.filter(i => i.name.toLowerCase().includes(search.toLowerCase()))
+                const filteredProducts = products.filter(i => i.name.toLowerCase().includes(search.toLowerCase()))
+
+                return { pages: filteredPages, products: filteredProducts }
+        
+        default:
+            return state
+    }
+}

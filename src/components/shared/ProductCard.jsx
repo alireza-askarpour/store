@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
 
 import { useLayout } from '../../providers/layout'
 import Button from '../shared/Button'
@@ -42,15 +41,14 @@ const ProductCard = ({
                     <img src={image} className="cart-img" alt={name} />
                 </Link>
             </div>
+            
             <div className="product-card-body">
                 <div className="product-card-meta">
                     <RatingsList rating={rating} small/>
                     {
-                        inStock ? 
-                        <h5 className="product-card-price">{numberWithCommas(price)}</h5>
-                        : 
-                        <span className="product-card-unavailable">Unavailable</span>
-                        
+                        inStock 
+                        ? <h5 className="product-card-price">{numberWithCommas(price)}</h5>
+                        : <span className="product-card-unavailable">Unavailable</span>
                     }
                 </div>
                 <h3 className="product-card-heading">
@@ -61,16 +59,16 @@ const ProductCard = ({
                 </h3>
                 <p className="product-card-description">{description}</p>
             </div>
+
             <div className="product-card-options">
                 <div className="card-price-wrapper">
                     {
-                        inStock ? 
-                        <h4 className="card-price">{numberWithCommas(price)}</h4>
-                        :
-                        <span className="card-unavailable">Unavailable</span>
-                        
+                        inStock 
+                        ? <h4 className="card-price">{numberWithCommas(price)}</h4>
+                        : <span className="card-unavailable">Unavailable</span>
                     }
                 </div>
+
                 <div className={cardBtnLeft}>
                     <Button 
                         btnBlock 
@@ -83,6 +81,7 @@ const ProductCard = ({
                         {leftBtnText}
                     </Button>
                 </div>
+
                 <div className="card-btn-cart">
                     <Link to={rightBtnLink}>
                         <Button 

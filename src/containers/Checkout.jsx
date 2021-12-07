@@ -92,7 +92,12 @@ const Checkout = () => {
                                         </div>
                                         
                                         <div className="form-btn">
-                                            <Button size="small">Save and Deliver Here</Button>
+                                            <Button 
+                                                size="small" 
+                                                type="submit"
+                                            >
+                                                Save and Deliver Here
+                                            </Button>
                                         </div>
                                     </Form>
                                 )

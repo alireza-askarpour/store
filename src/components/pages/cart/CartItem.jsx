@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { updateCartItemAction } from '../../../redux/actions/cart'
 import { wishlistAction } from '../../../redux/actions/wishlist'
@@ -24,14 +24,13 @@ const CartItem = ({ item, removeFromCart }) => {
 
     const updateQuantity = (type) => {
         if (type === 'inc') {
-            const qtyLimit = quantity + 1 > 100 ? 100 : quantity + 1
-            dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
+            dispatch(updateCartItemAction({ ...item, quantity: quantity + 1 }))
         } else {
             const qtyLimit = quantity - 1 === 0 ? 1 : quantity - 1
             dispatch(updateCartItemAction({ ...item, quantity: qtyLimit }))
         }
     }
-    console.log(item.inStock)
+    
     return (
         <div className="cart-item">
             <div className="cart-item-image">

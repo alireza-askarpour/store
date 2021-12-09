@@ -6,6 +6,21 @@
         }
     }
 
+    .ratings {
+        .cheked {
+            @include dimensions(18px, 18px);
+            @include flex(center, center);
+            background-color: $main-color;
+            border-radius: $full-rounded;
+            margin-left: 5px;
+
+            svg {
+                @include dimensions(14px, 14px);
+                stroke: $txt-white;
+            }
+        }
+    }
+
     .title {
         margin: 30px 0 14px 0;
         font-size: 14px;

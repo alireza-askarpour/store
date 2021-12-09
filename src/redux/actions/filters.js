@@ -31,3 +31,13 @@ export const sortPriceAction = (sort) => (dispatch) => {
 export const clearFiltersAction = () => (dispatch) => {
     dispatch({ type: types.CLEAR_FILTERS })
 }
+
+export const filterSelectReducer = () => (dispatch, getState) => {
+    dispatch({ 
+        type: 'FILTER_SELECT', 
+        paylod: {
+            products: getState().productsList.products, 
+            filter: getState().filters
+        } 
+    })
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch} from 'react-redux'
 import PropTypes from 'prop-types'
+import { useDispatch, useSelector} from 'react-redux'
 
 import Radio from '../../shared/Radio'
 import CheckBox from '../../shared/CheckBox'
@@ -18,9 +18,12 @@ import {
 
 import { brands, categories, multi_range } from '../../../assets/data/products_filter'
 import { ratings } from '../../../assets/data/ratings'
+import { check } from '../../../assets/icons'
 
 const FilterMenu = ({ filter }) => {
     const dispatch = useDispatch()
+
+    const filters = useSelector(state => state.filters)
 
     const handleFilterRating = (rating) => dispatch(filterRatingAction(rating))
 
@@ -79,7 +82,7 @@ const FilterMenu = ({ filter }) => {
                 </div>
             </div>
 
-            <div>
+            <div className="ratings">
                 <h5 className="title">Ratings</h5>  
                 <div className="options">
                     {
@@ -90,7 +93,10 @@ const FilterMenu = ({ filter }) => {
                                 onClick={() => handleFilterRating(item.rating)}
                             >
                                 <RatingsList rating={item.rating}/>
-                                <span>& up</span>
+                                
+                                {
+                                    filter.rating === index + 1 && <span className="cheked">{check}</span>
+                                }
                             </div>
                         ))
                     }

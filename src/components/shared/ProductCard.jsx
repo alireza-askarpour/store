@@ -7,6 +7,8 @@ import Button from '../shared/Button'
 import RatingsList from '../shared/RatingsList'
 import numberWithCommas from '../../utils/numberWithCommas'
 
+import { heart } from '../../assets/icons'
+
 const ProductCard = ({ 
     id,
     image, 
@@ -17,12 +19,9 @@ const ProductCard = ({
     link, 
     brand, 
     inStock,
-    leftBtnClick,
-    rightBtnLink,
-    leftBtnText
+    addToWishlist
 }) => {
-    const state = useSelector(state => state.wishlist)
-    const { wishlist } = state
+    const { wishlist } = useSelector(state => state.wishlist)
 
     const { productsListLayout } = useLayout()
     const { pathname } = useLocation()
@@ -76,19 +75,21 @@ const ProductCard = ({
                         size="small" 
                         bgColor="custom" 
                         txtColor="custom"
-                        click={leftBtnClick}
+                        click={addToWishlist}
+                        bold
                     >
-                        {leftBtnText}
+                        {heart} Wishlist
                     </Button>
                 </div>
 
                 <div className="card-btn-cart">
-                    <Link to={rightBtnLink}>
+                    <Link to={`/product/${id}`}>
                         <Button 
                             btnBlock 
                             roundedNone={rounded_none} 
                             size="small" 
                             stock={!inStock}
+                            bold
                         >
                             { inStock ? 'View in Cart': 'Unavailable' }
                         </Button>

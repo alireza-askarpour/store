@@ -1,14 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
-import { productsListReducer, productDetailsReducer, searchProductsReducer } from './reducers/products'
-import { filtersReducer } from './reducers/filters'
+import { productsListReducer, productDetailsReducer, searchProductsReducer} from './reducers/products'
+import { filtersReducer, filterSelectReducer } from './reducers/filters'
 import { cartReducer } from './reducers/cart'
 import { wishlistReucer } from './reducers/wishlist'
 
 const reducer = combineReducers({
     productsList: productsListReducer,
     filters: filtersReducer,
+    filterSelect: filterSelectReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
     wishlist: wishlistReucer,

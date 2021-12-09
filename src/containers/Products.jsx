@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { useLayout } from '../providers/layout'
 import { productsAction } from '../redux/actions/products'
-import { sortPriceAction } from '../redux/actions/filters'
+import { sortPriceAction, filterSelectReducer } from '../redux/actions/filters'
 import { filterSearchAction } from '../redux/actions/filters'
 import { wishlistAction } from '../redux/actions/wishlist'
 
@@ -17,20 +17,22 @@ import SideDrawer from '../components/layout/SideDrawer'
 import menu from '../assets/icons/menu'
 import featherSearch from '../assets/icons/search'
 import { productsSort } from '../assets/data/products_sort'
-import { heart } from '../assets/icons'
+import { chevronRight, chevronLeft } from '../assets/icons'
 
 const Products = () => {
-    const [filterSelect, setFilterSelect] = useState([])
-    const [showSideDrawer, setShowSideDrawer] = useState(false)
-    
     const dispatch = useDispatch()
-
+    
     const productsList = useSelector(state => state.productsList)
     const filters = useSelector(state => state.filters)
+    const { filteredProducts } = useSelector(state => state.filterSelect)
     
-    const { loading, products } = productsList
+    const initProductsShow = filteredProducts.slice(0, 9)
+    
+    const [showSideDrawer, setShowSideDrawer] = useState(false)
+    const [productsShow, setProductsShow] = useState([])
+    
+    const { loading } = productsList
     const { productsListLayout } = useLayout()
-    const { category, brand, multiRange, rating, search, sort, stock } = filters
 
     const handleFilterSearch = (e) => dispatch(filterSearchAction(e.target.value))
     const handleSortPrice = (value) => dispatch(sortPriceAction(value))
@@ -49,68 +51,59 @@ const Products = () => {
         dispatch(productsAction())
     }, [])
 
-    const updateProducts = useCallback(
-        () => {
-            if (!loading) {
-                let temp = products
-                
-                if (category.length > 0) {
-                    temp = temp.filter(i => category.includes(i.category))
-                }
-
-                if (brand.length > 0) {
-                    temp = temp.filter(i => brand.includes(i.brand))
-                }
-
-                if (stock) {
-                    temp = temp.filter(i => i.inStock)
-                }
-
-                if (sort === 'lowest' || sort === 'highest') {
-                    temp.sort((a, b) => sort === 'lowest' ? a.price - b.price : (sort === 'highest' && b.price - a.price))
-                }
-
-                if (search) {
-                    temp = temp.filter(i => i.name.toLowerCase().includes(search.toLowerCase()))
-                }
-
-                if (rating) {
-                    temp = temp.filter(i => i.rating === rating)
-                }
-
-                switch (multiRange) {
-                    case 'all':  
-                        temp = [...temp]
-                        break
-                    case 'greater-equals-10':
-                        temp = temp.filter(i => i.price <= 10)
-                        break
-
-                    case 'between-10-and-100':
-                        temp = temp.filter(i => i.price >= 10 && i.price <= 100)
-                        break
-                    case 'between-100-and-500':
-                        temp = temp.filter(i => i.price >= 100 && i.price <= 500)
-                        break
-                    case 'greater-equals-500':
-                        temp = temp.filter(i => i.price >= 500)
-                        break
-                    default:
-                        temp = [...temp]
-                        break
-                }
-
-                setFilterSelect(temp)
-            }
-        }, [filters, productsList]
-    )
-        
     useEffect(() => {
-        updateProducts()
-    }, [updateProducts, productsList, filters])
+        dispatch(filterSelectReducer())
+    }, [productsList, filters])
 
-    const products_list = productsListLayout === 'grid' && filterSelect.length > 0  ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3' : 'products-view'   
+    useEffect(() => {
+        setProductsShow(initProductsShow)
+    }, [productsList, filteredProducts])
+
+    const products_list = productsListLayout === 'grid' && filteredProducts.length > 0  
+      ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3' 
+      : 'products-view'   
         
+    const [pageIndex, setPageIndex] = useState(0)
+
+    let range = []
+
+    let pages = Math.floor(filteredProducts.length / 9)
+    pages = filteredProducts.length % 9 === 0 ? pages : pages + 1
+    range = [...Array(pages).keys()]
+
+    const [currPage, setCurrPage] = useState(0)
+
+    const handleSelectPage = page => {
+        const start = 9 * page
+        const end = start + 9
+        
+        setPageIndex(page)
+        setProductsShow(filteredProducts.slice(start, end))
+        setCurrPage(page)
+    }
+    
+    const handlePtrvNext = () => {
+        if (pageIndex !== (pages - 1)) {
+            const start = 9 * (pageIndex+1)
+            const end = start + 9
+            
+            setProductsShow(filteredProducts.slice(start, end))
+            setCurrPage(pageIndex+1)
+            setPageIndex(pageIndex+1)
+        }
+    }
+
+    const handlePtrvPage = () => {
+        if (pageIndex !== 0) {
+            const start = 9 * (pageIndex-1)
+            const end = start + 9
+        
+            setProductsShow(filteredProducts.slice(start, end))
+            setCurrPage(pageIndex-1)
+            setPageIndex(pageIndex-1)   
+        } 
+    }
+
     return (
         <div className="products">
             {
@@ -141,7 +134,7 @@ const Products = () => {
                                         <button className="burger-menu" onClick={handleShowSideDrawer}>
                                             {menu}
                                         </button>
-                                        <h5 className="result-toggler">{`${filterSelect.length} results found`}</h5>
+                                        <h5 className="result-toggler">{`${filteredProducts.length} results found`}</h5>
                                         <div className="view-options">
                                             <div className="view-option">
                                                 <SelectBox
@@ -168,28 +161,59 @@ const Products = () => {
                                     </div>
                                     <div className={products_list}>
                                         {
-                                            filterSelect.length > 0 ? (
-                                                filterSelect.map((item, index) => (
+                                            filteredProducts.length > 0 ? (
+                                                productsShow.map((item, index) => (
                                                     <ProductCard
                                                         key={index}
                                                         id={item.id}
                                                         image={item.images[0]}
                                                         price={item.price} 
-                                                        title={item.name} 
+                                                        name={item.name} 
                                                         description={item.description} 
                                                         rating={item.rating}
                                                         link={`/product/${item.id}`}
                                                         brand={item.brand.replace('-', ' ')}
                                                         inStock={item.inStock}
-                                                        leftBtnClick={() => handleWishlist(item)}
-                                                        rightBtnLink={`/product/${item.id}`}
-                                                        leftBtnText={<>{heart} Wishlist</>}
+                                                        addToWishlist={() => handleWishlist(item)}
                                                     />
                                                 ))
                                             ) : 
                                             <p className="no-results-found">No results found</p>
                                         }
                                     </div>
+                                    {
+                                        pages > 1 && (
+                                            <div className="pagination-wrapper">
+                                                <div className="pagination">
+                                                    <button 
+                                                        className={`prev-item ${pageIndex === 0 ? 'disable' : ''}`}
+                                                        onClick={handlePtrvPage}
+                                                    >
+                                                        {chevronLeft}
+                                                    </button>
+                                                    <div className="pagination-items">
+                                                        {   
+                                                            range.map((item, index) => (
+                                                                <button 
+                                                                key={index}
+                                                                className={`pagination-item ${currPage === index ? 'active' : ''}`}
+                                                                onClick={() => handleSelectPage(index)}
+                                                                >
+                                                                    {item + 1}
+                                                                </button>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                    <button 
+                                                        className={`next-item ${pageIndex === (pages - 1) ? 'disable' : ''}`}
+                                                        onClick={handlePtrvNext}
+                                                    >
+                                                        {chevronRight}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>

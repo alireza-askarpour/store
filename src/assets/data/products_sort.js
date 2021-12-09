@@ -1,1 +1,1 @@
-export const productsSort = ['lowest', 'highest']
+export const productsSort = ['featured', 'lowest', 'highest']

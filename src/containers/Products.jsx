@@ -8,7 +8,7 @@ import { filterSearchAction } from '../redux/actions/filters'
 import { wishlistAction } from '../redux/actions/wishlist'
 
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import ProductCard from '../components/shared/ProductCard'
+import ProductCard from '../components/pages/products/ProductCard'
 import FilterMenu from '../components/pages/products/FilterMenu'
 import SelectBox from '../components/shared/SelectBox'
 import Tabs from '../components/pages/products/Tabs'

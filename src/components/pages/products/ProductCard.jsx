@@ -2,12 +2,12 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
-import { useLayout } from '../../providers/layout'
-import Button from '../shared/Button'
-import RatingsList from '../shared/RatingsList'
-import numberWithCommas from '../../utils/numberWithCommas'
+import { useLayout } from '../../../providers/layout'
+import Button from '../../shared/Button'
+import RatingsList from '../../shared/RatingsList'
+import numberWithCommas from '../../../utils/numberWithCommas'
 
-import { heart } from '../../assets/icons'
+import { heart } from '../../../assets/icons'
 
 const ProductCard = ({ 
     id,

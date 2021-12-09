@@ -1,0 +1,92 @@
+.wishlist-card {
+    background-color: $main-bg;
+    box-shadow: $third-box-shadow;
+    border-radius: $second-rounded;
+    transition: transform .5s, box-shadow .5s;
+    overflow: hidden;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $fiveth-box-shadow;
+    }
+
+    &-image {
+        @include flex(center, center);
+        overflow: hidden;
+        
+        @include medium {   
+            .cart-img {
+                width: 100%;
+                max-width: 300px
+            }
+        }
+    }
+
+    &-body {
+        padding: 14px;
+
+        .wishlist-card-meta {
+            @include flex(space-between, center);
+
+            .wishlist-card-price {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .wishlist-card-unavailable {
+                font-weight: 500;
+                font-size: 14px;
+                color: $main-color-red;
+            }
+        }
+
+        .wishlist-card-title,
+        .wishlist-card-description {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wishlist-card-heading {
+            .wishlist-card-title {
+                font-size: 15px;
+                font-weight: 600;
+                margin-top: 10px;
+                color: $main-txt-color;
+            }
+
+            .wishlist-card-brand {
+                display: none;
+            }
+        }
+
+        .wishlist-card-description {
+            font-size: 12px;
+            font-weight: 500;
+            color: $third-txt-color;
+            margin-top: 6px;
+        }
+    }
+
+    &-options {
+        display: flex;
+
+        .card-price-wrapper {
+            display: none;
+        }
+
+        .card-btn-left {
+            width: 45%;
+            color: $main-txt-color;
+
+            svg {
+                stroke: $main-txt-color;
+            }
+        }
+        
+        .card-btn-cart {
+            width: 55%;
+        }
+    }
+}

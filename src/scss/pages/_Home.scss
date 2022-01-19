@@ -1,15 +1,15 @@
 .home {
-    @include dimensions(100%, 100%);
+  @include dimensions(100%, 100%);
 
-    [class*="grid-col-"] {
-        gap: 25px;
-    }   
+  [class*='grid-col-'] {
+    gap: 25px;
+  }
 
-    .mt-25 {
-        margin-top: 25px;
-    }
+  .mt-25 {
+    margin-top: 25px;
+  }
 
-    .mb-25 {
-        margin-bottom: 25px;
-    }
+  .mb-25 {
+    margin-bottom: 25px;
+  }
 }

@@ -2,69 +2,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
-    background-color: $second-bg;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  background-color: $second-bg;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 .grid {
-    display: grid;
+  display: grid;
 }
 
 ::-webkit-scrollbar {
-    @include dimensions(12px, 12px);
+  @include dimensions(12px, 12px);
 }
 
 ::-webkit-scrollbar-track {
-    background-color: $main-bg;
+  background-color: $main-bg;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $fourth-txt-color;
-    border: 2px solid $main-bg;
-    border-radius: $full-rounded;
+  background-color: $fourth-txt-color;
+  border: 2px solid $main-bg;
+  border-radius: $full-rounded;
 }
 
-input[type="text"] {
-    color: $main-txt-color;
+input[type='text'] {
+  color: $main-txt-color;
 }
 
 .card {
-    background-color: $main-bg;
-    border-radius: $second-rounded;
-    box-shadow: $main-box-shadow;
-    padding: 25px;
+  background-color: $main-bg;
+  border-radius: $second-rounded;
+  box-shadow: $main-box-shadow;
+  padding: 25px;
 }
 
 .p-1 {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .p-2 {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .p-3 {
-    padding: 3rem;
+  padding: 3rem;
 }
 
 .m-1 {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .m-2 {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .m-3 {
-    margin: 3rem;
+  margin: 3rem;
 }

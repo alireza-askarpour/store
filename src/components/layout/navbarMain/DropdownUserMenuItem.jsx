@@ -1,21 +1,18 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 
 const DropdownUserMenuItem = ({ icon, content }) => {
-    return (
-        <div className="dropdown-user-menu-item">
-            {icon}
-            <span>
-                {content}
-            </span>
-        </div>
-    )
+  return (
+    <div className="dropdown-user-menu-item">
+      {icon}
+      <span>{content}</span>
+    </div>
+  )
 }
 
 DropdownUserMenuItem.propTypes = {
-    icon: PropTypes.object,
-    content: PropTypes.string,
-    route: PropTypes.string,
+  icon: PropTypes.object,
+  content: PropTypes.string,
+  route: PropTypes.string,
 }
 
 export default DropdownUserMenuItem

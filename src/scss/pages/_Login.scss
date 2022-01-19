@@ -1,230 +1,227 @@
 .login {
+  &-image {
+    padding: 1.5rem;
 
-    &-image {
-        padding: 1.5rem;
+    @include large {
+      grid-column: 1 / span 2;
+      min-height: 100vh;
 
-        @include large {
-            grid-column: 1 / span 2;
-            min-height: 100vh;
-
-            // @include flex(center, center);
-        }
-
-        .image-wrapper {
-            @include flex(center, center);
-            height: calc(100% - 65px);
-        }
+      // @include flex(center, center);
     }
 
-    &-content {
-        @include flex(center, center);
-        background-color: $txt-white;
+    .image-wrapper {
+      @include flex(center, center);
+      height: calc(100% - 65px);
+    }
+  }
 
-        @include large {
-            grid-column: 3 / span 1;
-            padding: 1.5rem;
+  &-content {
+    @include flex(center, center);
+    background-color: $txt-white;
+
+    @include large {
+      grid-column: 3 / span 1;
+      padding: 1.5rem;
+    }
+
+    @include extra-large {
+      padding: 3.5rem;
+    }
+
+    .content-wrapper {
+      padding: 0 1rem;
+      width: 100%;
+      padding-bottom: 3rem;
+
+      @include small {
+        width: 60%;
+      }
+
+      @include large {
+        width: 100%;
+        padding-bottom: 0;
+      }
+
+      .form-title {
+        font-size: 24px;
+        font-weight: 500;
+        color: $main-txt-color;
+        margin-bottom: 14px;
+      }
+
+      .form-text {
+        font-size: 14px;
+        color: $third-txt-color;
+        margin-bottom: 21px;
+      }
+
+      .content-alert {
+        margin-bottom: 21px;
+        padding: 10px 14px;
+        background-color: $color-light-blue;
+        border-radius: $main-rounded;
+
+        p {
+          color: $main-color-blue;
+          font-size: 12px;
+          line-height: 26px;
+
+          span {
+            font-weight: 500;
+            margin-right: 5px;
+          }
         }
+      }
 
-        @include extra-large {
-            padding: 3.5rem;
-        }
+      .form {
+        .form-control {
+          position: relative;
+          padding: 5px 0 21px 0;
 
-        .content-wrapper {
-            padding: 0 1rem;
+          label {
+            font-size: 12px;
+            color: $main-txt-color;
+            padding-bottom: 5px;
+            display: block;
+          }
+
+          .label-wrapper {
+            @include flex(space-between, center);
+
+            span {
+              font-size: 12px;
+              color: $main-color-blue;
+              padding-bottom: 5px;
+              display: block;
+            }
+          }
+
+          input {
+            border: 1px solid $second-border-color;
+            border-radius: $main-rounded;
+            padding: 9px 14px;
+            font-size: 14px;
             width: 100%;
-            padding-bottom: 3rem;
+            color: $main-txt-color;
 
-            @include small {
-                width: 60%;
+            &:focus {
+              border-color: $main-color;
+            }
+          }
+
+          .input-wrapper {
+            @include flex(center, center);
+            position: relative;
+
+            input {
+              width: 100%;
+              margin: 0;
+              // padding: 9px 14px;
+              padding-right: 42px;
             }
 
-            @include large {
-                width: 100%;
-                padding-bottom: 0;
+            .eye-icon {
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              padding: 7px 14px;
+              cursor: pointer;
+
+              svg {
+                @include dimensions(14px, 14px);
+                color: $main-txt-color;
+              }
             }
+          }
 
-            .form-title {
-                font-size: 24px;
-                font-weight: 500;
-                color: $main-txt-color-light;
-                margin-bottom: 14px;
-            }
+          small {
+            color: $second-color-red;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 12px;
+          }
+        }
 
-            .form-text {
-                font-size: 14px;
-                color: $third-txt-color-light;
-                margin-bottom: 21px;
-            }
+        .custom-checkbox {
+          margin-bottom: 14px;
 
-            .content-alert {
-                margin-bottom: 21px;
-                padding: 10px 14px;
-                background-color: $color-light-blue;
-                border-radius: $main-rounded;
-                
-                p {
-                    color: $main-color-blue;
-                    font-size: 12px;
-                    line-height: 26px;
-                    
-                    span {
-                        font-weight: 500;
-                        margin-right: 5px;
-                    }
-                }
-            }
+          label {
+            color: $main-txt-color;
+          }
+        }
 
-            .form {
-                .form-control {
-                    position: relative;
-                    padding: 5px 0 21px 0;
+        .form-submit {
+          margin-bottom: 21px;
+        }
+      }
 
-                    label {
-                        font-size: 12px;
-                        color: $main-txt-color;
-                        padding-bottom: 5px;
-                        display: block;
-                    }   
+      .form + p {
+        text-align: center;
 
-                    .label-wrapper {
-                        @include flex(space-between, center);
-                        
-                        span {
-                            font-size: 12px;
-                            color: $main-color-blue;
-                            padding-bottom: 5px;
-                            display: block;
-                        }
-                    }
+        span {
+          color: $main-txt-color;
+          font-size: 14px;
+        }
 
-                    input {
-                        border: 1px solid $second-border-color;
-                        border-radius: $main-rounded;
-                        padding: 9px 14px;
-                        font-size: 14px;
-                        width: 100%;
-                        color: $main-txt-color;
+        a {
+          span {
+            margin-left: 5px;
+            color: $main-color-blue;
+          }
+        }
+      }
 
-                        &:focus {
-                            border-color: $main-color;
-                        }
-                    }
+      .auth-divider {
+        margin: 14px 0;
+        text-align: center;
 
-                    .input-wrapper {
-                        @include flex(center, center);
-                        position: relative;
+        .divider-text {
+          color: $main-txt-color;
+          font-size: 14px;
+          position: relative;
+          display: inline-block;
+          font-size: 0.9375rem;
+          width: 100%;
 
-                        input {
-                            width: 100%;
-                            margin: 0;
-                            // padding: 9px 14px;
-                            padding-right: 42px;
-                        }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50%;
+            border-top: 1px solid $main-border-color;
+          }
 
-                        .eye-icon {
-                            position: absolute;
-                            right: 0;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            padding: 7px 14px;
-                            cursor: pointer;
+          &::after {
+            content: '';
+            // position: absolute;
+            top: 50%;
+            width: 50%;
+            border-top: 1px solid $main-border-color;
+          }
+        }
+      }
 
-                            svg {
-                                @include dimensions(14px, 14px);
-                                color: $main-txt-color-light;
-                            }
-                        }
-                    }
+      .auth-footer-btn {
+        @include flex(center, center);
 
-                    small {
-                        color: $second-color-red;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        font-size: 12px;
-                    }
+        button {
+          @include dimensions(30px, 30px);
+          border-radius: $main-rounded;
+          cursor: pointer;
+          @include flex(center, center);
 
-                }
-                
-                .custom-checkbox {
-                    margin-bottom: 14px;
+          svg {
+            @include dimensions(14px, 14px);
+            stroke: $txt-white;
+          }
+        }
 
-                    label {
-                        color: $main-txt-color;
-                    }
-                }
-
-                .form-submit {
-                    margin-bottom: 21px;
-                }
-            }
-
-            .form + p {
-                text-align: center;
-
-                span {
-                    color: $main-txt-color-light;
-                    font-size: 14px;
-                }
-
-                a  {
-                    span {
-                        margin-left: 5px;
-                        color: $main-color-blue;
-                    }
-                }                
-            }
-
-            .auth-divider {
-                margin: 14px 0;
-                text-align: center;
-                
-                .divider-text {
-                    color: $main-txt-color-light;
-                    font-size: 14px;
-                    position: relative;
-                    display: inline-block;
-                    font-size: .9375rem;
-                    width: 100%;
-
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        top: 50%;
-                        width: 50%;
-                        border-top: 1px solid #ebe9f1;
-                    }
-
-                    &::after {
-                        content: '';
-                        // position: absolute;
-                        top: 50%;
-                        width: 50%;
-                        border-top: 1px solid #ebe9f1;
-                    }
-                }
-            }
-
-            .auth-footer-btn {
-                @include flex(center, center);
-
-                button {
-                    @include dimensions(30px, 30px);
-                    border-radius: $main-rounded;
-                    cursor: pointer;
-                    @include flex(center, center);
-
-                    
-                    svg {
-                        @include dimensions(14px, 14px);
-                        stroke: $txt-white;
-                    }
-                }
-
-                button + button {
-                    margin-left: 14px;
-                }
-            }
-        }        
+        button + button {
+          margin-left: 14px;
+        }
+      }
     }
+  }
 }

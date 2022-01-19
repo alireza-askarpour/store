@@ -29,11 +29,11 @@
         }
 
         .filter-menu-content {
-          box-shadow: $fourth-box-shadow!important;
+          box-shadow: $fourth-box-shadow !important;
           position: sticky;
           top: 50px;
           left: 0;
-        }        
+        }
       }
     }
 
@@ -90,8 +90,8 @@
           overflow: hidden;
 
           ::placeholder {
-              color: $fourth-txt-color;
-              font-size: 14px;
+            color: $fourth-txt-color;
+            font-size: 14px;
           }
 
           .search-product {
@@ -103,17 +103,17 @@
           }
 
           .search-icon {
-              @include flex(center, center);
-              position: absolute;
-              right: 18px;
-              top: 50%;
-              transform: translateY(-50%);
+            @include flex(center, center);
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
 
-              svg {
-                  width: 18px;
-                  height: 18px;
-                  color: $fourth-txt-color;
-              }
+            svg {
+              width: 18px;
+              height: 18px;
+              color: $fourth-txt-color;
+            }
           }
         }
 
@@ -131,16 +131,16 @@
 
         .pagination-wrapper {
           @include flex(center, center);
-          
+
           .pagination {
             @include flex(center, center);
-            
+
             &-items {
               border-radius: $full-rounded;
               background-color: $main-bg;
               box-shadow: $fourth-box-shadow;
               margin: 0 7px;
-              
+
               .pagination-item {
                 @include dimensions(32px, 32px);
                 font-size: 14px;
@@ -148,16 +148,16 @@
                 background-color: $main-bg;
                 cursor: pointer;
                 font-weight: 500;
-                
+
                 &:first-child {
                   border-radius: $full-rounded 0 0 $full-rounded;
                 }
-                
+
                 &:last-child {
                   border-radius: 0 $full-rounded $full-rounded 0;
                 }
               }
-              
+
               .pagination-item.active {
                 background-image: $main-bg-gradient;
                 color: $txt-white;
@@ -176,7 +176,7 @@
               color: $third-txt-color;
               background-color: $main-bg;
               cursor: pointer;
-              transition: all .3s;
+              transition: all 0.3s;
 
               &:hover {
                 background-color: $main-color;
@@ -189,7 +189,7 @@
               svg {
                 @include dimensions(18px, 18px);
                 stroke: $third-txt-color;
-                transition: all .3s;
+                transition: all 0.3s;
               }
             }
 

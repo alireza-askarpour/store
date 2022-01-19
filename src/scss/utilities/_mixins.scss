@@ -1,35 +1,35 @@
 @mixin flex($justify-content, $align-item, $direction: row) {
-    display: flex;
-    justify-content: $justify-content;
-    align-items: $align-item;
-    flex-direction: $direction;
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-item;
+  flex-direction: $direction;
 }
 
 @mixin dimensions($width, $height) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin small {
-    @media only screen and (min-width: $breakpoint-sm) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-sm) {
+    @content;
+  }
 }
 
 @mixin medium {
-    @media only screen and (min-width: $breakpoint-md) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-md) {
+    @content;
+  }
 }
 
 @mixin large {
-    @media only screen and (min-width: $breakpoint-lg) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
 }
 
 @mixin extra-large {
-    @media only screen and (min-width: $breakpoint-xl) {
-        @content;
-    }
+  @media only screen and (min-width: $breakpoint-xl) {
+    @content;
+  }
 }

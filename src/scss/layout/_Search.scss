@@ -1,117 +1,116 @@
 .search {
-    &-btn {
-        @include flex(center, center);
-        background: $bg-transparent;
-        color: inherit;
-        cursor: pointer;
-        padding: 0 7px;
+  &-btn {
+    @include flex(center, center);
+    background: $bg-transparent;
+    color: inherit;
+    cursor: pointer;
+    padding: 0 7px;
 
-        svg {
-            @include dimensions(22px, 22px);
-            color: $third-txt-color;
-        }
+    svg {
+      @include dimensions(22px, 22px);
+      color: $third-txt-color;
+    }
+  }
+
+  &-box {
+    @include dimensions(100%, 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    display: none;
+    border-radius: $second-rounded;
+
+    input {
+      @include dimensions(100%, 100%);
+      padding: 0 3.75rem;
     }
 
-    &-box {
-        @include dimensions(100%, 100%);
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        overflow: hidden;
-        display: none;
-        border-radius: $second-rounded;
+    .search-icon,
+    .x-icon {
+      @include flex(center, center);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $third-txt-color;
+      background: $bg-transparent;
+      cursor: pointer;
+    }
 
-        input {
+    .search-icon {
+      left: 25px;
+    }
+
+    .x-icon {
+      right: 25px;
+    }
+  }
+
+  &-box.active {
+    display: inline-block;
+    z-index: 100;
+  }
+
+  .search-menu {
+    position: absolute;
+    background-color: $main-bg;
+    box-shadow: $second-box-shadow;
+    top: 75px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: $second-rounded;
+    padding: 12px 0;
+    overflow: hidden;
+    display: none;
+
+    &-container {
+      max-height: 450px;
+      overflow-y: auto;
+      font-size: 14px;
+
+      .search-menu-items {
+        .menu-header {
+          font-weight: 500;
+          margin: 15px 10px 10px;
+        }
+
+        &:first-of-type {
+          .menu-header {
+            margin-top: 0;
+          }
+        }
+
+        .menu-items-text {
+          padding: 7px 14px;
+        }
+
+        .menu-item {
+          height: 40px;
+
+          &:hover {
+            background-color: $second-bg;
+          }
+
+          a {
+            @include flex(flex-start, center);
             @include dimensions(100%, 100%);
-            padding: 0 3.75rem;
-        }
+            padding: 0 10px;
 
-        .search-icon,
-        .x-icon {
-            @include flex(center, center);
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: $third-txt-color;
-            background: $bg-transparent;
-            cursor: pointer;
-        }
-        
-        .search-icon {
-            left: 25px;
-        }
-
-        .x-icon {
-            right: 25px;
-        }
-    }
-
-    &-box.active {
-        display: inline-block;
-        z-index: 100;
-    }
-
-    .search-menu {
-        position: absolute;
-        background-color: $main-bg;
-        box-shadow: $second-box-shadow;
-        top: 75px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        border-radius: $second-rounded;
-        padding: 12px 0;
-        overflow: hidden;
-        display: none;
-        
-        &-container {
-            max-height: 450px;
-            overflow-y: auto;
-            font-size: 14px;
-
-            .search-menu-items {
-                
-                .menu-header {
-                    font-weight: 500;
-                    margin: 15px 10px 10px;
-                }
-
-                &:first-of-type {
-                    .menu-header {
-                        margin-top: 0;
-                    }
-                }
-
-                .menu-items-text {
-                    padding: 7px 14px;
-                }
-
-                .menu-item {
-                    height: 40px;
-                    
-                    &:hover {
-                        background-color: $second-bg;
-                    }
-                    
-                    a {
-                        @include flex(flex-start, center);
-                        @include dimensions(100%, 100%);
-                        padding: 0 10px;
-
-                        svg {
-                            @include dimensions(18, 18px);
-                            margin-right: 10px;
-                        }
-                    }
-                }
+            svg {
+              @include dimensions(18, 18px);
+              margin-right: 10px;
             }
+          }
         }
+      }
     }
+  }
 }
 
 .search.open-menu {
-    .search-menu {
-        display: block;
-    }
+  .search-menu {
+    display: block;
+  }
 }

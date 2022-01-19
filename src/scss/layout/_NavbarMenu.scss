@@ -1,10 +1,10 @@
 .navbar-menu-wrapper {
-    padding: 0 25px 0;
-    background-color: rgba($color: $second-bg, $alpha: .95);
+  padding: 0 25px 0;
+  background-color: rgba($color: $second-bg, $alpha: 0.95);
 
-    @include extra-large {
-      padding: 18px 25px 0;
-    }
+  @include extra-large {
+    padding: 18px 25px 0;
+  }
 
   .navbar-menu {
     background: $main-bg;

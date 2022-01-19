@@ -1,35 +1,35 @@
 .service-box {
-    @include flex(flex-start, center);
-    background-color: $main-bg;
-    border-radius: $fourth-rounded;
-    box-shadow: $second-box-shadow;
-    padding: 15px 5px 15px 0;
-    background-color: $main-bg;
+  @include flex(flex-start, center);
+  background-color: $main-bg;
+  border-radius: $fourth-rounded;
+  box-shadow: $second-box-shadow;
+  padding: 15px 5px 15px 0;
+  background-color: $main-bg;
 
-    .icon {
-        @include flex(center, center); 
-        padding: 18px;
-        margin: 0 18px;
-        border-radius: $third-rounded;
-        background: $main-bg-gradient;
+  .icon {
+    @include flex(center, center);
+    padding: 18px;
+    margin: 0 18px;
+    border-radius: $third-rounded;
+    background: $main-bg-gradient;
 
-        svg {
-            @include dimensions(20px, 20px);
-            stroke: $txt-white;
-        }
+    svg {
+      @include dimensions(20px, 20px);
+      stroke: $txt-white;
+    }
+  }
+
+  .content {
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: $second-txt-color;
     }
 
-    .content {
-        .title {
-            font-size: 16px;
-            font-weight: 500;
-            color: $second-txt-color;
-        }
-
-        .description {
-            margin-top: 5px;
-            font-size: 14px;
-            color: $third-txt-color;
-        }
-    } 
+    .description {
+      margin-top: 5px;
+      font-size: 14px;
+      color: $third-txt-color;
+    }
+  }
 }

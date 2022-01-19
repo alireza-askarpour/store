@@ -1,28 +1,28 @@
 .quantity-input {
-    @include flex(space-between, center);
-    border: 1px solid $second-border-color;
-    border-radius: $main-rounded;
-    overflow: hidden;
-    max-width: 99px;
+  @include flex(space-between, center);
+  border: 1px solid $second-border-color;
+  border-radius: $main-rounded;
+  overflow: hidden;
+  max-width: 99px;
 
-    button {
-        @include flex(center, center);
-        padding: 7px;
-        background: $bg-transparent;
-        width: 31px;
-        cursor: pointer;
-        
-        svg {
-            @include dimensions(15px, 15px);
-            stroke: $third-txt-color;
-        }
+  button {
+    @include flex(center, center);
+    padding: 7px;
+    background: $bg-transparent;
+    width: 31px;
+    cursor: pointer;
+
+    svg {
+      @include dimensions(15px, 15px);
+      stroke: $third-txt-color;
     }
-    
-    small {
-        font-size: 12px;
-        width: 35px;
-        border-left: 1px solid $main-border-color;
-        border-right: 1px solid $main-border-color;
-        text-align: center;
-    }
+  }
+
+  small {
+    font-size: 12px;
+    width: 35px;
+    border-left: 1px solid $main-border-color;
+    border-right: 1px solid $main-border-color;
+    text-align: center;
+  }
 }

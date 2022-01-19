@@ -1,18 +1,18 @@
 .slider-heading {
-    @include flex(space-between, center);
-    padding-bottom: 20px;
+  @include flex(space-between, center);
+  padding-bottom: 20px;
 
-    .title {
-        font-weight: 500;
-        font-size: 20px;
-    }
+  .title {
+    font-weight: 500;
+    font-size: 20px;
+  }
 
-    .view {
-        font-size: 14px;
-        cursor: pointer;
-        
-        &:hover {
-            color: $main-color;
-        } 
+  .view {
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      color: $main-color;
     }
+  }
 }

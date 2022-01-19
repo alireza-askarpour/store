@@ -1,46 +1,45 @@
 .filter-menu {
+  .multi-range-price {
+    .title {
+      margin: 0 0 14px 0;
+    }
+  }
 
-    .multi-range-price {
-        .title {
-            margin: 0 0 14px 0;
-        }
+  .ratings {
+    .cheked {
+      @include dimensions(18px, 18px);
+      @include flex(center, center);
+      background-color: $main-color;
+      border-radius: $full-rounded;
+      margin-left: 5px;
+
+      svg {
+        @include dimensions(14px, 14px);
+        stroke: $txt-white;
+      }
+    }
+  }
+
+  .title {
+    margin: 30px 0 14px 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .options {
+    .custom-control {
+      @include flex(flex-start, center);
+      margin-bottom: 10px;
     }
 
     .ratings {
-        .cheked {
-            @include dimensions(18px, 18px);
-            @include flex(center, center);
-            background-color: $main-color;
-            border-radius: $full-rounded;
-            margin-left: 5px;
-
-            svg {
-                @include dimensions(14px, 14px);
-                stroke: $txt-white;
-            }
-        }
+      @include flex(flex-start, center);
+      cursor: pointer;
+      width: max-content;
     }
+  }
 
-    .title {
-        margin: 30px 0 14px 0;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .options {
-        .custom-control {
-            @include flex(flex-start, center);
-            margin-bottom: 10px;
-        }
-
-        .ratings {
-            @include flex(flex-start, center);
-            cursor: pointer;
-            width: max-content;
-        }
-    }
-
-    .mt {
-        margin-top: 40px;
-    }
+  .mt {
+    margin-top: 40px;
+  }
 }

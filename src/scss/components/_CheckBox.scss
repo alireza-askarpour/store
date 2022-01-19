@@ -47,7 +47,7 @@
     transform: scale(var(--scale, 1)) translateZ(0);
     --scale: 0;
   }
-  
+
   input {
     &:checked {
       --s: 11px;

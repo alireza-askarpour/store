@@ -1,4 +1,4 @@
-import { home, cart, heart, layout, featherPackage, droplet } from '../icons';
+import { home, cart, heart, layout, featherPackage, droplet } from '../icons'
 
 export const sidebarMenu = [
   {

@@ -1,70 +1,70 @@
 .ratings-list {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    .ratings-list-item {
-        svg {
-            @include dimensions(17px, 17px);
-            stroke: $fourth-txt-color;
-        }
+  .ratings-list-item {
+    svg {
+      @include dimensions(17px, 17px);
+      stroke: $fourth-txt-color;
     }
+  }
 
-    .ratings-list-item:not(:first-child) {
-        margin-left: 2px;
-    }
+  .ratings-list-item:not(:first-child) {
+    margin-left: 2px;
+  }
 }
 
 .ratings-list.rating-1 {
-    li:nth-child(1) {
-        svg {
-            fill: $main-color-orang;
-            stroke: $main-color-orang;
-        }
-    } 
+  li:nth-child(1) {
+    svg {
+      fill: $main-color-orang;
+      stroke: $main-color-orang;
+    }
+  }
 }
 
 .ratings-list.rating-2 {
-    li:nth-child(1),
-    li:nth-child(2) {
-        svg {
-            fill: $main-color-orang;
-            stroke: $main-color-orang;
-        }
-    } 
+  li:nth-child(1),
+  li:nth-child(2) {
+    svg {
+      fill: $main-color-orang;
+      stroke: $main-color-orang;
+    }
+  }
 }
 
 .ratings-list.rating-3 {
-    li:nth-child(1),
-    li:nth-child(2),
-    li:nth-child(3) {
-        svg {
-            fill: $main-color-orang;
-            stroke: $main-color-orang;
-        }
-    } 
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(3) {
+    svg {
+      fill: $main-color-orang;
+      stroke: $main-color-orang;
+    }
+  }
 }
 
 .ratings-list.rating-4 {
-    li:nth-child(1),
-    li:nth-child(2),
-    li:nth-child(3),
-    li:nth-child(4) {
-        svg {
-            fill: $main-color-orang;
-            stroke: $main-color-orang;
-        }
-    } 
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(3),
+  li:nth-child(4) {
+    svg {
+      fill: $main-color-orang;
+      stroke: $main-color-orang;
+    }
+  }
 }
 
 .ratings-list.rating-5 {
-    li:nth-child(1),
-    li:nth-child(2),
-    li:nth-child(3),
-    li:nth-child(4),
-    li:nth-child(5) {
-        svg {
-            fill: $main-color-orang;
-            stroke: $main-color-orang;
-        }
-    } 
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(3),
+  li:nth-child(4),
+  li:nth-child(5) {
+    svg {
+      fill: $main-color-orang;
+      stroke: $main-color-orang;
+    }
+  }
 }

@@ -11,8 +11,8 @@ import 'swiper/components/pagination/pagination.scss'
 import './scss/main.scss'
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
 )

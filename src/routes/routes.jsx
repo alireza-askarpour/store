@@ -8,16 +8,16 @@ import Checkout from '../containers/Checkout'
 import Wishlist from '../containers/Wishlist'
 
 const Routes = () => {
-    return (
-        <Switch>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/products" element={<Products/>}/>
-            <Route path="/product/:id" element={<ProductDetails/>} />
-            <Route path="/cart" element={<Cart/>} />
-            <Route path="/checkout" element={<Checkout/>} />
-            <Route path="/wishlist" element={<Wishlist/>} />
-        </Switch>
-    )
+  return (
+    <Switch>
+      <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/product/:id" element={<ProductDetails />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+    </Switch>
+  )
 }
 
 export default Routes

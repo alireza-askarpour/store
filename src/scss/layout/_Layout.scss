@@ -1,43 +1,41 @@
 .layout {
-    color: $main-txt-color;
+  color: $main-txt-color;
 
-    &-content {
-        background-color: $second-bg;
+  &-content {
+    background-color: $second-bg;
 
-        @include extra-large {
-            margin-left: $second-sidebar-width;
-            transition: margin-left .3s;
-        }
-
-        &-main {
-            min-height: 100vh;
-            padding: 14px;
-            transition: margin .3s;
-
-            @include small {
-                padding: 25px;
-            }
-        }
+    @include extra-large {
+      margin-left: $second-sidebar-width;
+      transition: margin-left 0.3s;
     }
 
-    &-content.vertical-menu {
-        margin-top: 5rem;
-    }    
+    &-main {
+      min-height: 100vh;
+      padding: 14px;
+      transition: margin 0.3s;
 
-    &-content.horizontal-menu {
-        margin-left: 0!important;
-        margin-top: 4.125rem!important;
-
-        @include extra-large {
-            margin-top: 9.125rem!important;
-        }
-
+      @include small {
+        padding: 25px;
+      }
     }
+  }
 
-    &-content.menu-open {
-        
-        @include extra-large {
-            margin-left: $main-sidebar-width!important;
-        }
+  &-content.vertical-menu {
+    margin-top: 5rem;
+  }
+
+  &-content.horizontal-menu {
+    margin-left: 0 !important;
+    margin-top: 4.125rem !important;
+
+    @include extra-large {
+      margin-top: 9.125rem !important;
     }
+  }
+
+  &-content.menu-open {
+    @include extra-large {
+      margin-left: $main-sidebar-width !important;
+    }
+  }
 }

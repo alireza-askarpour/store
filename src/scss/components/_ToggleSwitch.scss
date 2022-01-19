@@ -1,39 +1,39 @@
 .toggle-switch {
-    @include flex(flex-start, center);
+  @include flex(flex-start, center);
 
-    input {
-        @include dimensions(45px, 25px);
-        position: relative;
-        appearance: none;
-        background-color: $second-border-color;
-        border-radius: $full-rounded;
-        cursor: pointer;
-        transition: background .3s;
+  input {
+    @include dimensions(45px, 25px);
+    position: relative;
+    appearance: none;
+    background-color: $second-border-color;
+    border-radius: $full-rounded;
+    cursor: pointer;
+    transition: background 0.3s;
 
-        &::before {
-            @include dimensions(25px, 25px);
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: $txt-white;
-            border-radius: $full-rounded;
-            transform: scale(.80);
-            transition: left .3s;
-        }
-
-        &:checked {
-            background-color: $main-color;
-
-            &::before {
-                left: 20px;
-            }
-        }
+    &::before {
+      @include dimensions(25px, 25px);
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $txt-white;
+      border-radius: $full-rounded;
+      transform: scale(0.8);
+      transition: left 0.3s;
     }
 
-    label {
-        font-size: 14px;
-        margin-left: 5px;
-        cursor: pointer;
+    &:checked {
+      background-color: $main-color;
+
+      &::before {
+        left: 20px;
+      }
     }
-} 
+  }
+
+  label {
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+}

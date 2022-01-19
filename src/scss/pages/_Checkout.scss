@@ -1,99 +1,99 @@
 .checkout {
-    .content-header {
-        margin-bottom: 20px;
-    }
+  .content-header {
+    margin-bottom: 20px;
+  }
 
-    .content-wrapper {
-        gap: 25px;
+  .content-wrapper {
+    gap: 25px;
 
-        .address-form-wrapper {
-            padding: 21px;
-            background: $main-bg;
-            border-radius: $second-rounded;
-            box-shadow: $main-box-shadow;
+    .address-form-wrapper {
+      padding: 21px;
+      background: $main-bg;
+      border-radius: $second-rounded;
+      box-shadow: $main-box-shadow;
 
-            @include large {
-                grid-column: 1 / span 2;
-            }
+      @include large {
+        grid-column: 1 / span 2;
+      }
 
-            .address-form-header {
-                margin-bottom: 14px;
+      .address-form-header {
+        margin-bottom: 14px;
 
-                h4 {
-                    font-size: 18px;
-                    font-weight: 500;
-                    margin-bottom: 7px;
-                }
-
-                p {
-                    font-size: 14px;
-                    color: $fourth-txt-color;
-                    font-weight: 300;
-                }
-            }
-
-            .address-form-content {
-                form {
-                    column-gap: 25px;
-
-                    .form-control {
-                        position: relative;
-                        padding: 7px 0 21px 0;
-
-                        label {
-                            font-size: 12px;
-                        }   
-
-                        input {
-                            margin-top: 5px;
-                            border: 1px solid $second-border-color;
-                            border-radius: $main-rounded;
-                            padding: 9px 14px;
-                            font-size: 14px;
-                            width: 100%;
-
-                            &:focus {
-                                border-color: $main-color;
-                            }
-                        }
-
-                        small {
-                            color: $second-color-red;
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                        }
-                    }
-
-                    .form-btn {
-                        margin-top: 14px;
-                    }
-                }
-            }
+        h4 {
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 7px;
         }
 
-        .address-info {
-            padding: 21px;
-            background: $main-bg;
-            border-radius: $second-rounded;            
-            box-shadow: $main-box-shadow;
-            height: max-content;
-
-            @include large { 
-                grid-column: 3 / span 1;
-            }
-
-            .info-title {
-                font-size: 18px;
-                font-weight: 500;
-                margin-bottom: 21px;
-            }
-
-            .info-text {
-                font-size: 14px;
-                margin-bottom: 14px;
-                color: $third-txt-color;
-            }
+        p {
+          font-size: 14px;
+          color: $fourth-txt-color;
+          font-weight: 300;
         }
+      }
+
+      .address-form-content {
+        form {
+          column-gap: 25px;
+
+          .form-control {
+            position: relative;
+            padding: 7px 0 21px 0;
+
+            label {
+              font-size: 12px;
+            }
+
+            input {
+              margin-top: 5px;
+              border: 1px solid $second-border-color;
+              border-radius: $main-rounded;
+              padding: 9px 14px;
+              font-size: 14px;
+              width: 100%;
+
+              &:focus {
+                border-color: $main-color;
+              }
+            }
+
+            small {
+              color: $second-color-red;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
+          }
+
+          .form-btn {
+            margin-top: 14px;
+          }
+        }
+      }
     }
+
+    .address-info {
+      padding: 21px;
+      background: $main-bg;
+      border-radius: $second-rounded;
+      box-shadow: $main-box-shadow;
+      height: max-content;
+
+      @include large {
+        grid-column: 3 / span 1;
+      }
+
+      .info-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 21px;
+      }
+
+      .info-text {
+        font-size: 14px;
+        margin-bottom: 14px;
+        color: $third-txt-color;
+      }
+    }
+  }
 }

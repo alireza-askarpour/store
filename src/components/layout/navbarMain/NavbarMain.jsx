@@ -51,7 +51,9 @@ const NavbarMain = ({ cartItems }) => {
     }
   }
 
-  const totalPrice = cartItems.reduce((acc, item) => acc + item.totalPrice, 0)
+  const totalPrice = cartItems.reduce((total, item) => total + item.totalPrice, 0)
+
+  const totalCartProducts = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   const logo = menuLayout === 'horizontal' && (
     <div className="logo-wrapper">
@@ -80,7 +82,7 @@ const NavbarMain = ({ cartItems }) => {
   const renderNotificationFooter = <DropdownMenuFooter title="Read all notifications" />
 
   const renderCartHeader = (
-    <DropdownMenuHeader heading="My Cart" badge={`${cartItems.length} Items`} />
+    <DropdownMenuHeader heading="My Cart" badge={`${totalCartProducts} Items`} />
   )
 
   const renderCartItem = (item) => (
@@ -134,7 +136,7 @@ const NavbarMain = ({ cartItems }) => {
           <Search />
           <Dropdown
             icon={cart}
-            badge={cartItems.length.toString()}
+            badge={totalCartProducts.toString()}
             color="bg-blue"
             menuData={cartItems}
             renderHeader={renderCartHeader}

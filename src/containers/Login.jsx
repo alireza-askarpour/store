@@ -30,7 +30,7 @@ const Login = () => {
       <div className="login-image">
         <Logo />
         <div className="image-wrapper">
-          <img src="images/login.svg" alt="Login" />
+          <img src="/images/login.svg" alt="Login" />
         </div>
       </div>
       <div className="login-content">

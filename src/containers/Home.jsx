@@ -7,6 +7,7 @@ import Popular from '../components/pages/home/Popular'
 import ServiceBox from '../components/pages/home/ServiceBox'
 import SliderHeading from '../components/shared/SliderHeading'
 import ProductSlider from '../components/shared/ProductSlider'
+import sliderDataFilter from '../helpers/sliderDataFilter'
 
 import { serviceBox } from '../assets/data/service_box'
 import { firstPopular, secondPopular } from '../assets/data/popular'
@@ -38,10 +39,10 @@ const Home = (props) => {
     return data
   }
 
-  const mobileData = sliderData(products, 'mobile')
-  const smartWatchData = sliderData(products, 'smart-watch')
-  const laptopData = sliderData(products, 'laptop')
-  const computerData = sliderData(products, 'computer')
+  const mobileData = sliderDataFilter(products, 'mobile')
+  const smartWatchData = sliderDataFilter(products, 'smart-watch')
+  const laptopData = sliderDataFilter(products, 'laptop')
+  const computerData = sliderDataFilter(products, 'computer')
 
   return (
     <div className="home">

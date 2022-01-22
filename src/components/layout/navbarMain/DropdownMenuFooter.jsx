@@ -12,9 +12,13 @@ const DropdownMenuFooter = ({ total, title, link }) => {
           <h6>{total}</h6>
         </div>
       )}
-      <Link to="/cart">
+      {link ? (
+        <Link to={link}>
+          <Button btnBlock>{title}</Button>
+        </Link>
+      ) : (
         <Button btnBlock>{title}</Button>
-      </Link>
+      )}
     </div>
   )
 }

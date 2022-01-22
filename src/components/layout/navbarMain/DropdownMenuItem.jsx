@@ -38,7 +38,7 @@ const DropdownMenuItem = (props) => {
       {cartItem && image && price && brand && title && (
         <div className="dropdown-cart-item">
           <div className="dropdown-cart-item-img">
-            <img src={image} alt={''} />
+            <img src={image} alt={title} />
           </div>
           <div className="dropdown-cart-item-body">
             <div className="dropdown-cart-item-heading">

@@ -4,7 +4,7 @@ const Logo = ({ hiddenTitle }) => {
   return (
     <Link to="/">
       <div className="logo">
-        <img src="images/logo.png" className="logo-img" alt="Arcilux" />
+        <img src="/images/logo.png" className="logo-img" alt="Arcilux" />
         {!hiddenTitle && <span className="logo-title">Arcilux</span>}
       </div>
     </Link>

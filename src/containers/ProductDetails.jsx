@@ -9,10 +9,11 @@ import { wishlistAction } from '../redux/actions/wishlist'
 import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 import RatingsList from '../components/shared/RatingsList'
 import QuantityInput from '../components/shared/QuantityInput'
-import ProductSlider from '../components/shared/ProductSlider'
 import SelectBox from '../components/shared/SelectBox'
 import Button from '../components/shared/Button'
+import ProductSlider from '../components/shared/ProductSlider'
 
+import sliderDataFilter from '../helpers/sliderDataFilter'
 import numberWithCommas from '../utils/numberWithCommas'
 
 import {
@@ -32,23 +33,30 @@ const ProductDetails = () => {
   const params = useParams()
   const navigate = useNavigate()
 
-  const productsList = useSelector((state) => state.productsList)
-  const productDetails = useSelector((state) => state.productDetails)
-  const wishlist = useSelector((state) => state.wishlist)
+  const { productsList, productDetails, wishlist } = useSelector((state) => state)
 
   const [color, setColor] = useState(null)
   const [quantity, setQuantity] = useState(1)
+  const [image, setImage] = useState(null)
+  const [name, setName] = useState(null)
+  const [relatedProducts, setRelatedProducts] = useState(null)
 
-  const { products } = productsList
   const { product } = productDetails
 
   useEffect(() => {
     dispatch(productsAction())
     dispatch(productDetailsAction(params.id))
-  }, [])
+  }, [params.id])
 
   useEffect(() => {
     if (product.colors) setColor(product.colors[0])
+    if (product.name) setName(product.name)
+    if (product.images) setImage(product.images[0])
+  }, [product])
+
+  useEffect(() => {
+    const sliderData = sliderDataFilter(productsList.products, product.category)
+    setRelatedProducts(sliderData)
   }, [product])
 
   const handleUpdateColor = (color) => setColor(color)
@@ -65,7 +73,7 @@ const ProductDetails = () => {
       dispatch(
         addToCartAction({
           ...product,
-          image: product.images[0],
+          image,
           quantity,
           color,
         }),
@@ -79,7 +87,7 @@ const ProductDetails = () => {
 
   const like = wishlist.wishlist.some((i) => i.id === +product.id)
 
-  return productsList.loading && productDetails.loading ? (
+  return productsList.loading && productDetails.loading && relatedProducts.length > 0 ? (
     <div>loading...</div>
   ) : (
     <div className="product-details">
@@ -92,7 +100,7 @@ const ProductDetails = () => {
 
         <div className="product-info grid grid-col-1 grid-col-md-12">
           <div className="product-info-image">
-            <img src="images/apple-iphone-11-1.png" alt="Apple iPhone 11" />
+            <img src={image} alt={name} />
           </div>
           <div className="product-info-content">
             <h3 className="product-title">{product.name}</h3>
@@ -237,7 +245,7 @@ const ProductDetails = () => {
             <h4>Related Products</h4>
             <p>People also search for this items</p>
           </div>
-          {/* <ProductSlider/> */}
+          <ProductSlider sliderData={relatedProducts} />
         </div>
       </div>
     </div>

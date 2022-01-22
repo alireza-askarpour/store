@@ -34,7 +34,7 @@ const Register = () => {
       <div className="register-image">
         <Logo />
         <div className="image-wrapper">
-          <img src="images/register.svg" alt="register" />
+          <img src="/images/register.svg" alt="register" />
         </div>
       </div>
       <div className="register-content">

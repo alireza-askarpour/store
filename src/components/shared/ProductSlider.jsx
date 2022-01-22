@@ -22,27 +22,28 @@ const ProductSlider = ({ sliderData }) => {
   return (
     <div className="product-slider">
       <Swiper slidesPerView={1} spaceBetween={20} breakpoints={breakpoints}>
-        {sliderData.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Link to={item.link}>
-              <div className="item-heading">
-                <h5 className="title">{item.title}</h5>
-                <small className="brand">by {item.brand}</small>
-              </div>
-              <div className="img-container">
-                <img src={item.image} alt={item.name} />
-              </div>
-              <div className="item-meta">
-                <RatingsList rating={item.rating} />
-                {item.inStock ? (
-                  <p className="price">{numberWithCommas(item.price)}</p>
-                ) : (
-                  <p className="unavailable">Unavailable</p>
-                )}
-              </div>
-            </Link>
-          </SwiperSlide>
-        ))}
+        {sliderData &&
+          sliderData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Link to={item.link}>
+                <div className="item-heading">
+                  <h5 className="title">{item.title}</h5>
+                  <small className="brand">by {item.brand}</small>
+                </div>
+                <div className="img-container">
+                  <img src={item.image} alt={item.name} />
+                </div>
+                <div className="item-meta">
+                  <RatingsList rating={item.rating} />
+                  {item.inStock ? (
+                    <p className="price">{numberWithCommas(item.price)}</p>
+                  ) : (
+                    <p className="unavailable">Unavailable</p>
+                  )}
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   )

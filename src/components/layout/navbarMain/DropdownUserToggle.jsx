@@ -6,7 +6,7 @@ const DropdownUserToggle = () => {
         <small>user</small>
       </div>
       <div className="user-image">
-        <img src="images/avatar.png" alt="John Doe" />
+        <img src="/images/avatar.png" alt="John Doe" />
       </div>
     </div>
   )

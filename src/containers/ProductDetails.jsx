@@ -27,6 +27,7 @@ import {
   award,
 } from '../assets/icons'
 import { socialMedia } from '../assets/data/social_media'
+import ImageSlider from '../components/pages/product-details/ImageSlider'
 
 const ProductDetails = () => {
   const dispatch = useDispatch()
@@ -38,7 +39,7 @@ const ProductDetails = () => {
   const [color, setColor] = useState(null)
   const [quantity, setQuantity] = useState(1)
   const [image, setImage] = useState(null)
-  const [name, setName] = useState(null)
+  const [images, setImages] = useState(null)
   const [relatedProducts, setRelatedProducts] = useState(null)
 
   const { product } = productDetails
@@ -50,7 +51,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (product.colors) setColor(product.colors[0])
-    if (product.name) setName(product.name)
+    if (product.images) setImages(product.images)
     if (product.images) setImage(product.images[0])
   }, [product])
 
@@ -100,7 +101,8 @@ const ProductDetails = () => {
 
         <div className="product-info grid grid-col-1 grid-col-md-12">
           <div className="product-info-image">
-            <img src={image} alt={name} />
+            {/* <img src={image} alt={name} /> */}
+            <ImageSlider sliderData={images} />
           </div>
           <div className="product-info-content">
             <h3 className="product-title">{product.name}</h3>

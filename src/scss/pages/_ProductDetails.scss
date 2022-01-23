@@ -12,7 +12,7 @@
       padding: 25px;
 
       &-image {
-        @include flex(center, center);
+        @include flex(center, center, column);
 
         @include medium {
           grid-column: 1 / span 5;

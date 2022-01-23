@@ -6,6 +6,7 @@ import ProductDetails from '../containers/ProductDetails'
 import Cart from '../containers/Cart'
 import Checkout from '../containers/Checkout'
 import Wishlist from '../containers/Wishlist'
+import PageLayouts from '../containers/PageLayouts'
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/page-layouts" element={<PageLayouts/>} />
     </Switch>
   )
 }

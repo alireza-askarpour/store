@@ -3,6 +3,8 @@ import ChangeTemplateCard from '../components/pages/page-layouts/ChangeTemplateC
 
 import { useLayout } from '../providers/layout'
 
+import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
+
 const PageLayouts = () => {
   const { menuLayout, changeMenuLayout } = useLayout()
 
@@ -13,18 +15,21 @@ const PageLayouts = () => {
 
   return (
     <div className="page-layouts">
-      <ChangeTemplateCard
-        template="sidebar"
-        onClick={handleVertivalLayout}
-        menuLayout={menuLayout}
-        active={activeCard}
-      />
-      <ChangeTemplateCard
-        template="navbar"
-        onClick={handleHorizontalLayout}
-        menuLayout={menuLayout}
-        active={!activeCard}
-      />
+      <BreadcrumbsTop title="Page Layouts" />
+      <div className="card-wrapper">
+        <ChangeTemplateCard
+          template="sidebar"
+          onClick={handleVertivalLayout}
+          menuLayout={menuLayout}
+          active={activeCard}
+        />
+        <ChangeTemplateCard
+          template="navbar"
+          onClick={handleHorizontalLayout}
+          menuLayout={menuLayout}
+          active={!activeCard}
+        />
+      </div>
     </div>
   )
 }

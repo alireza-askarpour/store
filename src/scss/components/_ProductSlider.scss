@@ -1,5 +1,7 @@
 .product-slider {
-  .swiper-container {
+  .swiper-wrapper {
+    position: relative;
+
     .swiper-slide {
       background-color: $second-bg;
       border-radius: $second-rounded;
@@ -56,5 +58,35 @@
         }
       }
     }
+  }
+}
+
+.controls-button {
+  .prev-button,
+  .next-button {
+    @include flex(center, center);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: $main-color;
+    border-radius: $full-rounded;
+    cursor: pointer;
+    z-index: 10;
+
+    svg {
+      stroke: $txt-white;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .prev-button {
+    left: 12px;
+  }
+
+  .next-button {
+    right: 12px;
   }
 }

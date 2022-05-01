@@ -75,6 +75,11 @@
     cursor: pointer;
     z-index: 10;
 
+    &:disabled {
+      background-color: rgb(166, 172, 180);
+      cursor: not-allowed;
+    }
+
     svg {
       stroke: $txt-white;
       width: 18px;

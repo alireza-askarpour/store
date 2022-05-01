@@ -132,7 +132,6 @@ const NavbarMain = ({ cartItems }) => {
         </div>
         {logo}
         <div className="menu-righ">
-          <button className="toggle-mode">{moon}</button>
           <Search />
           <Dropdown
             icon={cart}

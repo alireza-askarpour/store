@@ -68,23 +68,6 @@
     .menu-righ {
       @include flex(flex-start, center);
       z-index: 5;
-
-      .toggle-mode {
-        @include flex(center, center);
-        padding: 0 7px;
-        cursor: pointer;
-        background: $bg-transparent;
-        display: none;
-
-        @include large {
-          display: block;
-        }
-
-        svg {
-          @include dimensions(21px, 21px);
-          stroke: $third-txt-color;
-        }
-      }
     }
 
     .logo-wrapper {

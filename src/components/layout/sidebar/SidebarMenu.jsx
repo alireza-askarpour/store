@@ -1,9 +1,9 @@
-import React from 'react'
 import { useLocation } from 'react-router-dom'
 
 import SidebarItem from './SidebarItem'
-import { sidebarPages, sidebarUserInterface } from '../../../assets/data/sidebar'
+
 import { moreHorizontal } from '../../../assets/icons'
+import { sidebarPages, sidebarUserInterface } from '../../../assets/data/sidebar'
 
 const SidebarMenu = ({ menuCollaps }) => {
   const { pathname } = useLocation()

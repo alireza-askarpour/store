@@ -2,15 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const SidebarItem = ({ name, icon, route, active, menuCollaps }) => {
-  const sidebar = active ? 'sidebar-item active' : 'sidebar-item'
+import { classNames } from '../../../utils/classNames'
 
+const SidebarItem = ({ name, icon, route, active, menuCollaps }) => {
   return (
-    <div className={sidebar}>
+    <div className={classNames(
+        active ? 'sidebar-item active' : 'sidebar-item'
+      )}
+    >
       <Link to={route}>
         <div className="sidebar-item-inner">
           <div className="item-icon">{icon}</div>
-          {!menuCollaps && <span className="item-title">{name}</span>}
+          {!menuCollaps && (
+            <span className="item-title">{name}</span>
+          )}
         </div>
       </Link>
     </div>

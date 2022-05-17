@@ -1,13 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { useLayout } from '../../providers/layout'
-
 import Header from '../../components/layout/Header'
 import Sidebar from './sidebar/Sidebar'
 import NavbarMain from './navbarMain/NavbarMain'
 import NavbarMenu from './navbarMenu/NavbarMenu'
 import Footer from '../layout/Footer'
+
+import { useLayout } from '../../providers/layout'
+import { classNames } from '../../utils/classNames'
 
 const Layout = ({ children }) => {
   const { menuLayout, menuCollaps } = useLayout()
@@ -16,13 +17,17 @@ const Layout = ({ children }) => {
 
   const sidebar = menuLayout === 'vertical' && <Sidebar />
   const navbarMenu = menuLayout === 'horizontal' && <NavbarMenu />
-  const menuOpen = !menuCollaps ? 'menu-open' : ''
-  const layoutMenu = menuLayout === 'horizontal' ? 'horizontal-menu' : 'vertical-menu'
 
   return (
     <div className="layout">
       {sidebar}
-      <div className={`layout-content ${menuOpen} ${layoutMenu}`}>
+      <div
+        className={classNames(
+          'layout-content',
+          !menuCollaps && 'menu-open',
+          menuLayout === 'horizontal' ? 'horizontal-menu' : 'vertical-menu',
+        )}
+      >
         <Header>
           <NavbarMain cartItems={cart.cartItems} />
           {navbarMenu}

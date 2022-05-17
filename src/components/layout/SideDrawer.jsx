@@ -1,10 +1,8 @@
-import React from 'react'
+import { classNames } from '../../utils/classNames'
 
 const SideDrawer = ({ children, show, hideMenu }) => {
-  const sideDrawerClass = show ? 'side-drawer active' : 'side-drawer'
-
   return (
-    <div className={sideDrawerClass}>
+    <div className={classNames(show ? 'side-drawer active' : 'side-drawer')}>
       <div className="menu">{children}</div>
       <div className="backdrop" onClick={hideMenu}></div>
     </div>

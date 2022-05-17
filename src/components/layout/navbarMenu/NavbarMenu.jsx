@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
+import { classNames } from '../../../utils/classNames'
 import { sidebarMenu } from '../../../assets/data/navbar_menu'
 
 const NavbarMenu = () => {
   const { pathname } = useLocation()
-
   const activeItem = sidebarMenu.findIndex((item) => item.route === pathname)
 
   return (
@@ -14,8 +14,11 @@ const NavbarMenu = () => {
         <ul className="navbar-menu-items">
           {sidebarMenu.map((item, index) => (
             <li
-              className={`nav-item ${index === activeItem ? 'active' : ''}`}
               key={index}
+              className={classNames(
+                'nav-item', 
+                index === activeItem && 'active'
+              )}
             >
               <Link to={item.route}>
                 {item.icon}

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
+import { classNames } from '../../utils/classNames'
 import { chevronDown } from '../../assets/icons'
 
 const handleClick = (menu, field) => {
@@ -21,13 +22,16 @@ const SelectBox = ({ menuData, value, onClick, size, color, selectBlock }) => {
 
   handleClick(selectMenuRef, selectFieldRef)
 
-  const selectSize = size ? size : ''
-  const selectColor = color ? color : ''
-  const block = selectBlock ? 'select-block' : ''
-
   return (
-    <div className={`selector ${selectSize}`}>
-      <div ref={selectFieldRef} className={`select-field ${selectColor} ${block}`}>
+    <div className={classNames('selector', size && size)}>
+      <div
+        ref={selectFieldRef}
+        className={classNames(
+          'select-field',
+          color && color,
+          selectBlock && 'select-block',
+        )}
+      >
         <span className="select-text">{value}</span>
         {chevronDown}
       </div>

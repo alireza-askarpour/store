@@ -1,12 +1,12 @@
-import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
-import { useLayout } from '../../../providers/layout'
 import Button from '../../shared/Button'
 import RatingsList from '../../shared/RatingsList'
 import numberWithCommas from '../../../utils/numberWithCommas'
 
+import { useLayout } from '../../../providers/layout'
+import { classNames } from '../../../utils/classNames'
 import { heart } from '../../../assets/icons'
 
 const ProductCard = ({
@@ -23,11 +23,8 @@ const ProductCard = ({
 }) => {
   const { wishlist } = useSelector((state) => state.wishlist)
 
-  const { productsListLayout } = useLayout()
   const { pathname } = useLocation()
-
-  const product_card = productsListLayout === 'grid' ? 'product-card' : 'product-card row'
-  const rounded_none = productsListLayout === 'grid' ? true : false
+  const { productsListLayout } = useLayout()
 
   const like = wishlist.some((i) => i.id === id)
 
@@ -35,7 +32,11 @@ const ProductCard = ({
     pathname === '/products' && like ? 'card-btn-left like' : 'card-btn-left'
 
   return (
-    <div className={product_card}>
+    <div
+      className={classNames(
+        productsListLayout === 'grid' ? 'product-card' : 'product-card row',
+      )}
+    >
       <div className="product-card-image">
         <Link to={link}>
           <img src={image} className="cart-img" alt={name} />
@@ -74,7 +75,7 @@ const ProductCard = ({
         <div className={cardBtnLeft}>
           <Button
             btnBlock
-            roundedNone={rounded_none}
+            roundedNone={productsListLayout === 'grid'}
             size="small"
             bgColor="custom"
             txtColor="custom"
@@ -89,7 +90,7 @@ const ProductCard = ({
           <Link to={`/product/${id}`}>
             <Button
               btnBlock
-              roundedNone={rounded_none}
+              roundedNone={productsListLayout === 'grid'}
               size="small"
               stock={!inStock}
               bold

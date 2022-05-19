@@ -1,5 +1,6 @@
-import React from 'react'
 import { useState } from 'react'
+
+import { classNames } from '../../../utils/classNames'
 import { chevronRight, chevronLeft } from '../../../assets/icons'
 
 const ImageSlider = ({ sliderData }) => {
@@ -23,7 +24,7 @@ const ImageSlider = ({ sliderData }) => {
         sliderData.map((item, index) => (
           <div
             key={index}
-            className={`slide ${index + 1 === slideIndex ? 'active' : ''}`}
+            className={classNames('slide', index + 1 === slideIndex && 'active')}
           >
             <div className="slide-image">
               <img src={item} alt={item} />
@@ -42,7 +43,7 @@ const ImageSlider = ({ sliderData }) => {
         {sliderData &&
           sliderData.map((item, index) => (
             <div
-              className={`slide-dot ${index + 1 === slideIndex ? 'active' : ''}`}
+              className={classNames('slide-dot', index + 1 === slideIndex && 'active')}
               onClick={() => handleMoveDot(index + 1)}
             >
               <img src={item} alt={item} />

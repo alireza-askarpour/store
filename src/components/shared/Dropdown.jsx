@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
+import { classNames } from '../../utils/classNames'
+
 const handleClick = (menu, toggle) => {
   document.addEventListener('click', (e) => {
     if (toggle.current && toggle.current.contains(e.target)) {
@@ -30,8 +32,6 @@ const Dropdown = ({
 
   handleClick(dropdownMenuRef, dropdownToggleRef)
 
-  const user = size === 'small' ? 'small' : size === 'xs' ? 'xs' : ''
-
   return (
     <div className="dropdown">
       <button ref={dropdownToggleRef} className="dropdown-toggle">
@@ -41,7 +41,14 @@ const Dropdown = ({
         )}
         {customToggle && customToggle}
       </button>
-      <div ref={dropdownMenuRef} className={`dropdown-menu ${user}`}>
+      <div
+        ref={dropdownMenuRef}
+        className={classNames(
+          'dropdown-menu',
+          size === 'xs' && 'xs',
+          size === 'small' && 'small',
+        )}
+      >
         {renderHeader && renderHeader}
         {menuData && renderItems && (
           <div className="dropdown-menu-items">

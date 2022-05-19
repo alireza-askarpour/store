@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { wishlistAction } from '../redux/actions/wishlist'
@@ -8,8 +7,8 @@ import WishlistCard from '../components/pages/wishlist/WishlistCard'
 
 const Wishlist = () => {
   const dispatch = useDispatch()
-  const state = useSelector((state) => state.wishlist)
-  const { wishlist } = state
+  
+  const { wishlist } = useSelector((state) => state.wishlist)
 
   const handleWishlist = (item) => dispatch(wishlistAction(item))
 

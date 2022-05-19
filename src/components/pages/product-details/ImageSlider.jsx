@@ -43,6 +43,7 @@ const ImageSlider = ({ sliderData }) => {
         {sliderData &&
           sliderData.map((item, index) => (
             <div
+              key={index}
               className={classNames('slide-dot', index + 1 === slideIndex && 'active')}
               onClick={() => handleMoveDot(index + 1)}
             >

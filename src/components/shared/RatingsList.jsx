@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { classNames } from '../../utils/classNames'
 import { star } from '../../assets/icons'
 
 const RatingsList = ({ rating }) => {
-  const ratingClass = `rating-${rating}`
-
   return (
-    <ul className={`ratings-list ${ratingClass}`}>
+    <ul className={classNames('ratings-list', `rating-${rating}`)}>
       <li className="ratings-list-item">{star}</li>
       <li className="ratings-list-item">{star}</li>
       <li className="ratings-list-item">{star}</li>

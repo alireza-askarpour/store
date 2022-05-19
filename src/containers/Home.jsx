@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { productsAction } from '../redux/actions/products'
@@ -20,24 +20,6 @@ const Home = (props) => {
   useEffect(() => {
     dispatch(productsAction())
   }, [])
-
-  const sliderData = (products, category) => {
-    const filteredProducts = products.filter((item) => item.category === category)
-
-    const data = filteredProducts.map((item) => {
-      return {
-        brand: item.brand,
-        title: item.name,
-        price: item.price,
-        rating: item.rating,
-        image: item.images[0],
-        inStock: item.inStock,
-        link: `/product/${item.id}`,
-      }
-    })
-
-    return data
-  }
 
   const mobileData = sliderDataFilter(products, 'mobile')
   const smartWatchData = sliderDataFilter(products, 'smart-watch')

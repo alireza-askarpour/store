@@ -3,23 +3,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { removeFromCartAction } from '../redux/actions/cart'
-
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import CartItem from '../components/pages/cart/CartItem'
-import Button from '../components/shared/Button'
-
 import numberWithCommas from '../utils/numberWithCommas'
+
+import Button from '../components/shared/Button'
+import CartItem from '../components/pages/cart/CartItem'
+import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
 
 const Cart = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const cart = useSelector((state) => state.cart)
-  const { cartItems } = cart
+  const { cartItems } = useSelector((state) => state.cart)
 
-  const handleRemoveFromCart = (id, color, category) =>
+  const handleRemoveFromCart = (id, color, category) => {
     dispatch(removeFromCartAction(id, color, category))
-  const handleClickBtn = () => cartItems.length > 0 && navigate('/checkout')
+  }
+
+  const handleClickBtn = () => {
+    return cartItems.length > 0 && navigate('/checkout')
+  }
 
   const totalPrice = numberWithCommas(
     cartItems.reduce((acc, item) => acc + item.totalPrice, 0),

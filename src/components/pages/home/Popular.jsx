@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Button from '../../shared/Button'
 
+import { classNames } from '../../../utils/classNames'
 import numberWithCommas from '../../../utils/numberWithCommas'
 
 const Popular = ({ revers, main, second, third }) => {
@@ -10,13 +11,15 @@ const Popular = ({ revers, main, second, third }) => {
 
   const handleClick = (link) => navigate(link)
 
-  const layoutRevers = revers ? 'revers' : ''
-
   return (
     <section
-      className={`popular grid grid-col-1 grid-col-sm-2 grid-col-md-3 ${layoutRevers}`}
+      className={classNames(
+        'popular',
+        'grid grid-col-1 grid-col-sm-2 grid-col-md-3',
+        revers && 'revers',
+      )}
     >
-      <section className={`card popular-item main ${main.bgColor}`}>
+      <section className={classNames('card popular-item main', main.bgColor)}>
         <div className="popular-item-image">
           <img src={main.image} alt={main.title} />
         </div>
@@ -39,7 +42,7 @@ const Popular = ({ revers, main, second, third }) => {
         </div>
       </section>
 
-      <section className={`card popular-item second ${second.bgColor}`}>
+      <section className={classNames('card popular-item second', second.bgColor)}>
         <div className="popular-item-image">
           <img src={second.image} alt={second.title} />
         </div>
@@ -68,7 +71,7 @@ const Popular = ({ revers, main, second, third }) => {
         </div>
       </section>
 
-      <section className={`card popular-item third ${third.bgColor}`}>
+      <section className={classNames('card popular-item third', third.bgColor)}>
         <div className="popular-item-image">
           <img src={third.image} alt={third.title} />
         </div>

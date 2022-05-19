@@ -1,12 +1,11 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import Radio from '../../shared/Radio'
+import Button from '../../shared/Button'
 import CheckBox from '../../shared/CheckBox'
 import RatingsList from '../../shared/RatingsList'
 import ToggleSwitch from '../../shared/ToggleSwitch'
-import Button from '../../shared/Button'
 import {
   filterBrandAction,
   filterCategoryAction,
@@ -16,17 +15,14 @@ import {
   clearFiltersAction,
 } from '../../../redux/actions/filters'
 
-import { brands, categories, multi_range } from '../../../assets/data/products_filter'
-import { ratings } from '../../../assets/data/ratings'
 import { check } from '../../../assets/icons'
+import { ratings } from '../../../assets/data/ratings'
+import { brands, categories, multi_range } from '../../../assets/data/products_filter'
 
 const FilterMenu = ({ filter }) => {
   const dispatch = useDispatch()
 
-  const filters = useSelector((state) => state.filters)
-
   const handleFilterRating = (rating) => dispatch(filterRatingAction(rating))
-
   const handleClearFilters = () => dispatch(clearFiltersAction())
 
   return (
@@ -47,6 +43,7 @@ const FilterMenu = ({ filter }) => {
           ))}
         </div>
       </div>
+
       <div>
         <h5 className="title">Categories</h5>
         <div className="options">
@@ -61,6 +58,7 @@ const FilterMenu = ({ filter }) => {
           ))}
         </div>
       </div>
+      
       <div>
         <h5 className="title">Brands</h5>
         <div className="options">

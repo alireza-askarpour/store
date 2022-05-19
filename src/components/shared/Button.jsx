@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { classNames } from '../../utils/classNames'
+
 const Button = ({
   children,
   txtColor,
@@ -15,41 +17,29 @@ const Button = ({
   type,
   bold,
 }) => {
-  const bg = bgColor ? `bg-${bgColor}` : 'bg-main'
-  const color = txtColor ? `color-${txtColor}` : 'color-main'
-  const block = btnBlock ? 'btn-block' : ''
-  const border = btnBorder ? `border-${btnBorder}` : ''
-  const btnSize =
-    size === 'large'
-      ? 'btn-large'
-      : size === 'small'
-      ? 'btn-small'
-      : size === 'xs'
-      ? 'btn-xs'
-      : ''
-  const fullRounded = roundedFull ? 'full-rounded' : ''
-  const noneRounded = roundedNone ? 'none-rounded' : ''
-  const unavailable = stock ? 'unavailable' : ''
-  const btnType = type ? type : 'button'
-  const txtBold = bold ? 'btn-bold' : ''
-
   const handleClick = click ? click : null
 
   return (
     <button
       onClick={handleClick}
-      className={`
-                btn 
-                ${color} 
-                ${bg} 
-                ${fullRounded} 
-                ${noneRounded} 
-                ${btnSize} 
-                ${unavailable}
-                ${border}
-                ${block}
-                ${txtBold}`}
-      type={btnType}
+      className={classNames(
+        'btn',
+        bgColor ? `bg-${bgColor}` : 'bg-main',
+        txtColor ? `color-${txtColor}` : 'color-main',
+
+        roundedFull && 'full-rounded',
+        roundedNone && 'none-rounded',
+
+        size === 'large' && 'btn-large',
+        size === 'small' && 'btn-small',
+        size === 'xs' && 'btn-xs',
+
+        bold && 'btn-bold',
+        stock && 'unavailable',
+        btnBlock && 'btn-block',
+        btnBorder && `border-${btnBorder}`,
+      )}
+      type={type ? type : 'button'}
     >
       {children}
     </button>

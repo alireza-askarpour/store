@@ -14,6 +14,8 @@ import SelectBox from '../components/shared/SelectBox'
 import Tabs from '../components/pages/products/Tabs'
 import SideDrawer from '../components/layout/SideDrawer'
 
+import { classNames } from '../utils/classNames'
+
 import menu from '../assets/icons/menu'
 import featherSearch from '../assets/icons/search'
 import { productsSort } from '../assets/data/products_sort'
@@ -22,16 +24,18 @@ import { chevronRight, chevronLeft } from '../assets/icons'
 const Products = () => {
   const dispatch = useDispatch()
 
-  const productsList = useSelector((state) => state.productsList)
-  const filters = useSelector((state) => state.filters)
-  const { filteredProducts } = useSelector((state) => state.filterSelect)
+  const {
+    filters,
+    productsList,
+    productsList: { loading },
+    filterSelect: { filteredProducts },
+  } = useSelector((state) => state)
 
   const initProductsShow = filteredProducts.slice(0, 9)
 
   const [showSideDrawer, setShowSideDrawer] = useState(false)
   const [productsShow, setProductsShow] = useState([])
 
-  const { loading } = productsList
   const { productsListLayout } = useLayout()
 
   const handleFilterSearch = (e) => dispatch(filterSearchAction(e.target.value))
@@ -58,11 +62,6 @@ const Products = () => {
   useEffect(() => {
     setProductsShow(initProductsShow)
   }, [productsList, filteredProducts])
-
-  const products_list =
-    productsListLayout === 'grid' && filteredProducts.length > 0
-      ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3'
-      : 'products-view'
 
   const [pageIndex, setPageIndex] = useState(0)
 
@@ -114,12 +113,14 @@ const Products = () => {
           <div className="content-header">
             <BreadcrumbsTop title="Products" link="/products" />
           </div>
+
           <div className="content-wrapper">
             <SideDrawer show={showSideDrawer} hideMenu={handleCloseSideDrawer}>
               <div className="p-1">
                 <FilterMenu filter={filters} />
               </div>
             </SideDrawer>
+
             <div className="content-aside">
               <div className="filter-menu-wrapper">
                 <div className="filter-menu-heading">
@@ -130,6 +131,7 @@ const Products = () => {
                 </div>
               </div>
             </div>
+
             <div className="content-main">
               <div className="main">
                 <div className="products-header-items">
@@ -150,6 +152,7 @@ const Products = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="searchbar">
                   <input
                     type="text"
@@ -159,7 +162,14 @@ const Products = () => {
                   />
                   <div className="search-icon">{featherSearch}</div>
                 </div>
-                <div className={products_list}>
+
+                <div
+                  className={classNames(
+                    productsListLayout === 'grid' && filteredProducts.length > 0
+                      ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3'
+                      : 'products-view',
+                  )}
+                >
                   {filteredProducts.length > 0 ? (
                     productsShow.map((item, index) => (
                       <ProductCard
@@ -180,11 +190,12 @@ const Products = () => {
                     <p className="no-results-found">No results found</p>
                   )}
                 </div>
+
                 {pages > 1 && (
                   <div className="pagination-wrapper">
                     <div className="pagination">
                       <button
-                        className={`prev-item ${pageIndex === 0 ? 'disable' : ''}`}
+                        className={classNames('prev-item', pageIndex === 0 && 'disable')}
                         onClick={handlePtrvPage}
                       >
                         {chevronLeft}
@@ -193,9 +204,10 @@ const Products = () => {
                         {range.map((item, index) => (
                           <button
                             key={index}
-                            className={`pagination-item ${
-                              currPage === index ? 'active' : ''
-                            }`}
+                            className={classNames(
+                              'pagination-item',
+                              currPage === index && 'active',
+                            )}
                             onClick={() => handleSelectPage(index)}
                           >
                             {item + 1}
@@ -203,9 +215,10 @@ const Products = () => {
                         ))}
                       </div>
                       <button
-                        className={`next-item ${
-                          pageIndex === pages - 1 ? 'disable' : ''
-                        }`}
+                        className={classNames(
+                          'next-item',
+                          pageIndex === pages - 1 && 'disable',
+                        )}
                         onClick={handlePtrvNext}
                       >
                         {chevronRight}

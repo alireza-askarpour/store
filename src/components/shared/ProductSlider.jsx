@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useRef } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import { Autoplay, Navigation } from 'swiper'
 import { Swiper } from 'swiper/react/swiper-react'
 import { SwiperSlide } from 'swiper/react/swiper-slide'
@@ -15,15 +15,9 @@ const ProductSlider = ({ sliderData }) => {
   const navigationNextRef = useRef(null)
 
   const breakpoints = {
-    768: {
-      slidesPerView: 2,
-    },
-    992: {
-      slidesPerView: 3,
-    },
-    1200: {
-      slidesPerView: 4,
-    },
+    768: { slidesPerView: 2 },
+    992: { slidesPerView: 3 },
+    1200: { slidesPerView: 4 },
   }
 
   return (
@@ -32,7 +26,7 @@ const ProductSlider = ({ sliderData }) => {
         spaceBetween={20}
         slidesPerView={1}
         modules={[Autoplay, Navigation]}
-        autoplay={{ delay: 6000 }}
+        autoplay={{ delay: 5000 }}
         breakpoints={breakpoints}
         navigation={{
           prevEl: navigationPrevRef.current,

@@ -15,6 +15,7 @@ import ProductSlider from '../components/shared/ProductSlider'
 
 import sliderDataFilter from '../helpers/sliderDataFilter'
 import numberWithCommas from '../utils/numberWithCommas'
+import { classNames } from '../utils/classNames'
 
 import {
   cart,
@@ -159,7 +160,7 @@ const ProductDetails = () => {
                     <div
                       key={index}
                       onClick={() => handleUpdateColor(item)}
-                      className={`color-option ${color === item ? 'active' : ''}`}
+                      className={classNames('color-option', color === item && 'active')}
                     >
                       <div className={`color bg-${item}`}></div>
                     </div>
@@ -184,7 +185,7 @@ const ProductDetails = () => {
                   {product.inStock ? 'View in Cart' : 'Unavailable'}
                 </Button>
               </div>
-              <div className={`content-option ${like ? 'like' : ''}`}>
+              <div className={classNames('content-option', like && 'like')}>
                 <Button
                   size="small"
                   bgColor="transparent"

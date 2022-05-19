@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { updateCartItemAction } from '../../../redux/actions/cart'
 import { wishlistAction } from '../../../redux/actions/wishlist'
+import { updateCartItemAction } from '../../../redux/actions/cart'
 
 import Button from '../../shared/Button'
 import RatingsList from '../../shared/RatingsList'
-import numberWithCommas from '../../../utils/numberWithCommas'
 import QuantityInput from '../../shared/QuantityInput'
+import numberWithCommas from '../../../utils/numberWithCommas'
 
 import { x, heart } from '../../../assets/icons'
+import { classNames } from '../../../utils/classNames'
 
 const CartItem = ({ item, removeFromCart }) => {
   const dispatch = useDispatch()
@@ -59,12 +60,17 @@ const CartItem = ({ item, removeFromCart }) => {
         <div className="cart-item-rating">
           <RatingsList rating={rating} small />
         </div>
-        <p className={`cart-item-status ${inStock ? 'color-green' : 'color-red'}`}>
+        <p
+          className={classNames(
+            'cart-item-status',
+            inStock ? 'color-green' : 'color-red',
+          )}
+        >
           {inStock ? 'In Stock' : 'Unavailable'}
         </p>
         <div className="cart-item-color">
           <span>Color:</span>
-          <span className={`color bg-${color}`}></span>
+          <span className={classNames('color', `bg-${color}`)}></span>
         </div>
         <div className="cart-item-quantity">
           <span>Qty:</span>
@@ -96,7 +102,7 @@ const CartItem = ({ item, removeFromCart }) => {
             Remove
           </Button>
         </div>
-        <div className={`card-btn-cart ${like ? 'like' : ''}`}>
+        <div className={classNames('card-btn-cart', like && 'like')}>
           <Button btnBlock size="small" click={handleWishlist}>
             {heart} Wishlist
           </Button>

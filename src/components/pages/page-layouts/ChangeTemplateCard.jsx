@@ -1,14 +1,8 @@
-import React, { useEffect } from 'react'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
+
+import { classNames } from '../../../utils/classNames'
 
 const ChangeTemplateCard = ({ template, onClick, active, menuLayout }) => {
-  const changeTemplateCard =
-    template === 'sidebar'
-      ? `change-template-card sidebar-card`
-      : template === 'navbar'
-      ? `change-template-card navbar-card`
-      : ''
-
   const cardRef = useRef(null)
 
   useEffect(() => {
@@ -20,7 +14,14 @@ const ChangeTemplateCard = ({ template, onClick, active, menuLayout }) => {
   }, [menuLayout])
 
   return (
-    <div ref={cardRef} className={changeTemplateCard} onClick={onClick}>
+    <div
+      ref={cardRef}
+      className={classNames(
+        template === 'sidebar' && 'change-template-card sidebar-card',
+        template === 'navbar' && 'change-template-card navbar-card',
+      )}
+      onClick={onClick}
+    >
       <div className="card-image">
         <div className="page">
           {template === 'sidebar' && (

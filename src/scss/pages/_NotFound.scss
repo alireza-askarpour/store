@@ -1,0 +1,28 @@
+.not-found {
+  display: grid;
+  place-items: center;
+
+  .num-404 {
+    font-size: 150px;
+    font-weight: 700;
+    margin: 28px 0 28px 0;
+    color: darken($color: $third-txt-color-light, $amount: 10);
+  }
+
+  .caption {
+    display: grid;
+    place-items: center;
+    padding: 0 14px 70px 14px;
+    text-align: center;
+
+    .title {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+  }
+}

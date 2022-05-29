@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
       <div
         className={classNames(
           'layout-content',
-          !menuCollaps && 'menu-open',
+          menuLayout === 'vertical' && !menuCollaps && 'menu-open',
           menuLayout === 'horizontal' ? 'horizontal-menu' : 'vertical-menu',
         )}
       >

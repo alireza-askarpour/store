@@ -25,11 +25,6 @@ export const sidebarPages = [
 
 export const sidebarUserInterface = [
   {
-    name: 'Theme',
-    icon: droplet,
-    route: '/theme',
-  },
-  {
     name: 'PageLayouts',
     icon: layout,
     route: '/page-layouts',

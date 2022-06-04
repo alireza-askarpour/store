@@ -26,12 +26,6 @@ export const sidebarMenu = [
     route: '/wishlist',
   },
   {
-    id: 5,
-    name: 'Theme',
-    icon: droplet,
-    route: '/theme',
-  },
-  {
     id: 6,
     name: 'PageLayouts',
     icon: layout,

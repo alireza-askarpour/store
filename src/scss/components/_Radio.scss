@@ -1,55 +1,46 @@
-.radio-btn:checked,
-.radio-btn:not(:checked) {
-  position: absolute;
-  left: -9999px;
+.modern-radio-container {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
 }
 
-.radio-btn:checked + .radio-label,
-.radio-btn:not(:checked) + .radio-label {
-  position: relative;
-  padding-left: 22px;
+.radio-outer-circle {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  border: 2px solid $main-color;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s linear;
+}
+
+.radio-inner-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: $main-color;
+  transition: all 0.1s linear;
+}
+
+.unselected {
+  border: 1px solid $second-border-color;
+}
+
+.unselected-circle {
+  width: 0;
+  height: 0;
+}
+
+.helper-text {
+  margin-left: 5px;
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
   color: $main-txt-color;
   font-size: 14px;
-}
-
-.radio-btn:checked + .radio-label:before,
-.radio-btn:not(:checked) + .radio-label:before {
-  @include dimensions(18px, 18px);
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  border: 1px solid $second-border-color;
-  border-radius: 100%;
-  background: $main-bg;
-}
-
-.radio-btn:checked + .radio-label:before {
-  border-color: $main-color;
-  transition: border 0.4s;
-}
-
-.radio-btn:checked + .radio-label:after,
-.radio-btn:not(:checked) + .radio-label:after {
-  @include dimensions(12px, 12px);
-  content: '';
-  background: $main-color;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  border-radius: 100%;
-}
-
-.radio-btn:not(:checked) + .radio-label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-
-.radio-btn:checked + .radio-label:after {
-  opacity: 1;
-  transform: scale(1);
-  transition: transform 0.4s;
 }

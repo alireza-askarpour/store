@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Radio from '../../shared/Radio'
 import Button from '../../shared/Button'
@@ -22,6 +22,8 @@ import { brands, categories, multi_range } from '../../../assets/data/products_f
 const FilterMenu = ({ filter }) => {
   const dispatch = useDispatch()
 
+  const { multiRange } = useSelector((state) => state.filters)
+
   const handleFilterRating = (rating) => dispatch(filterRatingAction(rating))
   const handleClearFilters = () => dispatch(clearFiltersAction())
 
@@ -33,11 +35,10 @@ const FilterMenu = ({ filter }) => {
           {multi_range.map((item, index) => (
             <div key={index} className="custom-control">
               <Radio
-                name="multirange"
-                id={index}
+                value={item.range}
                 label={item.display}
-                onChange={() => dispatch(filterMultiRangeAction(item.range))}
-                checked={filter.multiRange === item.range}
+                onChange={(value) => dispatch(filterMultiRangeAction(value))}
+                selected={multiRange}
               />
             </div>
           ))}
@@ -58,7 +59,7 @@ const FilterMenu = ({ filter }) => {
           ))}
         </div>
       </div>
-      
+
       <div>
         <h5 className="title">Brands</h5>
         <div className="options">

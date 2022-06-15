@@ -1,35 +1,37 @@
-import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
+import { classNames } from '../../utils/classNames'
 
-const Radio = ({ onChange, checked, label, id, name }) => {
-  const inputRef = useRef(null)
-
-  const handleChange = () => onChange && onChange(inputRef.current)
-
+const Radio = ({ selected, label, value, onChange }) => {
   return (
-    <>
-      <input
-        ref={inputRef}
-        className="radio-btn"
-        type="radio"
-        id={id}
-        name="radio-group"
-        onChange={handleChange}
-        checked={checked}
-      />
-      <label className="radio-label" htmlFor={id}>
-        {label}
-      </label>
-    </>
+    <div
+      className="modern-radio-container"
+      onClick={() => {
+        onChange(value)
+      }}
+    >
+      <div
+        className={classNames(
+          'radio-outer-circle', 
+          value !== selected && 'unselected')
+        }
+      >
+        <div
+          className={classNames(
+            'radio-inner-circle',
+            value !== selected && 'unselected-circle',
+          )}
+        />
+      </div>
+      <div className="helper-text">{label}</div>
+    </div>
   )
 }
 
 Radio.propTypes = {
   label: PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  selected: PropTypes.string,
   onChange: PropTypes.func,
-  name: PropTypes.string,
-  id: PropTypes.number,
+  value: PropTypes.string,
 }
 
 export default Radio

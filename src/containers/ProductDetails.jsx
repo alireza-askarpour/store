@@ -51,15 +51,16 @@ const ProductDetails = () => {
   }, [params.id])
 
   useEffect(() => {
-    if (product.colors) setColor(product.colors[0])
-    if (product.images) setImages(product.images)
-    if (product.images) setImage(product.images[0])
+    if (product?.colors) setColor(product.colors[0])
+    if (product?.images) setImages(product.images)
+    if (product?.images) setImage(product.images[0])
   }, [product])
 
   useEffect(() => {
-    const sliderData = sliderDataFilter(productsList.products, product.category)
+    const sliderData = sliderDataFilter(productsList.products, product?.category)
     setRelatedProducts(sliderData)
   }, [product])
+
 
   const handleUpdateColor = (color) => setColor(color)
 
@@ -87,11 +88,12 @@ const ProductDetails = () => {
 
   const selectedColor = color && color.replace('-', ' ')
 
-  const like = wishlist.wishlist.some((i) => i.id === +product.id)
+  const like = wishlist.wishlist.some((i) => i.id === +product?.id)
 
   return productsList.loading && productDetails.loading && relatedProducts.length > 0 ? (
     <div>loading...</div>
   ) : (
+   
     <div className="product-details">
       <div className="content-header">
         <BreadcrumbsTop title="Product Details" />
@@ -106,43 +108,43 @@ const ProductDetails = () => {
             <ImageSlider sliderData={images} />
           </div>
           <div className="product-info-content">
-            <h3 className="product-title">{product.name}</h3>
+            <h3 className="product-title">{product?.name}</h3>
             <p className="product-brand">
-              by <span>{product.brand}</span>
+              by <span>{product?.brand}</span>
             </p>
             <div className="product-price-rating">
-              {product.inStock ? (
+              {product?.inStock ? (
                 <h4 className="product-price">
-                  {product.price && numberWithCommas(product.price)}
+                  {product?.price && numberWithCommas(product?.price)}
                 </h4>
               ) : (
                 <h4 className="product-unavailable">Unavailable</h4>
               )}
-              <RatingsList rating={product.rating} />
+              <RatingsList rating={product?.rating} />
             </div>
             <p className="product-available">
               Available
-              {product.inStock ? (
+              {product?.inStock ? (
                 <span className="color-green">In stock</span>
               ) : (
                 <span className="color-red">Unavailable</span>
               )}
             </p>
-            <div className="product-info-description">{product.description}</div>
+            <div className="product-info-description">{product?.description}</div>
             <div className="product-info-features">
-              {product.freeShopping && (
+              {product?.freeShopping && (
                 <div className="features-item">
                   {cart}
                   <span>Free Shipping</span>
                 </div>
               )}
-              {product.EMI && (
+              {product?.EMI && (
                 <div className="features-item">
                   {dollarSign}
                   <span>EMI options available</span>
                 </div>
               )}
-              {product.fastDelivery && (
+              {product?.fastDelivery && (
                 <div className="features-item">
                   {truck}
                   <span>Fast Delivery</span>
@@ -155,8 +157,8 @@ const ProductDetails = () => {
                 <span>{selectedColor}</span>
               </h6>
               <div className="color-options">
-                {product.colors &&
-                  product.colors.map((item, index) => (
+                {product?.colors &&
+                  product?.colors.map((item, index) => (
                     <div
                       key={index}
                       onClick={() => handleUpdateColor(item)}
@@ -177,12 +179,12 @@ const ProductDetails = () => {
               <div className="content-option">
                 <Button
                   size="small"
-                  stock={!product.inStock}
+                  stock={!product?.inStock}
                   click={handleAddToCart}
                   btnBlock
                 >
                   {cart}
-                  {product.inStock ? 'View in Cart' : 'Unavailable'}
+                  {product?.inStock ? 'View in Cart' : 'Unavailable'}
                 </Button>
               </div>
               <div className={classNames('content-option', like && 'like')}>
@@ -217,7 +219,7 @@ const ProductDetails = () => {
           <div className="features-item">
             <div className="item-icon">{award}</div>
             <h4 className="item-title">
-              {product.original ? '100% Original' : '100% Fake'}
+              {product?.original ? '100% Original' : '100% Fake'}
             </h4>
             <p className="item-description">
               Chocolate bar candy canes ice cream toffee. Croissant pie cookie halvah.
@@ -226,7 +228,7 @@ const ProductDetails = () => {
 
           <div className="features-item">
             <div className="item-icon">{clock}</div>
-            <h4 className="item-title">{product.replacement} Replacement</h4>
+            <h4 className="item-title">{product?.replacement} Replacement</h4>
             <p className="item-description">
               Marshmallow biscuit donut dragée fruitcake. Jujubes wafer cupcake.
             </p>
@@ -234,7 +236,7 @@ const ProductDetails = () => {
 
           <div className="features-item">
             <div className="item-icon">{shield}</div>
-            <h4 className="item-title">{product.warranty} Warranty</h4>
+            <h4 className="item-title">{product?.warranty} Warranty</h4>
             <p className="item-description">
               Cotton candy gingerbread cake I love sugar plum I love sweet croissant.
             </p>

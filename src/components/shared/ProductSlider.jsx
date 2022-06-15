@@ -1,9 +1,7 @@
-import { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Autoplay, Navigation } from 'swiper'
-import { Swiper } from 'swiper/react/swiper-react'
-import { SwiperSlide } from 'swiper/react/swiper-slide'
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 
 import RatingsList from './RatingsList'
 import numberWithCommas from '../../utils/numberWithCommas'
@@ -11,15 +9,6 @@ import numberWithCommas from '../../utils/numberWithCommas'
 import { chevronLeft, chevronRight } from '../../assets/icons'
 
 const ProductSlider = ({ sliderData }) => {
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-
-  const breakpoints = {
-    768: { slidesPerView: 2 },
-    992: { slidesPerView: 3 },
-    1200: { slidesPerView: 4 },
-  }
-
   return (
     <div className="product-slider">
       <Swiper
@@ -27,10 +16,14 @@ const ProductSlider = ({ sliderData }) => {
         slidesPerView={1}
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 5000 }}
-        breakpoints={breakpoints}
+        breakpoints={{
+          768: { slidesPerView: 2 },
+          992: { slidesPerView: 3 },
+          1200: { slidesPerView: 4 },
+        }}
         navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
+          prevEl: '.prev-button',
+          nextEl: '.next-button',
         }}
       >
         <div>
@@ -58,12 +51,8 @@ const ProductSlider = ({ sliderData }) => {
             ))}
         </div>
         <div className="controls-button">
-          <button ref={navigationPrevRef} className="prev-button">
-            {chevronLeft}
-          </button>
-          <button ref={navigationNextRef} className="next-button">
-            {chevronRight}
-          </button>
+          <button className="prev-button">{chevronLeft}</button>
+          <button className="next-button">{chevronRight}</button>
         </div>
       </Swiper>
     </div>

@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { wishlistAction } from '../redux/actions/wishlist'
 
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import WishlistCard from '../components/pages/wishlist/WishlistCard'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
+import WishlistCard from '../components/Pages/Wishlist/WishlistCard'
 
 const Wishlist = () => {
   const dispatch = useDispatch()

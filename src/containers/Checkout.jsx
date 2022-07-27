@@ -2,8 +2,8 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import Button from '../components/shared/Button'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
+import Button from '../components/Shared/Button'
 
 const Checkout = () => {
   const initialValues = {

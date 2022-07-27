@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import Button from '../components/shared/Button'
+import Button from '../components/Shared/Button'
 
 const NotFound = () => {
   const navigate = useNavigate()

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Button from '../../shared/Button'
+import Button from '../../Shared/Button'
 
 import { classNames } from '../../../utils/classNames'
 import numberWithCommas from '../../../utils/numberWithCommas'

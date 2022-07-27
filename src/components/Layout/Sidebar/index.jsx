@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
-import Logo from '../../shared/Logo'
+import Logo from '../../Shared/Logo'
 import SidebarMenu from './SidebarMenu'
 
 import { useLayout } from '../../../providers/layout'

@@ -6,12 +6,12 @@ import { productsAction, productDetailsAction } from '../redux/actions/products'
 import { addToCartAction } from '../redux/actions/cart'
 import { wishlistAction } from '../redux/actions/wishlist'
 
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import RatingsList from '../components/shared/RatingsList'
-import QuantityInput from '../components/shared/QuantityInput'
-import SelectBox from '../components/shared/SelectBox'
-import Button from '../components/shared/Button'
-import ProductSlider from '../components/shared/ProductSlider'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
+import RatingsList from '../components/Shared/RatingsList'
+import QuantityInput from '../components/Shared/QuantityInput'
+import SelectBox from '../components/Shared/SelectBox'
+import Button from '../components/Shared/Button'
+import ProductSlider from '../components/Shared/ProductSlider'
 
 import sliderDataFilter from '../helpers/sliderDataFilter'
 import numberWithCommas from '../utils/numberWithCommas'
@@ -28,7 +28,7 @@ import {
   award,
 } from '../assets/icons'
 import { socialMedia } from '../assets/data/social_media'
-import ImageSlider from '../components/pages/product-details/ImageSlider'
+import ImageSlider from '../components/Pages/ProductDetails/ImageSlider'
 
 const ProductDetails = () => {
   const dispatch = useDispatch()

@@ -1,9 +1,9 @@
 import React from 'react'
-import ChangeTemplateCard from '../components/pages/page-layouts/ChangeTemplateCard'
+import ChangeTemplateCard from '../components/Pages/PageLayouts/ChangeTemplateCard'
 
 import { useLayout } from '../providers/layout'
 
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
 
 const PageLayouts = () => {
   const { menuLayout, changeMenuLayout } = useLayout()

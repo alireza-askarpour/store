@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import QuantityInput from '../../shared/QuantityInput'
+import QuantityInput from '../../Shared/QuantityInput'
 
 import { x } from '../../../assets/icons'
 

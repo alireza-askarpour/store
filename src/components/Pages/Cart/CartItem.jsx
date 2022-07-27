@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { wishlistAction } from '../../../redux/actions/wishlist'
 import { updateCartItemAction } from '../../../redux/actions/cart'
 
-import Button from '../../shared/Button'
-import RatingsList from '../../shared/RatingsList'
-import QuantityInput from '../../shared/QuantityInput'
+import Button from '../../Shared/Button'
+import RatingsList from '../../Shared/RatingsList'
+import QuantityInput from '../../Shared/QuantityInput'
 import numberWithCommas from '../../../utils/numberWithCommas'
 
 import { x, heart } from '../../../assets/icons'

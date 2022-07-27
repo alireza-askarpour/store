@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import { removeFromCartAction } from '../redux/actions/cart'
 import numberWithCommas from '../utils/numberWithCommas'
 
-import Button from '../components/shared/Button'
-import CartItem from '../components/pages/cart/CartItem'
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
+import Button from '../components/Shared/Button'
+import CartItem from '../components/Pages/Cart/CartItem'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
 
 const Cart = () => {
   const dispatch = useDispatch()

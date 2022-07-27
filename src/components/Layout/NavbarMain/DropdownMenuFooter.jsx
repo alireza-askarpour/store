@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Button from '../../shared/Button'
+import Button from '../../Shared/Button'
 
 const DropdownMenuFooter = ({ total, title, link }) => {
   return (

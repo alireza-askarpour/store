@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 
-import Button from '../../shared/Button'
-import RatingsList from '../../shared/RatingsList'
+import Button from '../../Shared/Button'
+import RatingsList from '../../Shared/RatingsList'
 import numberWithCommas from '../../../utils/numberWithCommas'
 
 import { useLayout } from '../../../providers/layout'

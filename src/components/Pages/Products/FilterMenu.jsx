@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Radio from '../../shared/Radio'
-import Button from '../../shared/Button'
-import CheckBox from '../../shared/CheckBox'
-import RatingsList from '../../shared/RatingsList'
-import ToggleSwitch from '../../shared/ToggleSwitch'
+import Radio from '../../Shared/Radio'
+import Button from '../../Shared/Button'
+import CheckBox from '../../Shared/CheckBox'
+import RatingsList from '../../Shared/RatingsList'
+import ToggleSwitch from '../../Shared/ToggleSwitch'
 import {
   filterBrandAction,
   filterCategoryAction,

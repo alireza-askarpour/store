@@ -7,12 +7,12 @@ import { sortPriceAction, filterSelectReducer } from '../redux/actions/filters'
 import { filterSearchAction } from '../redux/actions/filters'
 import { wishlistAction } from '../redux/actions/wishlist'
 
-import BreadcrumbsTop from '../components/shared/BreadcrumbsTop'
-import ProductCard from '../components/pages/products/ProductCard'
-import FilterMenu from '../components/pages/products/FilterMenu'
-import SelectBox from '../components/shared/SelectBox'
-import Tabs from '../components/pages/products/Tabs'
-import SideDrawer from '../components/layout/SideDrawer'
+import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
+import ProductCard from '../components/Pages/Products/ProductCard'
+import FilterMenu from '../components/Pages/Products/FilterMenu'
+import SelectBox from '../components/Shared/SelectBox'
+import Tabs from '../components/Pages/Products/Tabs'
+import SideDrawer from '../components/Layout/SideDrawer'
 
 import { classNames } from '../utils/classNames'
 

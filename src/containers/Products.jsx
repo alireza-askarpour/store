@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useLayout } from '../providers/layout'
-import { productsAction } from '../redux/actions/products'
-import { sortPriceAction, filterSelectReducer } from '../redux/actions/filters'
-import { filterSearchAction } from '../redux/actions/filters'
-import { wishlistAction } from '../redux/actions/wishlist'
+import { useLayout } from 'providers/layout'
+import { productsAction } from 'redux/actions/products'
+import { sortPriceAction, filterSelectReducer } from 'redux/actions/filters'
+import { filterSearchAction } from 'redux/actions/filters'
+import { wishlistAction } from 'redux/actions/wishlist'
 
-import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
-import ProductCard from '../components/Pages/Products/ProductCard'
-import FilterMenu from '../components/Pages/Products/FilterMenu'
-import SelectBox from '../components/Shared/SelectBox'
-import Tabs from '../components/Pages/Products/Tabs'
-import SideDrawer from '../components/Layout/SideDrawer'
+import BreadcrumbsTop from 'components/Shared/BreadcrumbsTop'
+import ProductCard from 'components/Pages/Products/ProductCard'
+import FilterMenu from 'components/Pages/Products/FilterMenu'
+import SelectBox from 'components/Shared/SelectBox'
+import Tabs from 'components/Pages/Products/Tabs'
+import SideDrawer from 'components/Layout/SideDrawer'
 
-import { classNames } from '../utils/classNames'
+import { classNames } from 'utils/classNames'
 
-import menu from '../assets/icons/menu'
-import featherSearch from '../assets/icons/search'
-import { productsSort } from '../assets/data/products_sort'
-import { chevronRight, chevronLeft } from '../assets/icons'
+import menu from 'assets/icons/menu'
+import featherSearch from 'assets/icons/search'
+import { productsSort } from 'assets/data/products_sort'
+import { chevronRight, chevronLeft } from 'assets/icons'
 
 const Products = () => {
   const dispatch = useDispatch()

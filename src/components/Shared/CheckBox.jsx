@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-
-import { checkTwo } from '../../assets/icons'
+import { checkTwo } from 'assets/icons'
 
 const Checkbox = ({ onChange, checked, label }) => {
   const inputRef = useRef(null)

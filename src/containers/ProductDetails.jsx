@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 
-import { productsAction, productDetailsAction } from '../redux/actions/products'
-import { addToCartAction } from '../redux/actions/cart'
-import { wishlistAction } from '../redux/actions/wishlist'
+import { productsAction, productDetailsAction } from 'redux/actions/products'
+import { addToCartAction } from 'redux/actions/cart'
+import { wishlistAction } from 'redux/actions/wishlist'
 
-import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
-import RatingsList from '../components/Shared/RatingsList'
-import QuantityInput from '../components/Shared/QuantityInput'
-import SelectBox from '../components/Shared/SelectBox'
-import Button from '../components/Shared/Button'
-import ProductSlider from '../components/Shared/ProductSlider'
+import BreadcrumbsTop from 'components/Shared/BreadcrumbsTop'
+import RatingsList from 'components/Shared/RatingsList'
+import QuantityInput from 'components/Shared/QuantityInput'
+import SelectBox from 'components/Shared/SelectBox'
+import Button from 'components/Shared/Button'
+import ProductSlider from 'components/Shared/ProductSlider'
 
-import sliderDataFilter from '../helpers/sliderDataFilter'
-import numberWithCommas from '../utils/numberWithCommas'
-import { classNames } from '../utils/classNames'
+import sliderDataFilter from 'helpers/sliderDataFilter'
+import numberWithCommas from 'utils/numberWithCommas'
+import { classNames } from 'utils/classNames'
 
 import {
   cart,

@@ -13,11 +13,11 @@ import {
   filterMultiRangeAction,
   filterStockAction,
   clearFiltersAction,
-} from '../../../redux/actions/filters'
+} from 'redux/actions/filters'
 
-import { check } from '../../../assets/icons'
-import { ratings } from '../../../assets/data/ratings'
-import { brands, categories, multi_range } from '../../../assets/data/products_filter'
+import { check } from 'assets/icons'
+import { ratings } from 'assets/data/ratings'
+import { brands, categories, multi_range } from 'assets/data/products_filter'
 
 const FilterMenu = ({ filter }) => {
   const dispatch = useDispatch()

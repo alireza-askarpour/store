@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-
-import { classNames } from '../../../utils/classNames'
+import { classNames } from 'utils/classNames'
 
 const SidebarItem = ({ name, icon, route, active, menuCollaps }) => {
   return (

@@ -1,5 +1,5 @@
-import { useLayout } from '../../providers/layout'
-import { classNames } from '../../utils/classNames'
+import { useLayout } from 'providers/layout'
+import { classNames } from 'utils/classNames'
 
 const Header = ({ children }) => {
   const { menuLayout, menuCollaps } = useLayout()

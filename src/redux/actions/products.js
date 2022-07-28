@@ -1,4 +1,4 @@
-import axios from '../../config/axios'
+import axios from 'config/axios'
 import * as types from '../types'
 
 export const productsAction = () => async (dispatch) => {

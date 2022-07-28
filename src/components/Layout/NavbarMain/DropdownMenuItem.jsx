@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import QuantityInput from '../../Shared/QuantityInput'
 
-import { x } from '../../../assets/icons'
+import { x } from 'assets/icons'
 
 const DropdownMenuItem = (props) => {
   const {

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 import Button from '../../Shared/Button'
 import RatingsList from '../../Shared/RatingsList'
-import numberWithCommas from '../../../utils/numberWithCommas'
+import numberWithCommas from 'utils/numberWithCommas'
 
-import { x } from '../../../assets/icons'
+import { x } from 'assets/icons'
 
 const WishlistCard = ({ item, leftBtnClick }) => {
   const { id, price, name, description, rating, inStock } = item

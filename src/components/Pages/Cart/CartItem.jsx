@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { wishlistAction } from '../../../redux/actions/wishlist'
-import { updateCartItemAction } from '../../../redux/actions/cart'
+import { wishlistAction } from 'redux/actions/wishlist'
+import { updateCartItemAction } from 'redux/actions/cart'
 
 import Button from '../../Shared/Button'
 import RatingsList from '../../Shared/RatingsList'
 import QuantityInput from '../../Shared/QuantityInput'
-import numberWithCommas from '../../../utils/numberWithCommas'
+import numberWithCommas from 'utils/numberWithCommas'
 
-import { x, heart } from '../../../assets/icons'
-import { classNames } from '../../../utils/classNames'
+import { x, heart } from 'assets/icons'
+import { classNames } from 'utils/classNames'
 
 const CartItem = ({ item, removeFromCart }) => {
   const dispatch = useDispatch()

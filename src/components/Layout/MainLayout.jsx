@@ -7,8 +7,8 @@ import NavbarMain from './NavbarMain'
 import NavbarMenu from './NavbarMenu'
 import Footer from './Footer'
 
-import { useLayout } from '../../providers/layout'
-import { classNames } from '../../utils/classNames'
+import { useLayout } from 'providers/layout'
+import { classNames } from 'utils/classNames'
 
 const MainLayout = ({ children }) => {
   const { menuLayout, menuCollaps } = useLayout()

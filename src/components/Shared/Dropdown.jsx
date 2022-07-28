@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-
-import { classNames } from '../../utils/classNames'
+import { classNames } from 'utils/classNames'
 
 const handleClick = (menu, toggle) => {
   document.addEventListener('click', (e) => {

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { classNames } from '../../utils/classNames'
+import { classNames } from 'utils/classNames'
 
 const Radio = ({ selected, label, value, onChange }) => {
   return (

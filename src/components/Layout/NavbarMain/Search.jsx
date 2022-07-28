@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { searchProductsAction } from '../../../redux/actions/products'
+import { searchProductsAction } from 'redux/actions/products'
 
-import { search, x } from '../../../assets/icons'
-import { sidebarMenu } from '../../../assets/data/navbar_menu'
+import { search, x } from 'assets/icons'
+import { sidebarMenu } from 'assets/data/navbar_menu'
 
 const Search = () => {
   const dispatch = useDispatch()

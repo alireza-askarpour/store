@@ -1,7 +1,6 @@
 import { useState } from 'react'
-
-import { classNames } from '../../../utils/classNames'
-import { chevronRight, chevronLeft } from '../../../assets/icons'
+import { classNames } from 'utils/classNames'
+import { chevronRight, chevronLeft } from 'assets/icons'
 
 const ImageSlider = ({ sliderData }) => {
   const [slideIndex, setSlideIndex] = useState(1)

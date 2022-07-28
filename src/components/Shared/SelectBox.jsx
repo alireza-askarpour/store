@@ -1,8 +1,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-
-import { classNames } from '../../utils/classNames'
-import { chevronDown } from '../../assets/icons'
+import { chevronDown } from 'assets/icons'
+import { classNames } from 'utils/classNames'
 
 const handleClick = (menu, field) => {
   document.addEventListener('click', (e) => {

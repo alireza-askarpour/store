@@ -4,9 +4,9 @@ import { Autoplay, Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 
 import RatingsList from './RatingsList'
-import numberWithCommas from '../../utils/numberWithCommas'
+import numberWithCommas from 'utils/numberWithCommas'
 
-import { chevronLeft, chevronRight } from '../../assets/icons'
+import { chevronLeft, chevronRight } from 'assets/icons'
 
 const ProductSlider = ({ sliderData }) => {
   return (

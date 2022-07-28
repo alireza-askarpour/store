@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
-import { useLayout } from '../../../providers/layout'
-
-import { grid, list } from '../../../assets/icons'
+import { useLayout } from 'providers/layout'
+import { grid, list } from 'assets/icons'
 
 const Tabs = () => {
   const { productsListLayout, changeProductsListLayout } = useLayout()

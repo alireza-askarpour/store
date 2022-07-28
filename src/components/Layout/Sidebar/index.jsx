@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import Logo from '../../Shared/Logo'
 import SidebarMenu from './SidebarMenu'
 
-import { useLayout } from '../../../providers/layout'
-import { classNames } from '../../../utils/classNames'
-import { chevronRight, chevronLeft } from '../../../assets/icons'
+import { useLayout } from 'providers/layout'
+import { classNames } from 'utils/classNames'
+import { chevronRight, chevronLeft } from 'assets/icons'
 
 const Sidebar = ({ sideDrawer }) => {
   const sidebarRef = useRef(null)  

@@ -1,4 +1,4 @@
-import { classNames } from '../../utils/classNames'
+import { classNames } from 'utils/classNames'
 
 const SideDrawer = ({ children, show, hideMenu }) => {
   return (

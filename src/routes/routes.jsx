@@ -1,13 +1,13 @@
 import { Routes as Switch, Route } from 'react-router-dom'
 
-import Home from '../containers/Home'
-import Products from '../containers/Products'
-import ProductDetails from '../containers/ProductDetails'
-import Cart from '../containers/Cart'
-import Checkout from '../containers/Checkout'
-import Wishlist from '../containers/Wishlist'
-import PageLayouts from '../containers/PageLayouts'
-import NotFound from '../containers/NotFound'
+import Home from 'containers/Home'
+import Products from 'containers/Products'
+import ProductDetails from 'containers/ProductDetails'
+import Cart from 'containers/Cart'
+import Checkout from 'containers/Checkout'
+import Wishlist from 'containers/Wishlist'
+import PageLayouts from 'containers/PageLayouts'
+import NotFound from 'containers/NotFound'
 
 const Routes = () => {
   return (

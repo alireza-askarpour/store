@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { LayoutProvider } from '../providers/layout'
-import MainLayout from '../components/Layout/MainLayout'
-import Routes from '../routes/routes'
+import { LayoutProvider } from 'providers/layout'
+import MainLayout from 'components/Layout/MainLayout'
+import Routes from 'routes/routes'
 
 const App = () => {
   return (

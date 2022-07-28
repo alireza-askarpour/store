@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { plus, minus } from '../../assets/icons'
+import { plus, minus } from 'assets/icons'
 
 const QuantityInput = ({ qty, updateQty }) => {
   const handleDecrement = () => updateQty('dec')

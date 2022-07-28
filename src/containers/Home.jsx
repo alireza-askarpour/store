@@ -1,16 +1,16 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { productsAction } from '../redux/actions/products'
+import { productsAction } from 'redux/actions/products'
 
-import Popular from '../components/Pages/Home/Popular'
-import ServiceBox from '../components/Pages/Home/ServiceBox'
-import SliderHeading from '../components/Shared/SliderHeading'
-import ProductSlider from '../components/Shared/ProductSlider'
-import sliderDataFilter from '../helpers/sliderDataFilter'
+import Popular from 'components/Pages/Home/Popular'
+import ServiceBox from 'components/Pages/Home/ServiceBox'
+import SliderHeading from 'components/Shared/SliderHeading'
+import ProductSlider from 'components/Shared/ProductSlider'
+import sliderDataFilter from 'helpers/sliderDataFilter'
 
-import { serviceBox } from '../assets/data/service_box'
-import { firstPopular, secondPopular } from '../assets/data/popular'
+import { serviceBox } from 'assets/data/service_box'
+import { firstPopular, secondPopular } from 'assets/data/popular'
 
 const Home = (props) => {
   const dispatch = useDispatch()

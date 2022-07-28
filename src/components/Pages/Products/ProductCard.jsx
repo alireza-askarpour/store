@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 
 import Button from '../../Shared/Button'
 import RatingsList from '../../Shared/RatingsList'
-import numberWithCommas from '../../../utils/numberWithCommas'
+import numberWithCommas from 'utils/numberWithCommas'
 
-import { useLayout } from '../../../providers/layout'
-import { classNames } from '../../../utils/classNames'
-import { heart } from '../../../assets/icons'
+import { useLayout } from 'providers/layout'
+import { classNames } from 'utils/classNames'
+import { heart } from 'assets/icons'
 
 const ProductCard = ({
   id,

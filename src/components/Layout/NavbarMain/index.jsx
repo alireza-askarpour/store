@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { useLayout } from '../../../providers/layout'
-import { removeFromCartAction, updateCartItemAction } from '../../../redux/actions/cart'
+import { useLayout } from 'providers/layout'
+import { removeFromCartAction, updateCartItemAction } from 'redux/actions/cart'
+import numberWithCommas from 'utils/numberWithCommas'
 
 import Logo from '../../Shared/Logo'
 import Search from './Search'
@@ -16,8 +17,6 @@ import DropdownUserMenuItem from './DropdownUserMenuItem'
 import SideDrawer from '../SideDrawer'
 import SidebarMenu from '../Sidebar/SidebarMenu'
 
-import numberWithCommas from '../../../utils/numberWithCommas'
-
 import {
   bell,
   cart,
@@ -27,9 +26,9 @@ import {
   moon,
   messageSquare,
   checkSquare,
-} from '../../../assets/icons'
-import { userMenuItem } from '../../../assets/data/user'
-import { notificationItems } from '../../../assets/data/notifications'
+} from 'assets/icons'
+import { userMenuItem } from 'assets/data/user'
+import { notificationItems } from 'assets/data/notifications'
 
 const NavbarMain = ({ cartItems }) => {
   const dispatch = useDispatch()

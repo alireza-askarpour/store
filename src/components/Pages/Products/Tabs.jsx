@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { grid, list } from 'assets/icons'
 
 const Tabs = () => {

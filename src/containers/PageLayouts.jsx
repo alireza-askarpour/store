@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLayout } from '../providers/layout'
+import { useLayout } from '../providers/Layout'
 import BreadcrumbsTop from '../components/Shared/BreadcrumbsTop'
 import ChangeTemplateCard from '../components/Pages/PageLayouts/ChangeTemplateCard'
 

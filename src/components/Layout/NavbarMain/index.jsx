@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { removeFromCartAction, updateCartItemAction } from 'redux/actions/cart'
 import numberWithCommas from 'utils/numberWithCommas'
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Logo from '../../Shared/Logo'
 import SidebarMenu from './SidebarMenu'
 
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { classNames } from 'utils/classNames'
 import { chevronRight, chevronLeft } from 'assets/icons'
 

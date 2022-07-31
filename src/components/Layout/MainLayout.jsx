@@ -7,7 +7,7 @@ import NavbarMain from './NavbarMain'
 import NavbarMenu from './NavbarMenu'
 import Footer from './Footer'
 
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { classNames } from 'utils/classNames'
 
 const MainLayout = ({ children }) => {

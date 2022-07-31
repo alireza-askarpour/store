@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { LayoutProvider } from 'providers/layout'
+import { LayoutProvider } from 'providers/Layout'
 import MainLayout from 'components/Layout/MainLayout'
 import Routes from 'routes/routes'
 

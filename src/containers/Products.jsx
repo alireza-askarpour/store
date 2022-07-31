@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { productsAction } from 'redux/actions/products'
 import { sortPriceAction, filterSelectReducer } from 'redux/actions/filters'
 import { filterSearchAction } from 'redux/actions/filters'

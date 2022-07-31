@@ -1,4 +1,4 @@
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { classNames } from 'utils/classNames'
 
 const Header = ({ children }) => {

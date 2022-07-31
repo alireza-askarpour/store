@@ -5,7 +5,7 @@ import Button from '../../Shared/Button'
 import RatingsList from '../../Shared/RatingsList'
 import numberWithCommas from 'utils/numberWithCommas'
 
-import { useLayout } from 'providers/layout'
+import { useLayout } from 'providers/Layout'
 import { classNames } from 'utils/classNames'
 import { heart } from 'assets/icons'
 

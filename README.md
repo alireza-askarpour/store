@@ -13,6 +13,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![Admin Dashboard - Alireza Askarpour](https://i.ibb.co/4Zn588S/store.png)
 
+## Features
+
+- [x] Filter products by categories, brand, price, ratings and in stock
+- [x] Serach products and pages
+- [x] Add product to cart
+- [x] Add product to wishlist
+- [x] Customize layout 
+
 ## Technologies
 
 - [React](https://reactjs.org)

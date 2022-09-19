@@ -13,6 +13,7 @@ import FilterMenu from 'components/Pages/Products/FilterMenu'
 import SelectBox from 'components/Shared/SelectBox'
 import Tabs from 'components/Pages/Products/Tabs'
 import SideDrawer from 'components/Layout/SideDrawer'
+import Helmet from 'components/Shared/Helmet'
 
 import { classNames } from 'utils/classNames'
 
@@ -105,133 +106,138 @@ const Products = () => {
   }
 
   return (
-    <div className="products">
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <div className="content-header">
-            <BreadcrumbsTop title="Products" link="/products" />
-          </div>
+    <Helmet title="Products">
+      <div className="products">
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            <div className="content-header">
+              <BreadcrumbsTop title="Products" link="/products" />
+            </div>
 
-          <div className="content-wrapper">
-            <SideDrawer show={showSideDrawer} hideMenu={handleCloseSideDrawer}>
-              <div className="p-1">
-                <FilterMenu filter={filters} />
-              </div>
-            </SideDrawer>
-
-            <div className="content-aside">
-              <div className="filter-menu-wrapper">
-                <div className="filter-menu-heading">
-                  <h4 className="menu-title">Filters</h4>
-                </div>
-                <div className="filter-menu-content card">
+            <div className="content-wrapper">
+              <SideDrawer show={showSideDrawer} hideMenu={handleCloseSideDrawer}>
+                <div className="p-1">
                   <FilterMenu filter={filters} />
                 </div>
-              </div>
-            </div>
+              </SideDrawer>
 
-            <div className="content-main">
-              <div className="main">
-                <div className="products-header-items">
-                  <button className="burger-menu" onClick={handleShowSideDrawer}>
-                    {menu}
-                  </button>
-                  <h5 className="result-toggler">{`${filteredProducts.length} results found`}</h5>
-                  <div className="view-options">
-                    <div className="view-option">
-                      <SelectBox
-                        menuData={productsSort}
-                        value={filters.sort}
-                        onClick={handleSortPrice}
-                      />
-                    </div>
-                    <div className="view-option">
-                      <Tabs />
-                    </div>
+              <div className="content-aside">
+                <div className="filter-menu-wrapper">
+                  <div className="filter-menu-heading">
+                    <h4 className="menu-title">Filters</h4>
+                  </div>
+                  <div className="filter-menu-content card">
+                    <FilterMenu filter={filters} />
                   </div>
                 </div>
+              </div>
 
-                <div className="searchbar">
-                  <input
-                    type="text"
-                    className="search-product"
-                    placeholder="Search Products"
-                    onChange={handleFilterSearch}
-                  />
-                  <div className="search-icon">{featherSearch}</div>
-                </div>
-
-                <div
-                  className={classNames(
-                    productsListLayout === 'grid' && filteredProducts.length > 0
-                      ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3'
-                      : 'products-view',
-                  )}
-                >
-                  {filteredProducts.length > 0 ? (
-                    productsShow.map((item, index) => (
-                      <ProductCard
-                        key={index}
-                        id={item.id}
-                        image={item.images[0]}
-                        price={item.price}
-                        name={item.name}
-                        description={item.description}
-                        rating={item.rating}
-                        link={`/product/${item.id}`}
-                        brand={item.brand.replace('-', ' ')}
-                        inStock={item.inStock}
-                        addToWishlist={() => handleWishlist(item)}
-                      />
-                    ))
-                  ) : (
-                    <p className="no-results-found">No results found</p>
-                  )}
-                </div>
-
-                {pages > 1 && (
-                  <div className="pagination-wrapper">
-                    <div className="pagination">
-                      <button
-                        className={classNames('prev-item', pageIndex === 0 && 'disable')}
-                        onClick={handlePtrvPage}
-                      >
-                        {chevronLeft}
-                      </button>
-                      <div className="pagination-items">
-                        {range.map((item, index) => (
-                          <button
-                            key={index}
-                            className={classNames(
-                              'pagination-item',
-                              currPage === index && 'active',
-                            )}
-                            onClick={() => handleSelectPage(index)}
-                          >
-                            {item + 1}
-                          </button>
-                        ))}
+              <div className="content-main">
+                <div className="main">
+                  <div className="products-header-items">
+                    <button className="burger-menu" onClick={handleShowSideDrawer}>
+                      {menu}
+                    </button>
+                    <h5 className="result-toggler">{`${filteredProducts.length} results found`}</h5>
+                    <div className="view-options">
+                      <div className="view-option">
+                        <SelectBox
+                          menuData={productsSort}
+                          value={filters.sort}
+                          onClick={handleSortPrice}
+                        />
                       </div>
-                      <button
-                        className={classNames(
-                          'next-item',
-                          pageIndex === pages - 1 && 'disable',
-                        )}
-                        onClick={handlePtrvNext}
-                      >
-                        {chevronRight}
-                      </button>
+                      <div className="view-option">
+                        <Tabs />
+                      </div>
                     </div>
                   </div>
-                )}
+
+                  <div className="searchbar">
+                    <input
+                      type="text"
+                      className="search-product"
+                      placeholder="Search Products"
+                      onChange={handleFilterSearch}
+                    />
+                    <div className="search-icon">{featherSearch}</div>
+                  </div>
+
+                  <div
+                    className={classNames(
+                      productsListLayout === 'grid' && filteredProducts.length > 0
+                        ? 'products-view grid grid-col-1 grid-col-sm-2 grid-col-lg-3'
+                        : 'products-view',
+                    )}
+                  >
+                    {filteredProducts.length > 0 ? (
+                      productsShow.map((item, index) => (
+                        <ProductCard
+                          key={index}
+                          id={item.id}
+                          image={item.images[0]}
+                          price={item.price}
+                          name={item.name}
+                          description={item.description}
+                          rating={item.rating}
+                          link={`/product/${item.id}`}
+                          brand={item.brand.replace('-', ' ')}
+                          inStock={item.inStock}
+                          addToWishlist={() => handleWishlist(item)}
+                        />
+                      ))
+                    ) : (
+                      <p className="no-results-found">No results found</p>
+                    )}
+                  </div>
+
+                  {pages > 1 && (
+                    <div className="pagination-wrapper">
+                      <div className="pagination">
+                        <button
+                          className={classNames(
+                            'prev-item',
+                            pageIndex === 0 && 'disable',
+                          )}
+                          onClick={handlePtrvPage}
+                        >
+                          {chevronLeft}
+                        </button>
+                        <div className="pagination-items">
+                          {range.map((item, index) => (
+                            <button
+                              key={index}
+                              className={classNames(
+                                'pagination-item',
+                                currPage === index && 'active',
+                              )}
+                              onClick={() => handleSelectPage(index)}
+                            >
+                              {item + 1}
+                            </button>
+                          ))}
+                        </div>
+                        <button
+                          className={classNames(
+                            'next-item',
+                            pageIndex === pages - 1 && 'disable',
+                          )}
+                          onClick={handlePtrvNext}
+                        >
+                          {chevronRight}
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </Helmet>
   )
 }
 
